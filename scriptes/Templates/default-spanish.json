@@ -1,0 +1,92 @@
+{
+  "chapters": [
+    {
+      "title": "Fundamentos de [SUBJECT]",
+      "summary": "Presentar al estudiante qué es [SUBJECT], por qué existe, dónde se utiliza o aplica en el mundo real, y qué contexto o herramientas se necesitan para empezar. Al final de este capítulo, el estudiante debe comprender el alcance del tema y sentirse listo para dar sus primeros pasos prácticos.",
+      "lessons": [
+        {
+          "title": "¿Qué es [SUBJECT] y por qué aprenderlo?",
+          "content_markdown": "## ¿Qué es [SUBJECT] y por qué aprenderlo?\n\nExplicar qué es [SUBJECT] en lenguaje sencillo, a qué categoría o campo pertenece, y qué problemas o necesidades motivaron su desarrollo. Dar de 3 a 5 ejemplos concretos y reales de dónde se aplica [SUBJECT] o quién lo utiliza. Explicar por qué un principiante debería interesarse en aprenderlo hoy. Cerrar con una frase motivadora sobre lo que el estudiante podrá hacer, comprender o producir al finalizar el curso."
+        },
+        {
+          "title": "Preparándose para empezar",
+          "content_markdown": "## Preparándose para empezar\n\nGuiar al estudiante a través de los preparativos necesarios para comenzar a aprender [SUBJECT] — esto puede incluir instalar herramientas, reunir materiales, crear cuentas, o simplemente comprender conocimientos previos. Explicar qué logra cada paso y por qué es importante. Incluir una primera acción sencilla que el estudiante pueda realizar de inmediato para confirmar que está listo para continuar. Enumerar los 2 o 3 errores o puntos de confusión más comunes durante la configuración y cómo resolverlos."
+        }
+      ]
+    },
+    {
+      "title": "Conceptos clave y vocabulario",
+      "summary": "Cubrir los elementos fundamentales, la terminología y los modelos mentales de [SUBJECT]. El estudiante terminará este capítulo siendo capaz de entender y usar correctamente el lenguaje y las ideas básicas del campo.",
+      "lessons": [
+        {
+          "title": "Términos y definiciones clave",
+          "content_markdown": "## Términos y definiciones clave\n\nPresentar el vocabulario básico de [SUBJECT] usando definiciones sencillas y analogías cotidianas. Enumerar los términos más importantes que un principiante debe conocer, con una explicación de una frase para cada uno. Mostrar cómo se relacionan estos términos entre sí con un ejemplo sencillo. Destacar 2 o 3 confusiones comunes que tienen los principiantes sobre estos conceptos."
+        },
+        {
+          "title": "Principios fundamentales",
+          "content_markdown": "## Principios fundamentales\n\nExplicar los principios o reglas básicas que rigen [SUBJECT]. Para cada principio, proporcionar una explicación clara y un ejemplo sencillo que lo ilustre. Explicar por qué estos principios son importantes y qué sucede cuando se ignoran o se entienden mal. Incluir un ejemplo trabajado que aplique varios principios en conjunto."
+        },
+        {
+          "title": "Cómo se integra [SUBJECT] en un contexto más amplio",
+          "content_markdown": "## Cómo se integra [SUBJECT] en un contexto más amplio\n\nExplicar cómo se relaciona [SUBJECT] con campos, disciplinas o contextos prácticos cercanos. Mostrar un ejemplo de antes/después o una comparación que ilustre la diferencia entre alguien que entiende [SUBJECT] y alguien que no. Presentar los marcos, métodos o convenciones estándar comúnmente asociados con [SUBJECT]."
+        }
+      ]
+    },
+    {
+      "title": "Aplicando [SUBJECT] en la práctica",
+      "summary": "Enseñar al estudiante a tomar los conceptos básicos y aplicarlos para resolver problemas reales o completar tareas concretas. Después de este capítulo, el estudiante podrá pasar de la teoría a producir resultados prácticos.",
+      "lessons": [
+        {
+          "title": "Aplicación paso a paso",
+          "content_markdown": "## Aplicación paso a paso\n\nRecorrer un escenario o tarea realista y completa en [SUBJECT], de principio a fin. Dividir el proceso en pasos claros y ordenados. Explicar el razonamiento detrás de cada paso, no solo la acción. Proporcionar un mini-ejercicio práctico que el estudiante pueda completar siguiendo el mismo proceso."
+        },
+        {
+          "title": "Enfoques comunes y toma de decisiones",
+          "content_markdown": "## Enfoques comunes y toma de decisiones\n\nPresentar de 2 a 4 enfoques, métodos o estrategias comunes utilizados dentro de [SUBJECT]. Comparar sus fortalezas, debilidades y casos de uso ideales mediante una tabla comparativa. Presentar algunos escenarios realistas y preguntar al estudiante qué enfoque conviene mejor, luego revelar la respuesta con una explicación."
+        }
+      ]
+    },
+    {
+      "title": "Organizar y estructurar el conocimiento o el trabajo",
+      "summary": "Mostrar al estudiante cómo organizar información, tareas o componentes dentro de [SUBJECT] de manera estructurada, reutilizable y eficiente. Este capítulo lleva al estudiante de tareas aisladas a un trabajo coherente y bien estructurado.",
+      "lessons": [
+        {
+          "title": "Dividir las cosas en partes manejables",
+          "content_markdown": "## Dividir las cosas en partes manejables\n\nExplicar cómo los problemas, proyectos o temas complejos en [SUBJECT] pueden dividirse en unidades más pequeñas y manejables. Usar una analogía del mundo real para hacer el concepto más concreto. Mostrar un ejemplo práctico de descomposición de una tarea o tema más grande en partes más pequeñas y cómo abordar cada una."
+        },
+        {
+          "title": "Crear conocimiento o componentes reutilizables",
+          "content_markdown": "## Crear conocimiento o componentes reutilizables\n\nUsando la terminología adecuada para [SUBJECT], mostrar al estudiante cómo crear algo reutilizable — una plantilla, un método, una lista de verificación, un componente o un proceso estructurado. Demostrar un ejemplo pequeño pero completo y funcional. Explicar por qué la reutilización y la consistencia son importantes en este campo."
+        }
+      ]
+    },
+    {
+      "title": "Trabajar con información o materiales reales",
+      "summary": "Presentar al estudiante los tipos de información, datos o materiales que comúnmente se encuentran en [SUBJECT], y enseñarle a organizarlos, interpretarlos y usarlos de manera efectiva.",
+      "lessons": [
+        {
+          "title": "Tipos de información o materiales en [SUBJECT]",
+          "content_markdown": "## Tipos de información o materiales en [SUBJECT]\n\nExplicar las principales categorías de información, datos o materiales con los que trabajará el estudiante en [SUBJECT]. Definir el modelo mental básico para organizarlos. Mostrar cómo identificar, clasificar y priorizar esta información en un contexto práctico."
+        },
+        {
+          "title": "Elegir el enfoque o herramienta adecuada según la situación",
+          "content_markdown": "## Elegir el enfoque o herramienta adecuada según la situación\n\nDar al estudiante un marco de decisión sencillo para elegir el enfoque, método o herramienta correcta dentro de [SUBJECT] según la situación. Presentar de 3 a 4 escenarios reales y preguntar al estudiante qué opción conviene mejor, luego revelar la respuesta con una explicación."
+        }
+      ]
+    },
+    {
+      "title": "Evitar errores y manejar problemas",
+      "summary": "Preparar al estudiante para reconocer, comprender y resolver los errores o problemas comunes que se presentan en [SUBJECT]. Después de este capítulo, el estudiante contará con un enfoque sistemático para identificar problemas y corregirlos.",
+      "lessons": [
+        {
+          "title": "Errores comunes y cómo evitarlos",
+          "content_markdown": "## Errores comunes y cómo evitarlos\n\nIdentificar los 3 a 5 errores más comunes que comenten los principiantes en [SUBJECT]. Para cada error, explicar por qué ocurre, qué consecuencias provoca y cómo reconocerlo a tiempo. Proporcionar un ejemplo de antes/después que muestre el error y su corrección."
+        },
+        {
+          "title": "Un enfoque sistemático para resolver problemas",
+          "content_markdown": "## Un enfoque sistemático para resolver problemas\n\nEnseñar un proceso repetible de resolución de problemas adecuado para [SUBJECT]: identificar → aislar → investigar → probar → resolver. Recorrer un ejemplo realista usando este proceso de principio a fin. Cerrar con buenas prácticas que faciliten prevenir o resolver futuros problemas."
+        }
+      ]
+    }
+  ]
+}

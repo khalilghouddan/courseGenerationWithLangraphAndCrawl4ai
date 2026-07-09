@@ -1,0 +1,32 @@
+services:
+  api:
+    build: .
+    container_name: deepagent_course_api
+    ports:
+      - "8011:8011"
+    env_file:
+      - .env
+    environment:
+      # Override DB host to point to the docker-compose db service
+      - DEEP_AGENT_DB_HOST=db
+      - DEEP_AGENT_DB_PORT=5432
+    depends_on:
+      - db
+    volumes:
+      - ./src:/app/src
+      - ./frontend:/app/frontend
+
+  db:
+    image: postgres:15-alpine
+    container_name: deepagent_db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=postgres
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
