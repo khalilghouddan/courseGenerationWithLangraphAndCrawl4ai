@@ -11,7 +11,9 @@ from fastapi.staticfiles import StaticFiles
 #python operating system module to handel file path and derectory 
 import os
 #import all routes from the file api 
-from src.routes import course_router, health_router, docs_router
+from app.api.courseGeneration import router as course_router
+from app.api.health import router as health_router
+from app.api.docs import router as docs_router
 
 #create the main api object 
 app = FastAPI(
