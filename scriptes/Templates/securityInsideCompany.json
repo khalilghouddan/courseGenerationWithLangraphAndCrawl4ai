@@ -1,0 +1,88 @@
+{
+  "chapters": [
+    {
+      "title": "Why Security Is Everyone's Job",
+      "summary": "Security inside a company isn't a department — it's a habit shared by everyone who touches a system, a file, or a door. This chapter sets the foundation: what security really means at work, why risk can never be fully eliminated (only managed), and why the smallest daily choices often matter more than any firewall.",
+      "lessons": [
+        {
+          "title": "The Invisible Shield: What Security Means at Work",
+          "content_markdown": "## The Invisible Shield: What Security Means at Work\n\nExplain what security means in a company context: protecting information, systems, people, and physical assets from harm, loss, or unauthorized access. Distinguish between physical security, digital/information security, and operational security at a high level. Give 3–5 real-world examples of incidents (data breaches, leaked credentials, social engineering, lost devices) that illustrate why this matters. Emphasize that every employee — not just IT or security teams — plays a role. Close with an inspiring note about the awareness the learner will build by the end of the course."
+        },
+        {
+          "title": "Risk Isn't Eliminated — It's Managed",
+          "content_markdown": "## Risk Isn't Eliminated — It's Managed\n\nExplain risk as the combination of a threat, a vulnerability, and an impact. Introduce common threat categories a company may face: external attackers, accidental insider mistakes, malicious insiders, and third-party/vendor risks. Use a relatable analogy (locking your door reduces risk but doesn't eliminate it) to anchor the concept. Show how companies prioritize the risks that matter most rather than chasing zero risk. List 2–3 common misconceptions employees hold about security risk."
+        }
+      ]
+    },
+    {
+      "title": "Speaking the Language of Security",
+      "summary": "Every field has its vocabulary, and security is no exception. This chapter equips the learner with the essential terms and one foundational principle — least privilege — that quietly shapes how access and trust are managed across an organization.",
+      "lessons": [
+        {
+          "title": "Words That Matter: Core Security Vocabulary",
+          "content_markdown": "## Words That Matter: Core Security Vocabulary\n\nIntroduce core vocabulary: authentication, authorization, confidentiality, integrity, availability, and incident. Provide a plain-language, one-sentence definition for each with a simple example. Connect each term to everyday actions like logging in, sharing files, or accessing systems. Highlight 2–3 common confusions, such as mixing up authentication and authorization."
+        },
+        {
+          "title": "Less Is More: The Principle of Least Privilege",
+          "content_markdown": "## Less Is More: The Principle of Least Privilege\n\nExplain least privilege: giving people only the access they need, nothing more. Use the analogy of a hotel keycard that opens only certain doors. Explain why excessive access raises risk even without bad intent. Show a simple before/after comparing overly broad access to properly scoped access. Explain why access should be reviewed and revoked when no longer needed — role changes, project endings, offboarding."
+        }
+      ]
+    },
+    {
+      "title": "Building Everyday Security Habits",
+      "summary": "Most security failures don't come from sophisticated attacks — they come from small, everyday moments: a reused password, a rushed click, a convincing message. This chapter turns awareness into practical, repeatable habits the learner can apply immediately.",
+      "lessons": [
+        {
+          "title": "Your First Line of Defense: Passwords and Authentication",
+          "content_markdown": "## Your First Line of Defense: Passwords and Authentication\n\nExplain what makes a password weak or strong, without prescribing exact technical rules. Introduce multi-factor authentication (MFA) and why it adds meaningful protection beyond a password alone. Cover good habits: avoiding password reuse, using a password manager, and recognizing suspicious login prompts. Use a short scenario showing how a stolen password without MFA leads to compromise — and how MFA changes the outcome."
+        },
+        {
+          "title": "When Trust Is the Target: Spotting Social Engineering",
+          "content_markdown": "## When Trust Is the Target: Spotting Social Engineering\n\nExplain social engineering as manipulating people rather than systems. Describe general tactics — urgency, impersonation, pretexting — using illustrative, non-exploitable examples. Share a few broad warning signs (unexpected urgency, requests for sensitive info, unfamiliar senders) without detailing exact attacker phrasing. Teach the correct response: verify through a separate trusted channel, then report rather than act immediately."
+        }
+      ]
+    },
+    {
+      "title": "Treating Information Like It Matters",
+      "summary": "Not all information carries the same weight, and treating it that way is a core security skill. This chapter teaches the learner how to recognize sensitivity, handle data responsibly, and share information without quietly creating risk.",
+      "lessons": [
+        {
+          "title": "Not All Data Is Equal: Classifying Sensitive Information",
+          "content_markdown": "## Not All Data Is Equal: Classifying Sensitive Information\n\nExplain why companies classify information — public, internal, confidential, restricted — and how that classification shapes how it should be stored, shared, and disposed of. Provide a practical example contrasting a sensitive document with a public one. Explain why oversharing internal information, even unintentionally, creates risk."
+        },
+        {
+          "title": "Sharing Without Slipping: Safe Communication Habits",
+          "content_markdown": "## Sharing Without Slipping: Safe Communication Habits\n\nExplain general best practices for sharing files and communicating securely, inside and outside the company: using approved tools, double-checking recipients, avoiding personal or unapproved channels for sensitive data. Provide a before/after example contrasting a risky habit with a safer alternative. Explain the natural tension between convenience and security, and how to balance the two reasonably."
+        }
+      ]
+    },
+    {
+      "title": "Securing the Way You Work",
+      "summary": "Security doesn't stop at the office door — it follows the learner's devices, networks, and habits wherever work happens. This chapter covers the practical realities of staying secure in the office, at home, and everywhere in between.",
+      "lessons": [
+        {
+          "title": "Locked, Updated, and Aware: Securing Devices",
+          "content_markdown": "## Locked, Updated, and Aware: Securing Devices\n\nCover everyday habits: locking devices when stepping away, keeping software updated, avoiding untrusted external storage. Explain why physical security — like an unlocked laptop in a public space — matters just as much as digital security. Provide a practical checklist for both office and remote settings."
+        },
+        {
+          "title": "Beyond the Office Walls: Working Securely Remotely",
+          "content_markdown": "## Beyond the Office Walls: Working Securely Remotely\n\nExplain general considerations for remote and hybrid work: using trusted networks, exercising caution on public Wi-Fi, keeping work and personal device use reasonably separated. Present a simple decision framework for when it's acceptable to access company systems from a given location or network. Walk through 2–3 realistic scenarios and ask the learner what they'd do, then reveal the reasoning."
+        }
+      ]
+    },
+    {
+      "title": "When Something Feels Off: Incident Awareness",
+      "summary": "Even the best habits won't prevent every incident — what matters is recognizing the signs early and responding the right way. This closing chapter gives the learner a calm, clear playbook for the moment something doesn't feel right.",
+      "lessons": [
+        {
+          "title": "Trust Your Instincts: Recognizing the Signs",
+          "content_markdown": "## Trust Your Instincts: Recognizing the Signs\n\nDescribe general warning signs that something may be wrong — unexpected account activity, unfamiliar logins, missing files, unusual system behavior — without technical detail that could be misused. Explain why early recognition matters and how delay increases impact. Provide a simple scenario where an employee notices something unusual."
+        },
+        {
+          "title": "See Something, Say Something: Reporting the Right Way",
+          "content_markdown": "## See Something, Say Something: Reporting the Right Way\n\nTeach a simple, repeatable response process: notice → don't panic or try to fix it alone → report through the proper internal channel → follow guidance from the security or IT team. Explain why prompt, honest reporting — even of a possible mistake — should be encouraged, and why blame-focused cultures discourage reporting and increase risk. Close with lasting habits for staying security-aware over time: periodic training, healthy skepticism, and staying alert to evolving threats."
+        }
+      ]
+    }
+  ]
+}

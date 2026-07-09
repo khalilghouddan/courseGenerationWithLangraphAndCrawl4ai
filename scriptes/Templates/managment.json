@@ -1,0 +1,138 @@
+{
+  "chapters": [
+    {
+      "title": "Foundations of [MANAGEMENT FIELD]",
+      "summary": "Introduce the learner to what [MANAGEMENT FIELD] is, why it matters in today's organizations, and how it has evolved. By the end of this chapter the learner will understand the core responsibilities of a [MANAGEMENT FIELD] professional, the key frameworks that shape the field, and where it sits within a broader organizational structure.",
+      "lessons": [
+        {
+          "title": "What is [MANAGEMENT FIELD] and Why Does It Matter?",
+          "content_markdown": "## What is [MANAGEMENT FIELD] and Why Does It Matter?\n\nDefine [MANAGEMENT FIELD] in plain language. Explain the core problem it was created to solve and the value it delivers to organizations. Describe how [MANAGEMENT FIELD] has evolved over the last 50 years and what forces (technology, globalization, workforce changes) are reshaping it today. Give 4–5 concrete examples of what goes wrong in organizations that lack strong [MANAGEMENT FIELD] practices. Close with a clear picture of what a learner will be able to do — decisions they can make, problems they can solve, roles they can step into — after mastering [MANAGEMENT FIELD]."
+        },
+        {
+          "title": "Key Roles and Responsibilities",
+          "content_markdown": "## Key Roles and Responsibilities\n\nMap out the typical roles and career levels within [MANAGEMENT FIELD]: entry-level, mid-level manager, senior manager, director, VP, C-suite equivalent (use the correct titles for [MANAGEMENT FIELD]). For each level describe: core responsibilities, key decisions made, stakeholders managed, and the skills gap between levels. Explain how [MANAGEMENT FIELD] interacts with other departments (finance, HR, operations, marketing, etc.). Include a visual org-chart description showing where [MANAGEMENT FIELD] sits in a typical organization."
+        },
+        {
+          "title": "Core Frameworks and Schools of Thought",
+          "content_markdown": "## Core Frameworks and Schools of Thought\n\nIntroduce the 4–6 most influential frameworks, models, or theories that underpin [MANAGEMENT FIELD] (e.g. for general management: Taylor's Scientific Management, Drucker's MBO, Mintzberg's Managerial Roles, etc. — replace with the correct foundational theories for [MANAGEMENT FIELD]). For each framework: explain its origin and author, its core idea in 2–3 sentences, its strengths, its limitations, and when to apply it. Show how these frameworks connect and sometimes contradict each other. End with a practical guide to choosing which framework fits which real-world situation."
+        }
+      ]
+    },
+    {
+      "title": "Strategic Thinking and Planning",
+      "summary": "Teach the learner how to think strategically and translate vision into actionable plans in the context of [MANAGEMENT FIELD]. The learner will master goal-setting methodologies, environmental analysis tools, and the full planning cycle from diagnosis to execution roadmap.",
+      "lessons": [
+        {
+          "title": "Strategic Analysis: Reading the Environment",
+          "content_markdown": "## Strategic Analysis: Reading the Environment\n\nExplain what strategic analysis means in [MANAGEMENT FIELD] and why managers who skip it make predictable mistakes. Teach the most relevant analysis tools for [MANAGEMENT FIELD] — cover SWOT, PESTLE, Porter's Five Forces, or the equivalent frameworks used in [MANAGEMENT FIELD] — with a step-by-step guide for applying each one. Show a worked example: take a realistic organization in the [MANAGEMENT FIELD] domain and walk through a complete analysis. Teach how to turn analysis outputs into prioritized insights rather than just lists."
+        },
+        {
+          "title": "Setting Goals and Objectives",
+          "content_markdown": "## Setting Goals and Objectives\n\nExplain the difference between vision, mission, strategic goals, objectives, and KPIs — and how they cascade from the top of the organization down to individual tasks in [MANAGEMENT FIELD]. Teach SMART goals and OKRs (Objectives and Key Results) with a clear comparison of when to use each. Show a realistic goal-setting example from a [MANAGEMENT FIELD] context with at least 3 levels of cascade (organizational → team → individual). Highlight the most common goal-setting mistakes: vague targets, too many priorities, no ownership, no review cadence — and how to avoid them."
+        },
+        {
+          "title": "Building an Action Plan",
+          "content_markdown": "## Building an Action Plan\n\nWalk the learner through translating a strategic goal into a concrete action plan in [MANAGEMENT FIELD]. Cover: breaking goals into milestones, assigning ownership (RACI or equivalent), estimating resources (time, budget, people), identifying dependencies and risks, and setting review checkpoints. Provide a template for an action plan table. Show a complete worked example from the [MANAGEMENT FIELD] domain. Teach how to communicate the plan to different stakeholders (team members, senior leadership, external partners) adjusting detail and language for each audience."
+        }
+      ]
+    },
+    {
+      "title": "Decision Making and Problem Solving",
+      "summary": "Equip the learner with a rigorous, repeatable approach to making decisions and solving complex problems in [MANAGEMENT FIELD]. This chapter covers structured problem-solving methods, data-driven decision frameworks, and how to manage uncertainty and cognitive biases.",
+      "lessons": [
+        {
+          "title": "Structured Problem Solving",
+          "content_markdown": "## Structured Problem Solving\n\nIntroduce a repeatable problem-solving process for [MANAGEMENT FIELD] challenges: define the problem precisely, diagnose root causes (use 5 Whys, fishbone diagram, or the equivalent tool for [MANAGEMENT FIELD]), generate solution options, evaluate options, decide, implement, and review. Walk through each step with a realistic problem scenario from [MANAGEMENT FIELD]. Explain the difference between symptoms and root causes with examples. Show why jumping to solutions before diagnosing root causes is the single most common and costly management mistake."
+        },
+        {
+          "title": "Data-Driven Decision Making",
+          "content_markdown": "## Data-Driven Decision Making\n\nExplain what data-driven decision making means in [MANAGEMENT FIELD] and why gut instinct alone is insufficient at scale. Teach how to identify the right data and metrics for a given decision in [MANAGEMENT FIELD]. Cover basic analytical reasoning: correlation vs causation, sample size and validity, interpreting dashboards and reports. Show how to build a simple decision matrix or scoring model for a [MANAGEMENT FIELD] scenario. Discuss how to make good decisions when data is incomplete or conflicting — balancing evidence with judgment."
+        },
+        {
+          "title": "Cognitive Biases and Decision Traps",
+          "content_markdown": "## Cognitive Biases and Decision Traps\n\nExplain what cognitive biases are and why even experienced managers fall into them. Cover the 8 most dangerous biases in [MANAGEMENT FIELD] decision making: confirmation bias, sunk cost fallacy, anchoring, groupthink, overconfidence, availability heuristic, status quo bias, and attribution error. For each bias: define it, give a realistic [MANAGEMENT FIELD] example of it in action, and provide a concrete de-biasing technique. Teach pre-mortem analysis as a structured way to stress-test decisions before committing."
+        }
+      ]
+    },
+    {
+      "title": "Leadership and Team Management",
+      "summary": "Develop the learner's ability to lead, motivate, and manage people effectively in [MANAGEMENT FIELD]. This chapter covers leadership styles, team dynamics, delegation, feedback, and how to build a high-performance culture.",
+      "lessons": [
+        {
+          "title": "Leadership Styles and When to Use Them",
+          "content_markdown": "## Leadership Styles and When to Use Them\n\nIntroduce the major leadership styles relevant to [MANAGEMENT FIELD] — cover transformational, transactional, servant, situational, and coaching leadership. For each style: describe its core behaviors, when it works best, when it backfires, and a realistic example from [MANAGEMENT FIELD]. Teach Situational Leadership (Hersey-Blanchard) as a practical model for adapting style to team member maturity. Help the learner identify their own default leadership style and its blind spots. Explain the difference between managing and leading, and when each is called for."
+        },
+        {
+          "title": "Building and Managing High-Performance Teams",
+          "content_markdown": "## Building and Managing High-Performance Teams\n\nExplain what distinguishes a high-performance team from an average one in [MANAGEMENT FIELD]. Teach Tuckman's stages of team development (forming, storming, norming, performing) and what a manager should do at each stage. Cover team composition: how to balance skills, thinking styles, and personalities. Explain how to set clear roles, norms, and accountability structures. Discuss how to manage remote and hybrid teams specifically in [MANAGEMENT FIELD]. Provide a team health checklist a manager can use to diagnose and fix team dysfunctions."
+        },
+        {
+          "title": "Delegation, Feedback, and Performance Management",
+          "content_markdown": "## Delegation, Feedback, and Performance Management\n\nTeach why effective delegation is the highest-leverage skill in [MANAGEMENT FIELD] and why managers avoid it. Show a step-by-step delegation framework: choose the right task, choose the right person, brief clearly, set checkpoints, review and give credit. Cover the feedback model (Situation-Behavior-Impact or equivalent): how to give positive reinforcement, developmental feedback, and difficult feedback without damaging relationships. Explain how to run effective 1:1s, performance reviews, and how to manage underperformers in a way that is fair and legally sound. Provide scripts for 3 common difficult conversations in [MANAGEMENT FIELD]."
+        },
+        {
+          "title": "Motivation and Employee Engagement",
+          "content_markdown": "## Motivation and Employee Engagement\n\nCover the foundational motivation theories relevant to [MANAGEMENT FIELD]: Maslow, Herzberg two-factor theory, Self-Determination Theory, and Expectancy Theory. For each explain the practical implications for a manager — what it says to do and not do. Distinguish intrinsic from extrinsic motivation and show when each lever works. Teach how to diagnose low engagement in a team: signs, root causes, and interventions. Provide a practical engagement action plan template a manager can use with their team."
+        }
+      ]
+    },
+    {
+      "title": "Communication and Stakeholder Management",
+      "summary": "Develop the learner's ability to communicate with clarity and influence across levels of an organization in the context of [MANAGEMENT FIELD]. This chapter covers written and verbal communication, presenting to leadership, managing upward, and handling conflict.",
+      "lessons": [
+        {
+          "title": "Clear and Effective Business Communication",
+          "content_markdown": "## Clear and Effective Business Communication\n\nExplain the principles of clear business communication in [MANAGEMENT FIELD]: know your audience, lead with the main point (Pyramid Principle), use precise language, and match medium to message. Show before/after examples of unclear vs clear emails, reports, and meeting agendas from a [MANAGEMENT FIELD] context. Teach how to write a concise executive summary. Cover asynchronous vs synchronous communication norms and how to choose the right channel. Provide templates for the 5 most common written communications in [MANAGEMENT FIELD] (status update, escalation, proposal, decision memo, meeting recap)."
+        },
+        {
+          "title": "Presenting to Leadership and Influencing Upward",
+          "content_markdown": "## Presenting to Leadership and Influencing Upward\n\nTeach how to structure a presentation for senior stakeholders in [MANAGEMENT FIELD]: the SCQA (Situation-Complication-Question-Answer) or equivalent framework. Explain how executive audiences think and what they care about — decisions, risks, resources, and time. Show how to anticipate and handle tough questions. Cover slide design principles for clarity and credibility. Teach how to manage upward: how to keep your manager informed, how to raise concerns, how to ask for resources, and how to push back on unrealistic demands — all without damaging the relationship."
+        },
+        {
+          "title": "Stakeholder Management and Conflict Resolution",
+          "content_markdown": "## Stakeholder Management and Conflict Resolution\n\nExplain the stakeholder management process for [MANAGEMENT FIELD]: identify stakeholders, assess their interest and influence, develop an engagement strategy, and maintain relationships. Teach how to use a power-interest matrix. Cover negotiation fundamentals: BATNA, interest-based bargaining, and how to reach agreements that stick. Explain the types of conflict that arise in [MANAGEMENT FIELD] (resource conflicts, priority conflicts, interpersonal conflicts) and provide a step-by-step conflict resolution process for each. Provide a realistic conflict scenario from [MANAGEMENT FIELD] and walk through the resolution."
+        }
+      ]
+    },
+    {
+      "title": "Operations, Resources, and Execution",
+      "summary": "Teach the learner how to manage the operational side of [MANAGEMENT FIELD]: budgets, resources, time, risk, and the discipline of execution. This chapter turns strategic plans into delivered results.",
+      "lessons": [
+        {
+          "title": "Budgeting and Resource Allocation",
+          "content_markdown": "## Budgeting and Resource Allocation\n\nExplain how budgeting works in [MANAGEMENT FIELD]: types of budgets (operational, project, capital), the budget cycle, and how managers influence the process. Teach the core principles of resource allocation: prioritization, ROI thinking, opportunity cost. Show how to build and defend a budget request for a [MANAGEMENT FIELD] initiative. Cover how to manage within a budget: tracking actuals vs forecast, re-forecasting, and making trade-off decisions when resources are constrained. Highlight the most common budget mistakes managers make and how to avoid them."
+        },
+        {
+          "title": "Project and Time Management",
+          "content_markdown": "## Project and Time Management\n\nTeach the fundamentals of managing projects within [MANAGEMENT FIELD]: scope definition, work breakdown structure, timeline planning (Gantt chart basics), critical path, and milestone tracking. Cover agile vs waterfall approaches and which suits different [MANAGEMENT FIELD] contexts. Teach personal time management for managers: prioritization (Eisenhower matrix), protecting deep work time, running efficient meetings, and managing interruptions. Provide a weekly planning template designed for a [MANAGEMENT FIELD] manager's typical workload."
+        },
+        {
+          "title": "Risk Management and Resilience",
+          "content_markdown": "## Risk Management and Resilience\n\nExplain what risk management means in [MANAGEMENT FIELD] and why it is a proactive discipline, not a reactive one. Teach the risk management process: identify risks, assess likelihood and impact, prioritize, develop mitigation and contingency plans, assign ownership, and monitor. Show how to build a risk register for a [MANAGEMENT FIELD] project or department. Cover crisis management: how to lead when things go seriously wrong — communication, decision speed, and stabilization. Teach how to build organizational resilience and a culture where people surface problems early rather than hiding them."
+        }
+      ]
+    },
+    {
+      "title": "Growth, Innovation, and the Future of [MANAGEMENT FIELD]",
+      "summary": "Prepare the learner to think beyond day-to-day management toward continuous improvement, innovation, and future readiness. This chapter covers performance measurement, change management, emerging trends, and the personal development roadmap of a [MANAGEMENT FIELD] professional.",
+      "lessons": [
+        {
+          "title": "Measuring Performance and Driving Continuous Improvement",
+          "content_markdown": "## Measuring Performance and Driving Continuous Improvement\n\nExplain how to design a meaningful performance measurement system for [MANAGEMENT FIELD]: leading vs lagging indicators, balanced scorecard approach, and the difference between measuring activity and measuring impact. Teach how to run effective performance review cycles and use retrospectives (from agile) or after-action reviews (from the military) to extract lessons. Introduce continuous improvement methodologies relevant to [MANAGEMENT FIELD] (Lean, Six Sigma, Kaizen, PDCA cycle — use those applicable). Show how to build a culture of improvement where feedback is welcomed, not feared."
+        },
+        {
+          "title": "Leading Change and Managing Transformation",
+          "content_markdown": "## Leading Change and Managing Transformation\n\nExplain why change initiatives fail (statistics and root causes) and what that means for a manager in [MANAGEMENT FIELD]. Teach Kotter's 8-Step Change Model or Prosci ADKAR (use whichever is most applied in [MANAGEMENT FIELD]) with a step-by-step guide and practical actions at each stage. Explain how to build a coalition of support, handle resistance, and sustain momentum over a long change journey. Show how to communicate change to different audiences (early adopters, the skeptical middle, resisters). Provide a change readiness assessment checklist for [MANAGEMENT FIELD]."
+        },
+        {
+          "title": "Emerging Trends and the Future of [MANAGEMENT FIELD]",
+          "content_markdown": "## Emerging Trends and the Future of [MANAGEMENT FIELD]\n\nIdentify the 5–7 most significant trends reshaping [MANAGEMENT FIELD] today and in the next decade: consider AI and automation, data-driven management, remote and distributed work, ESG and sustainability, workforce diversity and inclusion, platform and ecosystem business models, and any trends specific to [MANAGEMENT FIELD]. For each trend: describe what is changing, the implications for managers, and one concrete action a manager can take now to prepare. Distinguish hype from lasting structural change. Discuss the ethical dimensions of these trends for [MANAGEMENT FIELD] leaders."
+        },
+        {
+          "title": "Your Development Roadmap as a [MANAGEMENT FIELD] Professional",
+          "content_markdown": "## Your Development Roadmap as a [MANAGEMENT FIELD] Professional\n\nMap out the competency framework for a high-performing [MANAGEMENT FIELD] professional: the technical knowledge, managerial skills, and leadership qualities required at each career stage. Help the learner build a personal development plan: self-assessment against the competency framework, identifying the top 2–3 gaps to close, and choosing development actions (courses, stretch assignments, mentors, reading). Recommend the 10 most important books, frameworks, and thought leaders in [MANAGEMENT FIELD]. Describe the professional certifications or qualifications most valued in [MANAGEMENT FIELD] and how to pursue them. Close with the one mindset shift — from expert to multiplier, from doer to enabler, or the equivalent — that defines the leap from good to exceptional in [MANAGEMENT FIELD]."
+        }
+      ]
+    }
+  ]
+}
