@@ -5,22 +5,17 @@
 import time
 #fast api instance APiRouter : to define the main api / HTTPExaption :handel HTTP error and return responce to client 
 from fastapi import APIRouter, HTTPException
-#pydantic to validate outcoming and outgoing data BaseModel : to define request responce chema / Field: description and metadata rules
-from pydantic import BaseModel, Field
-#part of langchain to send messsgaes obect from hiuman to agnet 
-from langchain_core.messages import HumanMessage, AIMessage
-#import deepagnt workflow
-from src.agents.workflow import build_workflow
-#import course output schema
-from src.utiles.schemas import CourseOutput
+#import 
+from app.graphs.main_graph import main_graph 
+#import 
+from app.models.course import CourseRequest, CourseResponse
 #import fuction that saves the courses into db 
-from src.utiles.db_ops import save_course, get_all_courses, get_course_by_id
-from src.utiles.extractor import extraction_function
+from app.db.db_ops import save_course, get_all_courses, get_course_by_id
 #json module to handel json data in python
 import json
 
-from app.models.course import CourseRequest, CourseResponse
-from app.graphs.main_graph import course_graph
+
+
 
 
 
@@ -28,19 +23,6 @@ from app.graphs.main_graph import course_graph
 #define the prefix routes (all routes start with /courses and tag them for documentation)
 router = APIRouter(prefix="/courses", tags=["Courses"])
 
-#define the request schema for cours generation endpoint
-#for documentation
-class GenerateCourseRequest(BaseModel):
-    #there is onefield that is required 
-    prompt: str = Field(
-        ...,
-        #swager docs
-        examples=[
-            "Create a beginner course about Python programming for absolute beginners."
-        ],
-        #this is the description shown in the documentaion API docs
-        description="Natural-language course request that the agent will turn into a structured course.",
-    )
 
 #decorator of fuction define the post endpoint 
 @router.post(
@@ -61,22 +43,50 @@ async def generate_course(request: CourseRequest) -> CourseResponse:
     """
 
     try:
-        result = await course_graph.ainvoke(
+
+        # Measure generation time
+        start_time = time.time()
+
+        # Execute the LangGraph workflow
+        result = await main_graph.ainvoke(
             {
                 "prompt": request.prompt,
             }
         )
 
+        generation_time = time.time() - start_time
+
+        course = result["course"]
+
+        # Save generated course
+        db_id = None
+        try:
+            db_id = save_course(
+                course=course,
+                generation_time_s=generation_time,
+            )
+        except Exception as db_error:
+            # Don't fail the API if the database save fails
+            print(f"Database save failed: {db_error}")
+
+        # Return response
         return CourseResponse(
             success=True,
-            course=result["course"],
+            id=db_id,
+            generation_time=generation_time,
+            course=course,
         )
 
     except Exception as e:
         raise HTTPException(
             status_code=500,
-            detail=str(e),
+            detail=f"Course generation failed: {str(e)}",
         )
+    
+
+
+
+
 
 @router.get("", summary="Get all courses", description="Retrieve basic information for all generated courses.")
 async def list_courses():
