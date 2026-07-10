@@ -6,7 +6,7 @@ import asyncio
 
 from fastapi import APIRouter
 
-from src.utiles.chekes import check_db, check_search, check_crawl, check_llm
+from app.db.chekes import check_db, check_search, check_crawl, check_llm
 
 router = APIRouter(tags=["Health"])
 
