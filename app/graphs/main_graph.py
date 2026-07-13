@@ -15,9 +15,7 @@ from app.graphs.course_graph import build_course_graph
 
 
 def build_main_graph():
-    """
-    Build the complete course generation workflow.
-    """
+   
 
     workflow = StateGraph(CourseState)
 
