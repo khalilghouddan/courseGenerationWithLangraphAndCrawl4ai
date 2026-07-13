@@ -11,13 +11,8 @@ from app.models.state import CourseState
 from app.agents.template.agent import TemplateAgent
 
 
-template_agent = TemplateAgent()
-
-
 def validate_metadata(state: CourseState) -> CourseState:
-    """
-    Ensure metadata exists before selecting a template.
-    """
+
     if state.metadata is None:
         raise ValueError("Metadata is required before template selection.")
 
@@ -25,31 +20,37 @@ def validate_metadata(state: CourseState) -> CourseState:
 
 
 def select_template(state: CourseState) -> CourseState:
-    """
-    Execute the Template Agent.
-    """
-    return template_agent.invoke(state)
+
+    return TemplateAgent.invoke(state)
 
 
 def validate_template(state: CourseState) -> CourseState:
-    """
-    Ensure a template has been selected.
-    """
+
     if state.template is None:
         raise ValueError("Template selection failed.")
 
     return state
 
 
-builder = StateGraph(CourseState)
+def build_template_graph():
+    """
+    Build the Template Selection subgraph.
+    """
 
-builder.add_node("validate_metadata", validate_metadata)
-builder.add_node("select_template", select_template)
-builder.add_node("validate_template", validate_template)
+    builder = StateGraph(CourseState)
 
-builder.add_edge(START, "validate_metadata")
-builder.add_edge("validate_metadata", "select_template")
-builder.add_edge("select_template", "validate_template")
-builder.add_edge("validate_template", END)
+    # Register nodes
+    builder.add_node("validate_metadata", validate_metadata)
+    builder.add_node("select_template", select_template)
+    builder.add_node("validate_template", validate_template)
 
-template_graph = builder.compile()
+    # Define workflow
+    builder.add_edge(START, "validate_metadata")
+    builder.add_edge("validate_metadata", "select_template")
+    builder.add_edge("select_template", "validate_template")
+    builder.add_edge("validate_template", END)
+
+    return builder.compile()
+
+
+template_graph = build_template_graph()

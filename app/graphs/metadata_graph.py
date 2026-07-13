@@ -31,3 +31,5 @@ def build_metadata_graph():
     workflow.add_edge("parse_metadata", END)
 
     return workflow.compile()
+
+metadata_graph = build_metadata_graph()

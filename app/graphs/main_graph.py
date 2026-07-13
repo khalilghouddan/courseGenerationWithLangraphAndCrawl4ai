@@ -36,3 +36,5 @@ def build_main_graph():
     workflow.add_edge("course", END)
 
     return workflow.compile()
+
+main_graph = build_main_graph()
