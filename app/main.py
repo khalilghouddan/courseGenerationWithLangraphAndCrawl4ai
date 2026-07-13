@@ -1,4 +1,6 @@
-
+### The MAIN 
+# gadring the apis 
+# starting the front end 
 
 
 #fastapi thz main object to create the API 

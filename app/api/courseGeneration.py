@@ -37,13 +37,10 @@ router = APIRouter(prefix="/courses", tags=["Courses"])
     ),
 )
 
+#async fuction to call the main graph and generate the course and return the response to client
 async def generate_course(request: CourseRequest) -> CourseResponse:
-    """
-    Generate a complete course from a user prompt.
-    """
-
+   
     try:
-
         # Measure generation time
         start_time = time.time()
 
