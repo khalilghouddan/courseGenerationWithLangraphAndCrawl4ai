@@ -1,27 +1,9 @@
+### Main LangGraph workflow.
+# no he still liniar 
+#TODO: think of way to make it better 
 
 
-
-
-"""
-Main LangGraph workflow.
-
-This graph orchestrates the complete course generation pipeline:
-
-User Prompt
-    │
-    ▼
-Metadata Graph
-    │
-    ▼
-Template Graph
-    │
-    ▼
-Course Graph
-    │
-    ▼
-Final Course
-"""
-
+#langraph graph caliing StateGraph : 
 from langgraph.graph import StateGraph, START, END
 
 from app.models.state import CourseState
