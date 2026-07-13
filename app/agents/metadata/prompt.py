@@ -1,6 +1,11 @@
+### THE METADATA PROPT
+
+#Responsibilities:
+#- creatz giente propt 
+#- gader the uer propt and model
 
 
-
+#langchain propt to fill the metadata and the propt
 from langchain_core.prompts import PromptTemplate
 
 METADATA_PROMPT = PromptTemplate(

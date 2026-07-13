@@ -1,13 +1,14 @@
 ### Main LangGraph workflow.
-# no he still liniar 
+
+#Responsibilities:
+#- Build the complete course generation workflow.
 #TODO: think of way to make it better 
 
 
-#langraph graph caliing StateGraph : 
+#langraph graph calling StateGraph : 
 from langgraph.graph import StateGraph, START, END
-
 from app.models.state import CourseState
-
+#small graphes from the other files
 from app.graphs.metadata_graph import build_metadata_graph
 from app.graphs.template_graph import build_template_graph
 from app.graphs.course_graph import build_course_graph

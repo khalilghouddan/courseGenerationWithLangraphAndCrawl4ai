@@ -1,18 +1,11 @@
-"""
-Metadata Agent
+###Metadata Agent
 
-This agent analyzes the user's prompt and extracts structured metadata
-that will be used by the Template Agent and the Course Content Agent.
+#Responsibilities:
+#- Understand the user propt
+#- Generate the metadata of the course 
 
-Responsibilities:
-- Understand the user's learning goal
-- Determine difficulty level
-- Estimate course duration
-- Identify prerequisites
-- Generate learning objectives
-- Extract main topics
-"""
 
+#
 from langchain_core.output_parsers import PydanticOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import Runnable
@@ -24,12 +17,7 @@ from app.services.llm import get_llm
 
 
 def build_metadata_agent() -> Runnable:
-    """
-    Build the Metadata Agent.
-
-    Returns:
-        Runnable LangChain pipeline.
-    """
+   
 
     parser = PydanticOutputParser(pydantic_object=CourseMetadata)
 
