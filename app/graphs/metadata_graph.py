@@ -1,30 +1,23 @@
+### Build the Metadata subgraph.
+
+#Responsibilities:
+#- Build a subgraph for the metadata generation workflow.
 
 
-
-# app/graphs/metadata_graph.py
-
+#StateGraph: is used to create workflows / Start mare biging and end marks end of the work flow
 from langgraph.graph import StateGraph, START, END
 
 from app.models.state import CourseState
-from app.agents.metadata.agent import metadata_agent
+from app.agents.metadata.agent import build_metadata_agent
 from app.agents.metadata.parser import parse_metadata
 
 
 def build_metadata_graph():
-    """
-    Build the Metadata subgraph.
-
-    Responsibilities:
-        1. Analyze the user's prompt.
-        2. Generate structured course metadata.
-        3. Parse and validate the metadata.
-        4. Return the updated graph state.
-    """
 
     workflow = StateGraph(CourseState)
 
     # Nodes
-    workflow.add_node("metadata_agent", metadata_agent)
+    workflow.add_node("metadata_agent", build_metadata_agent)
     workflow.add_node("parse_metadata", parse_metadata)
 
     # Edges
