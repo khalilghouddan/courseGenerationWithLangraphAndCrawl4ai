@@ -9,6 +9,7 @@ from app.agents.template.selector import (
     get_templates_by_language,
     get_template_by_id,
 )
+
 from app.agents.template.prompt import build_template_prompt
 from app.services.llm import get_llm
 
@@ -42,9 +43,6 @@ async def template_agent(state: CourseState) -> CourseState:
 
     selected_template_id = int(response.content.strip())
 
-    # ------------------------------------------------------------------
-    # Step 5: Retrieve selected template
-    # ------------------------------------------------------------------
 
     selected_template = get_template_by_id(selected_template_id)
 
@@ -53,9 +51,6 @@ async def template_agent(state: CourseState) -> CourseState:
             f"Template '{selected_template_id}' does not exist."
         )
 
-    # ------------------------------------------------------------------
-    # Step 6: Update shared state
-    # ------------------------------------------------------------------
 
     state.template_id = selected_template.id
     state.template = selected_template
