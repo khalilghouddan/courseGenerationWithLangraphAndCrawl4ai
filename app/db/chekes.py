@@ -29,8 +29,11 @@ def check_search() -> tuple[str, str | None]:
     with log_message("HEALTH", "#00C853", "Search API"):
         try:
             response = requests.get(
-                settings.search_url,
-                headers=settings.web_research_headers,
+                settings.WEB_RESEARCH_BASE_URL,
+                headers={
+                    "Authorization": f"Bearer {settings.WEB_RESEARCH_API_KEY or settings.MODEL_API_KEY or ''}",
+                    "Content-Type": "application/json",
+                },
                 params={"q": "ping", "format": "json"},
                 timeout=15,
             )
@@ -47,8 +50,11 @@ def check_crawl() -> tuple[str, str | None]:
         try:
             # Send a fast OPTIONS request to verify the crawl endpoint is reachable
             response = requests.options(
-                settings.scrape_url,
-                headers=settings.web_research_headers,
+                settings.WEB_RESEARCH_BASE_URL,
+                headers={
+                    "Authorization": f"Bearer {settings.WEB_RESEARCH_API_KEY or settings.MODEL_API_KEY or ''}",
+                    "Content-Type": "application/json",
+                },
                 timeout=10,
             )
             # As long as the server responds (even with 405/422 etc), the service is up
@@ -64,9 +70,9 @@ def check_llm() -> tuple[str, str | None]:
     with log_message("HEALTH", "#00C853", "LLM (OpenAI)"):
         try:
             llm = ChatOpenAI(
-                model=settings.llm_model,
-                api_key=settings.llm_api_key,
-                base_url=settings.llm_base_url if settings.llm_base_url else None,
+                model=settings.QUEN_MODEL,
+                api_key=settings.MODEL_API_KEY,
+                base_url=settings.MODEL_BASE_URL if settings.MODEL_BASE_URL else None,
                 temperature=0.7,
             )
             llm.invoke("ping")

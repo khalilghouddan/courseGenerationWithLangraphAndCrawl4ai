@@ -10,7 +10,10 @@ from app.utils.logger import log_message
 #database connection
 from app.db.checkDbConection import get_db_connection
 
-from psycopg2.extras import DictCursor  # type: ignore
+try:
+    from psycopg2.extras import DictCursor  # type: ignore
+except ModuleNotFoundError:  # pragma: no cover - optional dependency
+    DictCursor = None
 
 
 class _SafeEncoder(json.JSONEncoder):
@@ -79,8 +82,8 @@ def save_course(course, generation_time_s: float = 0.0, urls_used: list[str] | N
     Returns the new row id, or None on failure (logged, not raised).
     """
     with log_message("DATABASE", "#B87363", f"INSERT INTO courses — title='{course.title}'"):
-        conn = get_db_connection()
         try:
+            conn = get_db_connection()
             cursor = conn.cursor()
 
             # Ensure we serialize only the actual chapters/sections structure
@@ -136,9 +139,11 @@ def save_course(course, generation_time_s: float = 0.0, urls_used: list[str] | N
 
 def get_all_courses() -> list[dict]:
     """Retrieve all courses from the database, ordered by created_at desc."""
-    
-    conn = get_db_connection()
+
     try:
+        conn = get_db_connection()
+        if DictCursor is None:
+            return []
         cursor = conn.cursor(cursor_factory=DictCursor)
         cursor.execute(
             """
@@ -160,8 +165,10 @@ def get_all_courses() -> list[dict]:
 
 def get_course_by_id(course_id: int) -> dict | None:
     """Retrieve a full course record by id."""
-    conn = get_db_connection()
     try:
+        conn = get_db_connection()
+        if DictCursor is None:
+            return None
         cursor = conn.cursor(cursor_factory=DictCursor)
         cursor.execute(
             """

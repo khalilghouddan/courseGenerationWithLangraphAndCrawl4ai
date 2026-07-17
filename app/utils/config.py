@@ -11,34 +11,32 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 class Settings(BaseSettings):
 
     # key and baseUrl
-    openai_api_key: str
-    openai_base_url: str
+    MODEL_API_KEY: str | None = None
+    MODEL_BASE_URL: str | None = None
 
-    # Default model
-    openai_model: str = "qwen3:8b"
-
+    # model default 
+    QUEN_MODEL: str = "qwen3:8b"
     # Additional models
-    OPENAI_MODEL_FAST: str = "qwen3:8b"
-    OPENAI_MODEL_BALANCED: str = "mistral-small3.2:latest"
-    OPENAI_MODEL_REASONING: str = "qwen3:8b"
+    MISTRAL_MODEL: str = "mistral-small3.2:latest"
 
     # Web Research
-    web_research_api_key: str
-    web_research_base_url: str
+    WEB_RESEARCH_API_KEY: str | None = None
+    WEB_RESEARCH_BASE_URL: str | None = None
 
     # PostgreSQL
-    deep_agent_db_host: str = "127.0.0.1"
-    deep_agent_db_port: int = 5433
-    deep_agent_db_user: str = "postgres"
-    deep_agent_db_password: str
+    DEEP_AGENT_DB_HOST: str = "127.0.0.1"
+    DEEP_AGENT_DB_PORT: int = 5433
+    DEEP_AGENT_DB_USER: str = "postgres"
+    DEEP_AGENT_DB_PASSWORD: str | None = None
+
 
     #reading .env , stting the encoding to utf8
     model_config = SettingsConfigDict(
         env_file=".env",
         env_file_encoding="utf-8",
-        case_sensitive=True,
+        case_sensitive=False,
         extra="ignore",
     )
 
-#creating the object
+# creating the object
 settings = Settings()

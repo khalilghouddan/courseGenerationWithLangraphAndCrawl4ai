@@ -12,28 +12,28 @@ from app.utils.config import settings
 def get_llm(model: str | None = None,temperature: float = 0.2,) -> ChatOpenAI:
 
     return ChatOpenAI(
-        model=model or settings.openai_model,
-        api_key=settings.openai_api_key,
-        base_url=settings.openai_base_url,
+        model=model or settings.QUEN_MODEL,
+        api_key=settings.MODEL_API_KEY,
+        base_url=settings.MODEL_BASE_URL,
     )
 
 #chosing the fast one hihihihi
 def get_fast_llm() -> ChatOpenAI:
     
     return get_llm(
-        model=settings.OPENAI_MODEL_FAST,
+        model=settings.QUEN_MODEL,
     )
 
 
 def get_balanced_llm() -> ChatOpenAI:
    
     return get_llm(
-        model=settings.OPENAI_MODEL_BALANCED,
+        model=settings.MISTRAL_MODEL,
     )
 
 
 def get_reasoning_llm() -> ChatOpenAI:
     
     return get_llm(
-        model=settings.OPENAI_MODEL_REASONING,
+        model=settings.QUEN_MODEL,
     )

@@ -14,8 +14,9 @@ from fastapi.staticfiles import StaticFiles
 import os
 #import all routes from the file api 
 from app.api.courseGeneration import router as course_router
-from app.api.health import router as health_router
 from app.api.docs import router as docs_router
+from app.api.frontEndApis import router as frontend_router
+from app.api.health import router as health_router
 
 #create the main api object 
 app = FastAPI(
@@ -40,8 +41,11 @@ app.add_middleware(
 
 # Register API routers
 app.include_router(course_router)
+app.include_router(frontend_router)
 app.include_router(health_router)
 app.include_router(docs_router)
+
+
 
 # Serve the React frontend from /app
 #frontend_dir is the path to the frontend directory 
@@ -51,9 +55,11 @@ if os.path.isdir(frontend_dir):
     #mount means to serve the static files from the frontend directory at the /app endpoint
     app.mount("/app", StaticFiles(directory=frontend_dir, html=True), name="frontend")
 
+
+
 #run the fast api server using uvicorn 
 if __name__ == "__main__":
     #import uvicorn a lightweight ASGI server for running FastAPI applications in development and production environments. 
     import uvicorn
     #start ASGI server with app object 
-    uvicorn.run("src.main:app", host="0.0.0.0", port=8011, reload=True)
+    uvicorn.run("app.main:app", host="0.0.0.0", port=8011, reload=True)

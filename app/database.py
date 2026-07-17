@@ -12,8 +12,8 @@ from app.utils.config import settings
 
 # Build database URL
 DATABASE_URL = (
-    f"postgresql://{settings.deep_agent_db_user}:{settings.deep_agent_db_password}"
-    f"@{settings.deep_agent_db_host}:{settings.deep_agent_db_port}/deep_agent_db"
+    f"postgresql://{settings.DEEP_AGENT_DB_USER}:{settings.DEEP_AGENT_DB_PASSWORD}"
+    f"@{settings.DEEP_AGENT_DB_HOST}:{settings.DEEP_AGENT_DB_PORT}/deep_agent_db"
 )
 
 # Create engine
