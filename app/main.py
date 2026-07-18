@@ -1,6 +1,7 @@
-### The MAIN 
-# gadring the apis 
-# starting the front end 
+### The MAIN ###
+
+# Responsabilty:
+#- create the main fastapi object to run the server
 
 
 #fastapi thz main object to create the API 
@@ -17,6 +18,8 @@ from app.api.courseGeneration import router as course_router
 from app.api.docs import router as docs_router
 from app.api.frontEndApis import router as frontend_router
 from app.api.health import router as health_router
+#import thr settings
+from app.utils.config import Settings
 
 #create the main api object 
 app = FastAPI(
@@ -62,4 +65,4 @@ if __name__ == "__main__":
     #import uvicorn a lightweight ASGI server for running FastAPI applications in development and production environments. 
     import uvicorn
     #start ASGI server with app object 
-    uvicorn.run("app.main:app", host="0.0.0.0", port=8011, reload=True)
+    uvicorn.run("app.main:app", host="0.0.0.0", port= Settings.APP_PORT, reload=True)
