@@ -1,3 +1,11 @@
+### METADATA AGENT #
+
+# Responsible:
+#- orchestrating the metadata workflow
+#- generating the metadata
+#- validating the metadata
+
+
 from langchain_core.runnables import Runnable
 
 from app.agents.metadata.models import CourseMetadata

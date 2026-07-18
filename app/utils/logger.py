@@ -1,5 +1,4 @@
 ### Log file fuction 
-# Log fuction 
 
 
 #import datetime to get the timestamp

@@ -1,17 +1,33 @@
-from langgraph.graph import END, START, StateGraph
+### THE MAIN GRAPH ###
 
-from app.graphs.course_graph import build_course_graph as build_course_subgraph
+# Responsible:
+#- orchestraing the work flow 
+#- defining the main graph structure
+#-
+
+#TODO: verify if the one state is good here
+
+
+#langgraph.graph END: end of the main graph / START: start of the main graph / STateGraph: the main graph structure
+from langgraph.graph import END, START, StateGraph
+#importing the subgraphs
+from app.graphs.course_graph import build_course_graph 
 from app.graphs.metadata_graph import build_metadata_graph
 from app.graphs.template_graph import build_template_graph
+# CourseState is memory state of all the nodes 
 from app.models.state import CourseState
+#log fuction 
+from app.utils.logger import log_message
 
-
+#main  in graph fucction
 def build_main_graph():
+
+    #for the logs 
     workflow = StateGraph(CourseState)
 
     metadata_graph = build_metadata_graph()
     template_graph = build_template_graph()
-    course_graph = build_course_subgraph()
+    course_graph = build_course_graph()
 
     workflow.add_node("metadata", metadata_graph)
     workflow.add_node("template", template_graph)
@@ -22,11 +38,8 @@ def build_main_graph():
     workflow.add_edge("template", "course")
     workflow.add_edge("course", END)
 
-    return workflow.compile()
+    with log_message("MAIN_GRAPH", "#7B61FF", "Compiling workflow"):
+        return workflow.compile()
 
-
-def build_course_graph():
-    return build_main_graph()
-
-
+# build instance the main graph
 main_graph = build_main_graph()
