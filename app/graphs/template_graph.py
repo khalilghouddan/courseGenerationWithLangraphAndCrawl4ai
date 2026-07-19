@@ -4,6 +4,8 @@
 #- orchestrating the template workflow
 
 #TODO: verify if it is the good template
+#TODO: fuction corrction and gggg
+
 
 
 #langgraph.graph END: end of the main graph / START: start of the main graph / STateGraph: the main graph structure
@@ -36,17 +38,29 @@ def build_template_graph():
 
     builder = StateGraph(CourseState)
 
-    builder.add_node("validate_metadata", validate_metadata)
-    builder.add_node("select_template", select_template)
-    builder.add_node("validate_template", validate_template)
+    # Wrap node executions to log them in order during request execution
+    def run_validate_metadata(state: CourseState) -> CourseState:
+        with log_message("TEMPLATE_GRAPH", "#FF9800", "Validating metadata"):
+            return validate_metadata(state)
+
+    def run_select_template(state: CourseState) -> CourseState:
+        with log_message("TEMPLATE_GRAPH", "#FF9800", "Selecting template"):
+            return select_template(state)
+
+    def run_validate_template(state: CourseState) -> CourseState:
+        with log_message("TEMPLATE_GRAPH", "#FF9800", "Validating template"):
+            return validate_template(state)
+
+    builder.add_node("validate_metadata", run_validate_metadata)
+    builder.add_node("select_template", run_select_template)
+    builder.add_node("validate_template", run_validate_template)
 
     builder.add_edge(START, "validate_metadata")
     builder.add_edge("validate_metadata", "select_template")
     builder.add_edge("select_template", "validate_template")
     builder.add_edge("validate_template", END)
     
-    with log_message("TEMPLATE_GRAPH", "#FF9800", "Building template workflow"):
-        return builder.compile()
+    return builder.compile()
 
 
 template_graph = build_template_graph()

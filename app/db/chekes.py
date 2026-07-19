@@ -30,10 +30,7 @@ def check_search() -> tuple[str, str | None]:
         try:
             response = requests.get(
                 settings.WEB_RESEARCH_BASE_URL,
-                headers={
-                    "Authorization": f"Bearer {settings.WEB_RESEARCH_API_KEY or settings.MODEL_API_KEY or ''}",
-                    "Content-Type": "application/json",
-                },
+                headers=settings.WEB_RESEARCH_API_KEY,
                 params={"q": "ping", "format": "json"},
                 timeout=15,
             )
@@ -51,10 +48,7 @@ def check_crawl() -> tuple[str, str | None]:
             # Send a fast OPTIONS request to verify the crawl endpoint is reachable
             response = requests.options(
                 settings.WEB_RESEARCH_BASE_URL,
-                headers={
-                    "Authorization": f"Bearer {settings.WEB_RESEARCH_API_KEY or settings.MODEL_API_KEY or ''}",
-                    "Content-Type": "application/json",
-                },
+                headers=settings.WEB_RESEARCH_API_KEY,
                 timeout=10,
             )
             # As long as the server responds (even with 405/422 etc), the service is up

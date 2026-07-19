@@ -22,24 +22,35 @@ from app.utils.logger import log_message
 #main  in graph fucction
 def build_main_graph():
 
-    #for the logs 
     workflow = StateGraph(CourseState)
 
     metadata_graph = build_metadata_graph()
     template_graph = build_template_graph()
     course_graph = build_course_graph()
 
-    workflow.add_node("metadata", metadata_graph)
-    workflow.add_node("template", template_graph)
-    workflow.add_node("course", course_graph)
+    # Wrap subgraph executions to log them in order during request execution
+    async def run_metadata(state: CourseState):
+        with log_message("MAIN_GRAPH", "#7B61FF", "Starting Metadata Phase"):
+            return await metadata_graph.ainvoke(state)
+
+    async def run_template(state: CourseState):
+        with log_message("MAIN_GRAPH", "#7B61FF", "Starting Template Selection Phase"):
+            return await template_graph.ainvoke(state)
+
+    async def run_course(state: CourseState):
+        with log_message("MAIN_GRAPH", "#7B61FF", "Starting Course Generation Phase"):
+            return await course_graph.ainvoke(state)
+
+    workflow.add_node("metadata", run_metadata)
+    workflow.add_node("template", run_template)
+    workflow.add_node("course", run_course)
 
     workflow.add_edge(START, "metadata")
     workflow.add_edge("metadata", "template")
     workflow.add_edge("template", "course")
     workflow.add_edge("course", END)
 
-    with log_message("MAIN_GRAPH", "#7B61FF", "Compiling workflow"):
-        return workflow.compile()
+    return workflow.compile()
 
 # build instance the main graph
 main_graph = build_main_graph()
