@@ -1,137 +1,81 @@
-"""
-Course Generation Graph
-
-Responsibilities:
-- Build the workflow for generating the course content.
-- Orchestrate the planner, researcher, writer, formatter, and Mermaid generation.
-- Allow the researcher to retry until sufficient information is collected.
-"""
-
-from langgraph.graph import StateGraph, START, END
-
-from app.models.state import CourseState
-
-from app.agents.course_generator.planner import planner_node
-from app.agents.course_generator.researcher import researcher_node
-from app.agents.course_generator.writer import writer_node
-from app.agents.course_generator.formatter import formatter_node
 
 
-def should_continue_research(state: CourseState) -> str:
-    """
-    Decide whether the current lesson needs additional research.
 
-    Returns:
-        "research" -> Search and scrape more sources.
-        "writer"   -> Enough information collected.
-    """
-    if state.research_complete:
-        return "writer"
-
-    return "research"
-
-
-def needs_mermaid(state: CourseState) -> str:
-    """
-    Decide whether the generated lesson should include a Mermaid diagram.
-
-    Returns:
-        "formatter" -> No Mermaid diagram required.
-        "mermaid"   -> Generate a Mermaid diagram before formatting.
-    """
-    if state.lesson_requires_mermaid:
-        return "mermaid"
-
-    return "formatter"
+#python build in module to calculate time to generate course 
+import time
+#fast api instance APiRouter : to define the main api / HTTPExaption :handel HTTP error and return responce to client 
+from fastapi import APIRouter, HTTPException
+#import 
+from app.graphs.main_graph import build_course_graph 
+#import 
+from app.models.course import CourseRequest, CourseResponse
+#import fuction that saves the courses into db 
+from app.db.coursDB import save_course
 
 
-def has_more_lessons(state: CourseState) -> str:
-    """
-    Determine whether there are more lessons remaining.
-
-    Returns:
-        "planner" -> Continue with the next lesson.
-        END       -> Course generation completed.
-    """
-    if state.has_next_lesson:
-        return "planner"
-
-    return END
 
 
-def build_course_graph():
-    """
-    Build the Course Generation subgraph.
 
-    Workflow:
 
-        Planner
-            ↓
-        Research
-            │
-            ├── Not enough information ─────┐
-            │                               │
-            └──────────────► Research ◄─────┘
-            │
-            ▼
-        Writer
-            │
-            ├── Mermaid needed?
-            │
-            ├── Yes ─► Mermaid Generator
-            │             │
-            └──── No ─────┘
-                    │
-                    ▼
-                Formatter
-                    │
-                    ├── Next lesson? ──► Planner
-                    │
-                    └── No ───────────► END
-    """
 
-    graph = StateGraph(CourseState)
+#define the prefix routes (all routes start with /courses and tag them for documentation)
+router = APIRouter(prefix="/courses", tags=["Courses"])
 
-    graph.add_node("planner", planner_node)
-    graph.add_node("researcher", researcher_node)
-    graph.add_node("writer", writer_node)
 
-    # TODO
-    # graph.add_node("mermaid", mermaid_node)
+#decorator of fuction define the post endpoint 
+@router.post(
+    #/courses/generate
+    "/generate",
+    #short fucking description for swager docs
+    summary="Generate a course",
+    #long description for swager docs
+    description=(
+        "Runs the course-generation agent, which researches the topic, selects a template, "
+        "and returns a structured course record."
+    ),
+)
 
-    graph.add_node("formatter", formatter_node)
+#async fuction to call the main graph and generate the course and return the response to client
+async def generate_course(request: CourseRequest) -> CourseResponse:
+   
+    try:
+        # Measure generation time
+        start_time = time.time()
 
-    graph.add_edge(START, "planner")
+        # Execute the LangGraph workflow
+        result = await build_course_graph.ainvoke(
+            {
+                "prompt": request.prompt,
+            }
+        )
 
-    graph.add_edge("planner", "researcher")
+        generation_time = time.time() - start_time
 
-    graph.add_conditional_edges(
-        "researcher",
-        should_continue_research,
-        {
-            "research": "researcher",
-            "writer": "writer",
-        },
-    )
+        course = result["course"]
 
-    graph.add_conditional_edges(
-        "writer",
-        needs_mermaid,
-        {
-            "mermaid": "formatter",  # Replace with "mermaid" when implemented
-            "formatter": "formatter",
-        },
-    )
+        # Save generated course
+        db_id = None
+        try:
+            db_id = save_course(
+                course=course,
+                generation_time_s=generation_time,
+            )
+        except Exception as db_error:
+            # Don't fail the API if the database save fails
+            print(f"Database save failed: {db_error}")
 
-    # graph.add_edge("mermaid", "formatter")
+        # Return response
+        return CourseResponse(
+            success=True,
+            id=db_id,
+            generation_time=generation_time,
+            course=course,
+        )
 
-    graph.add_conditional_edges(
-        "formatter",
-        has_more_lessons,
-        {
-            "planner": "planner",
-            END: END,
-        },
-    )
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Course generation failed: {str(e)}",
+        )
+    
 
-    return graph.compile()
