@@ -6,13 +6,14 @@
 
 #calling the pidantic format model of metadata course
 from app.agents.metadata.models import CourseMetadata
+from app.utils.logger import log_message
 
 #fuction to validate metadata 
 def parse_metadata(data: dict) -> CourseMetadata:
+    with log_message("METADATA_PARSER", "#00B8D9", "Validating course metadata structure"):
+        try:
+            return CourseMetadata.model_validate(data)
 
-    try:
-        return CourseMetadata.model_validate(data)
-
-    #rais the exaption hihihi
-    except Exception as e:
-        raise ValueError(f"Invalid metadata: {e}") from e
+        #rais the exaption hihihi
+        except Exception as e:
+            raise ValueError(f"Invalid metadata: {e}") from e

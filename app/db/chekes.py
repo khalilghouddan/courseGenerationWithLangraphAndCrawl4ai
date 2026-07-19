@@ -1,6 +1,5 @@
 
 
-
 #
 import requests
 from langchain_openai import ChatOpenAI
@@ -30,7 +29,10 @@ def check_search() -> tuple[str, str | None]:
         try:
             response = requests.get(
                 settings.WEB_RESEARCH_BASE_URL,
-                headers=settings.WEB_RESEARCH_API_KEY,
+                headers={
+                    "Authorization": f"Bearer {settings.WEB_RESEARCH_API_KEY }",
+                    "Content-Type": "application/json",
+                },
                 params={"q": "ping", "format": "json"},
                 timeout=15,
             )
@@ -48,7 +50,10 @@ def check_crawl() -> tuple[str, str | None]:
             # Send a fast OPTIONS request to verify the crawl endpoint is reachable
             response = requests.options(
                 settings.WEB_RESEARCH_BASE_URL,
-                headers=settings.WEB_RESEARCH_API_KEY,
+                headers={
+                    "Authorization": f"Bearer {settings.WEB_RESEARCH_API_KEY }",
+                    "Content-Type": "application/json",
+                },
                 timeout=10,
             )
             # As long as the server responds (even with 405/422 etc), the service is up
@@ -66,7 +71,7 @@ def check_llm() -> tuple[str, str | None]:
             llm = ChatOpenAI(
                 model=settings.QUEN_MODEL,
                 api_key=settings.MODEL_API_KEY,
-                base_url=settings.MODEL_BASE_URL if settings.MODEL_BASE_URL else None,
+                base_url=settings.MODEL_BASE_URL,
                 temperature=0.7,
             )
             llm.invoke("ping")
