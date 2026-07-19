@@ -1,21 +1,31 @@
 ### Course Generation Graph
 
-# Responsibilities:
+#Responsibilities:
 #- Build the workflow for generating the course content.
+#- Orchestrate the planner, researcher, writer, formatter, and Mermaid generation.
+#- Allow the researcher to retry until sufficient information is collected.
 
 
-from langgraph.graph import StateGraph, START, END
-
+#langgraph.graph END: end of the main graph / START: start of the main graph / STateGraph: the main graph structure
+from langgraph.graph import StateGraph, END, START
+#Mmemory where evry agent modify
 from app.models.state import CourseState
-
+#importing agents nodes
+#
 from app.agents.course_generator.planner import planner_node
+#
 from app.agents.course_generator.researcher import researcher_node
+#
 from app.agents.course_generator.writer import writer_node
+#
 from app.agents.course_generator.formatter import formatter_node
+#
+from app.agents.course_generator.mermaid import mermaid_node
 
 
+#should we continue research 
 def should_continue_research(state: CourseState) -> str:
-   
+
     if state.research_complete:
         return "writer"
 
@@ -23,7 +33,6 @@ def should_continue_research(state: CourseState) -> str:
 
 
 def needs_mermaid(state: CourseState) -> str:
-    
     if state.lesson_requires_mermaid:
         return "mermaid"
 
@@ -31,7 +40,6 @@ def needs_mermaid(state: CourseState) -> str:
 
 
 def has_more_lessons(state: CourseState) -> str:
-    
     if state.has_next_lesson:
         return "planner"
 
@@ -74,12 +82,11 @@ def build_course_graph():
     graph.add_node("planner", planner_node)
     graph.add_node("researcher", researcher_node)
     graph.add_node("writer", writer_node)
-
-    # TODO
-    # graph.add_node("mermaid", mermaid_node)
-
+    graph.add_node("mermaid", mermaid_node)
     graph.add_node("formatter", formatter_node)
 
+
+    
     graph.add_edge(START, "planner")
 
     graph.add_edge("planner", "researcher")
@@ -97,12 +104,12 @@ def build_course_graph():
         "writer",
         needs_mermaid,
         {
-            "mermaid": "formatter",  # Replace with "mermaid" when implemented
+            "mermaid": "mermaid",
             "formatter": "formatter",
         },
     )
 
-    # graph.add_edge("mermaid", "formatter")
+    graph.add_edge("mermaid", "formatter")
 
     graph.add_conditional_edges(
         "formatter",
