@@ -5,6 +5,7 @@
 #- based on the course metadata generated in the previous step.
 
 
+from app.utils.logger import log_info , log_message
 import json
 
 from app.utils.helpers import strip_markdown_fences
@@ -12,7 +13,6 @@ from app.utils.helpers import strip_markdown_fences
 from langchain_core.messages import HumanMessage
 
 from app.models.state import CourseState
-from app.utils.logger import log_message
 from app.services.llm import get_llm
 from app.db.templateDB import select_template_by_id
 from app.agents.template.selector import get_templates_by_language
@@ -31,6 +31,8 @@ def select_template(state: CourseState) -> CourseState:
     #Fetch candidate templates via selector
     candidates = get_templates_by_language(language)
 
+    print(candidates)
+
     if not candidates:
         raise ValueError("No templates found in the database.")
 
@@ -39,11 +41,11 @@ def select_template(state: CourseState) -> CourseState:
     from types import SimpleNamespace
     meta_ns = SimpleNamespace(
         title=metadata.get("title", ""),
-        topic=metadata.get("topic", ""),
-        difficulty=metadata.get("difficulty", ""),
-        target_audience=metadata.get("target_audience", ""),
+        topic=metadata.get("primary_subcategory_title", ""),
+        difficulty=metadata.get("primary_category_title", ""),
+        target_audience=metadata.get("target_audiences", ""),
         duration=metadata.get("duration", ""),
-        learning_goal=metadata.get("learning_goal", ""),
+        learning_goal=metadata.get("description", ""),
         language=language,
     )
 
@@ -77,11 +79,11 @@ def select_template(state: CourseState) -> CourseState:
     #the DB row wraps it under the "template" column key
     state.template = dict(full_template)["template"]
 
-    log_message(
+    log_info(
         "TEMPLATE_AGENT",
         "#FF9800",
-        f"Selected Template ID: {full_template.id} |  Selected Template Title: {full_template.title}  | Selected Template Reason: {reason}",   
-        )
+        f"Selected Template ID: {selected_id} | Selected Template Title: {full_template['title']} | Selected Template Reason: {reason}",
+    )
 
 
     return state

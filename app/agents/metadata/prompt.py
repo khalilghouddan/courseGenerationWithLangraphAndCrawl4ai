@@ -30,6 +30,10 @@ Guidelines:
   - Otherwise default to English.
   - Allowed values: English, Spanish, French, Arabic.
 
+- IMPORTANT: Write ALL text fields (title, headline, description, objectives, prerequisites, target_audiences)
+  in the same language as the course language. If the course is in Spanish, write everything in Spanish.
+  If French, write in French. Only the field names stay in English.
+
 Return only the structured output.
 
 User request:

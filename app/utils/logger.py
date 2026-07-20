@@ -77,3 +77,18 @@ def log_message(title: str, title_color: str, text: str):
         f"{blue}{bold_code}[FINISH]{reset_code} "
         f"{text} ({duration:.3f}s)"
     )
+
+#single-line info log — no START/FINISH, no timing
+#use this when there is no timed block, just a message to display
+def log_info(title: str, title_color: str, text: str) -> None:
+    color_code = hex_to_ansi(title_color)
+    reset_code = "\033[0m"
+    bold_code = "\033[1m"
+    yellow = hex_to_ansi("#FFD600")
+    timestamp = get_timestamp()
+    print(
+        f"\033[97m[{timestamp}]\033[0m "
+        f"{color_code}{bold_code}[{title}]{reset_code} "
+        f"{yellow}{bold_code}[INFO]{reset_code} "
+        f"{text}"
+    )
