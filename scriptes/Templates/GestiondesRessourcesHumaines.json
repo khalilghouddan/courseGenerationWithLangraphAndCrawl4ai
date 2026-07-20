@@ -1,0 +1,135 @@
+{
+  
+  "chapters": [
+    {
+      "title": "Fondements des Ressources Humaines",
+      "summary": "[Présente le domaine RH : sa définition, sa valeur pour les organisations modernes et son évolution historique. À la fin de ce chapitre, l'apprenant comprendra les responsabilités clés d'un professionnel RH, les grands cadres conceptuels du domaine et sa place dans la structure organisationnelle.]",
+      "lessons": [
+        {
+          "title": "Qu'est-ce que les RH et pourquoi est-ce stratégique ?",
+          "content_markdown": "[## Qu'est-ce que les RH et pourquoi est-ce stratégique ?\n\nDéfinis les Ressources Humaines en termes clairs et accessibles. Explique le problème fondamental que la fonction RH a été créée pour résoudre et la valeur qu'elle apporte. Décris comment les RH ont évolué — du personnel administratif à partenaire stratégique — en montrant les forces qui les ont transformées (technologie, mondialisation, nouvelles attentes des salariés). Donne 4 à 5 exemples concrets de ce qui se passe dans les organisations sans RH solides. Conclut avec ce que l'apprenant saura faire après avoir maîtrisé ce domaine.]"
+        },
+        {
+          "title": "Les Rôles et Responsabilités en RH",
+          "content_markdown": "[## Les Rôles et Responsabilités en RH\n\nCartographie les niveaux de carrière typiques en RH : assistant RH, chargé(e) RH, responsable RH, directeur(trice) RH, DRH. Pour chaque niveau, décris les responsabilités principales, les décisions prises, les parties prenantes gérées et les compétences à développer pour progresser. Explique comment les RH interagissent avec les autres directions (finance, juridique, direction générale, opérations). Décris un organigramme typique montrant la place des RH dans une organisation.]"
+        },
+        {
+          "title": "Les Grands Modèles et Écoles de Pensée RH",
+          "content_markdown": "[## Les Grands Modèles et Écoles de Pensée RH\n\nPrésente les 5 à 6 modèles les plus influents des RH : le modèle Ulrich des Business Partners, la théorie du capital humain, le modèle des 3 piliers RH (expertise/services/partenariat), la gestion par les compétences, l'approche contingente, et la GRH stratégique. Pour chaque modèle : origine et auteur, idée centrale en 2 à 3 phrases, forces, limites, et quand l'appliquer. Montre comment ces modèles se complètent ou s'opposent. Conclut avec un guide pratique pour choisir le bon modèle selon le contexte.]"
+        }
+      ]
+    },
+    {
+      "title": "Recrutement et Intégration",
+      "summary": "[Enseigne à l'apprenant comment attirer, sélectionner et intégrer les bons talents. Il maîtrisera le processus de recrutement de bout en bout, les techniques d'évaluation des candidats et les meilleures pratiques d'onboarding pour maximiser la rétention et la performance.]",
+      "lessons": [
+        {
+          "title": "Stratégie et Processus de Recrutement",
+          "content_markdown": "[## Stratégie et Processus de Recrutement\n\nExplique le processus de recrutement de A à Z : définition du besoin, rédaction de la fiche de poste, choix des canaux de sourcing (job boards, réseaux sociaux, cooptation, cabinets), présélection des CV, entretiens, tests, offre et clôture. Enseigne comment rédiger une fiche de poste efficace et une annonce attractive. Distingue recrutement interne et externe et montre quand privilégier chacun. Introduit la notion d'expérience candidat et son impact sur la marque employeur. Fournis un modèle de processus de recrutement avec les délais typiques.]"
+        },
+        {
+          "title": "Techniques d'Évaluation et de Sélection",
+          "content_markdown": "[## Techniques d'Évaluation et de Sélection\n\nPrésente les principales méthodes d'évaluation des candidats : entretien structuré vs non structuré, entretien par compétences (méthode STAR), tests psychométriques, mises en situation, assessment centers. Pour chaque méthode : validité prédictive, avantages, inconvénients et contexte d'utilisation. Explique comment construire une grille d'évaluation objective pour limiter les biais. Aborde les biais inconscients dans le recrutement et les techniques pour les réduire. Fournis un exemple complet de grille de sélection pour un poste RH.]"
+        },
+        {
+          "title": "Onboarding et Intégration Réussie",
+          "content_markdown": "[## Onboarding et Intégration Réussie\n\nExplique pourquoi l'intégration est cruciale : statistiques sur la rétention précoce, coût d'un recrutement raté, impact sur l'engagement. Décris les phases d'un onboarding réussi : pré-boarding, premier jour, premières semaines, période d'essai. Présente le modèle des 4C (Conformité, Clarté, Culture, Connexion). Fournis un plan d'intégration type sur 90 jours. Explique comment adapter l'intégration pour les profils seniors, les alternants et les télétravailleurs. Donne un exemple de checklist d'onboarding opérationnelle.]"
+        }
+      ]
+    },
+    {
+      "title": "Développement des Compétences et Formation",
+      "summary": "[Apprend à l'apprenant à identifier les besoins en compétences, concevoir des dispositifs de formation et mesurer leur impact. Ce chapitre couvre l'ingénierie de formation, la GPEC/GEPP et les nouvelles modalités d'apprentissage.]",
+      "lessons": [
+        {
+          "title": "Analyse des Besoins en Compétences (GEPP)",
+          "content_markdown": "[## Analyse des Besoins en Compétences (GEPP)\n\nExplique ce qu'est la Gestion des Emplois et des Parcours Professionnels (GEPP, anciennement GPEC) et son cadre légal en France. Enseigne comment réaliser un référentiel de compétences. Montre comment identifier les écarts entre compétences actuelles et besoins futurs (analyse de gap). Présente les outils d'analyse : entretiens annuels, bilan de compétences, cartographie des métiers. Donne un exemple complet d'analyse de besoin pour une direction RH en transformation digitale.]"
+        },
+        {
+          "title": "Concevoir et Déployer un Plan de Formation",
+          "content_markdown": "[## Concevoir et Déployer un Plan de Formation\n\nDécris le cycle complet de l'ingénierie de formation : recueil des besoins, arbitrage des priorités, choix des modalités (présentiel, e-learning, AFEST, coaching, mentoring), budgétisation, déploiement et évaluation. Explique le modèle Kirkpatrick (4 niveaux d'évaluation) et comment l'appliquer. Présente les dispositifs de financement disponibles (CPF, OPCO, plan de développement des compétences). Fournis un modèle de plan de développement des compétences annuel. Explique comment choisir un organisme de formation et rédiger un cahier des charges.]"
+        },
+        {
+          "title": "Nouvelles Modalités d'Apprentissage",
+          "content_markdown": "[## Nouvelles Modalités d'Apprentissage\n\nPrésente les tendances actuelles de la formation en entreprise : microlearning, social learning, classes virtuelles, serious games, IA générative dans la formation, learning in the flow of work. Pour chaque modalité : définition, cas d'usage idéal, avantages, limites et exemple concret. Explique comment construire un parcours blended (mixte) cohérent. Aborde la mesure du ROI de la formation. Donne des conseils pour favoriser le transfert des apprentissages en situation de travail.]"
+        }
+      ]
+    },
+    {
+      "title": "Rémunération et Avantages Sociaux",
+      "summary": "[Développe la capacité de l'apprenant à concevoir, analyser et piloter une politique de rémunération équitable et compétitive. Ce chapitre couvre la structure salariale, les avantages sociaux, l'équité interne et la compétitivité externe.]",
+      "lessons": [
+        {
+          "title": "Fondements de la Politique de Rémunération",
+          "content_markdown": "[## Fondements de la Politique de Rémunération\n\nExplique les objectifs d'une politique de rémunération : attirer, retenir, motiver, et garantir l'équité. Décris les composantes de la rémunération globale : salaire fixe, variable individuel et collectif, avantages en nature, épargne salariale (intéressement, participation), avantages sociaux. Introduis les concepts d'équité interne (grilles salariales, pesée des postes) et de compétitivité externe (benchmarks de marché). Explique la méthode Hay ou les méthodes de classification des postes. Présente un exemple de grille de rémunération pour une structure RH type.]"
+        },
+        {
+          "title": "Rémunération Variable et Incentives",
+          "content_markdown": "[## Rémunération Variable et Incentives\n\nExplique la logique du variable : lien entre performance et rémunération, théorie de l'espérance (Vroom). Présente les différents types de variable : bonus individuel, bonus collectif, commissions, intéressement, participation, stock-options, BSPCE. Pour chaque dispositif : mécanisme, avantages, risques et cadre légal français. Montre comment fixer des objectifs de variable SMART et motivants. Aborde les risques d'un système variable mal conçu : comportements dysfonctionnels, démotivation, turnover. Fournis un exemple de plan de variable pour un manager RH.]"
+        },
+        {
+          "title": "Équité Salariale et Conformité Légale",
+          "content_markdown": "[## Équité Salariale et Conformité Légale\n\nExplique les obligations légales en matière de rémunération en France : SMIC, égalité femmes-hommes (Index Egapro), négociations annuelles obligatoires (NAO), transparence salariale. Enseigne comment auditer les écarts salariaux et construire un plan de correction. Présente l'Index d'égalité professionnelle et comment le calculer. Aborde la question de la transparence salariale et ses implications pour les RH. Donne les étapes pour mener une NAO avec les représentants du personnel. Fournis une checklist de conformité rémunération pour un responsable RH.]"
+        }
+      ]
+    },
+    {
+      "title": "Relations Sociales et Droit du Travail",
+      "summary": "[Forme l'apprenant aux fondamentaux des relations sociales en entreprise et au droit du travail français. Ce chapitre couvre les instances représentatives du personnel, la négociation collective et la gestion des situations disciplinaires.]",
+      "lessons": [
+        {
+          "title": "Les Instances Représentatives du Personnel (IRP)",
+          "content_markdown": "[## Les Instances Représentatives du Personnel (IRP)\n\nPrésente le Comité Social et Économique (CSE) : composition, missions, attributions économiques et sociales, fonctionnement. Explique les obligations de l'employeur : réunions obligatoires, consultations, base de données économiques sociales et environnementales (BDESE). Décris les autres acteurs : délégués syndicaux, représentants de section syndicale. Explique comment préparer et animer une réunion CSE de façon constructive. Aborde les droits et protections des représentants du personnel. Fournis un exemple de calendrier annuel des obligations sociales.]"
+        },
+        {
+          "title": "Négociation Collective et Accords d'Entreprise",
+          "content_markdown": "[## Négociation Collective et Accords d'Entreprise\n\nExplique l'articulation entre loi, convention collective et accord d'entreprise (principe de faveur, ordre public). Décris les thèmes soumis à négociation obligatoire : NAO, GEPP, égalité professionnelle, qualité de vie au travail. Enseigne comment préparer et conduire une négociation collective : diagnostic, positions de repli, techniques de négociation, rédaction de l'accord. Explique le processus de signature, dépôt et entrée en vigueur d'un accord. Donne un exemple de négociation sur le télétravail avec les étapes et les points de blocage courants.]"
+        },
+        {
+          "title": "Droit Disciplinaire et Ruptures du Contrat de Travail",
+          "content_markdown": "[## Droit Disciplinaire et Ruptures du Contrat de Travail\n\nExplique le pouvoir disciplinaire de l'employeur et ses limites légales. Décris la procédure disciplinaire : de l'avertissement au licenciement pour faute, en passant par la mise à pied. Présente les différents modes de rupture du contrat : démission, rupture conventionnelle, licenciement pour motif personnel, licenciement économique, fin de CDD. Pour chaque mode : procédure obligatoire, délais, indemnités et risques de contentieux. Explique comment gérer un entretien préalable au licenciement. Fournis un tableau comparatif des ruptures et leurs conséquences RH et financières.]"
+        }
+      ]
+    },
+    {
+      "title": "Performance, Engagement et Bien-être au Travail",
+      "summary": "[Prépare l'apprenant à piloter la performance individuelle et collective, à mesurer et agir sur l'engagement des collaborateurs et à construire une politique de qualité de vie au travail (QVT). Ce chapitre est au cœur des RH modernes et stratégiques.]",
+      "lessons": [
+        {
+          "title": "Piloter la Performance Individuelle",
+          "content_markdown": "[## Piloter la Performance Individuelle\n\nExplique le cycle de gestion de la performance : fixation des objectifs, accompagnement en cours d'année, évaluation annuelle, calibration et décisions associées. Présente les différents formats d'évaluation : entretien annuel, feedback 360°, OKR, évaluations continues. Enseigne comment conduire un entretien annuel d'évaluation efficace et bienveillant. Aborde la gestion des hauts potentiels (HiPo) et des collaborateurs en difficulté. Explique comment éviter les biais dans l'évaluation (effet de halo, biais de récence). Fournis un exemple de grille d'évaluation et de trame d'entretien annuel.]"
+        },
+        {
+          "title": "Mesurer et Améliorer l'Engagement",
+          "content_markdown": "[## Mesurer et Améliorer l'Engagement\n\nDéfinis l'engagement collaborateur et le distingue de la satisfaction et du bonheur au travail. Présente les méthodes de mesure : enquêtes d'engagement, pulse surveys, eNPS (Employee Net Promoter Score), entretiens de départ. Explique comment analyser les résultats et identifier les leviers prioritaires. Enseigne comment construire et déployer un plan d'action engagement en impliquant les managers. Aborde les signaux d'alerte du désengagement et les interventions possibles. Fournis un exemple de questionnaire d'engagement court et un exemple de plan d'action.]"
+        },
+        {
+          "title": "Qualité de Vie au Travail (QVT) et Prévention des Risques Psychosociaux",
+          "content_markdown": "[## Qualité de Vie au Travail (QVT) et Prévention des Risques Psychosociaux\n\nExplique ce qu'est la QVT (accord national interprofessionnel de 2013, évolution vers QVCT en 2021) et ses 6 dimensions. Présente les risques psychosociaux (RPS) : stress, burn-out, harcèlement moral, harcèlement sexuel — définitions légales, signaux, obligations de l'employeur. Enseigne comment réaliser un diagnostic RPS dans une organisation. Décris les actions de prévention : primaire (supprimer le risque), secondaire (renforcer les ressources), tertiaire (gérer les cas). Explique le rôle du médecin du travail, du CSE et du CSSCT. Fournis un plan de prévention RPS type et une checklist de signalement.]"
+        }
+      ]
+    },
+    {
+      "title": "RH Digitales, Data et Avenir de la Fonction",
+      "summary": "[Prépare l'apprenant à naviguer dans la transformation digitale des RH : SIRH, people analytics, intelligence artificielle et nouvelles formes de travail. Ce chapitre positionne les RH comme acteur clé du futur du travail.]",
+      "lessons": [
+        {
+          "title": "Systèmes d'Information RH (SIRH) et Digitalisation",
+          "content_markdown": "[## Systèmes d'Information RH (SIRH) et Digitalisation\n\nExplique ce qu'est un SIRH et ses modules principaux : paie, administration du personnel, recrutement (ATS), formation (LMS), gestion de la performance, gestion des temps et activités. Présente les principaux éditeurs du marché et comment choisir son SIRH. Décris les étapes d'un projet de déploiement SIRH : cadrage, paramétrage, formation, conduite du changement, go-live. Aborde la transformation digitale de la fonction RH : automatisation des tâches administratives, self-service RH, RH en mode SaaS. Fournis un exemple de cartographie des processus RH digitalisés vs manuels.]"
+        },
+        {
+          "title": "People Analytics et Décision par la Data",
+          "content_markdown": "[## People Analytics et Décision par la Data\n\nExplique ce qu'est le people analytics et pourquoi il transforme la prise de décision RH. Présente les indicateurs RH clés : taux de turnover, taux d'absentéisme, délai moyen de recrutement, coût par recrutement, taux d'engagement, retour sur investissement formation. Enseigne comment construire un tableau de bord RH pertinent. Présente les niveaux de maturité analytique : reporting descriptif → analyse prédictive → analytique prescriptive. Aborde les questions éthiques et légales du people analytics (RGPD, transparence, biais algorithmiques). Fournis un exemple de tableau de bord RH mensuel pour un responsable RH.]"
+        },
+        {
+          "title": "IA, Futur du Travail et Évolution de la Fonction RH",
+          "content_markdown": "[## IA, Futur du Travail et Évolution de la Fonction RH\n\nIdentifie les 5 à 7 tendances majeures qui redéfinissent les RH : intelligence artificielle générative dans les RH, travail hybride et nouvelles formes d'organisation, raréfaction des talents, enjeux de diversité et inclusion (D&I), ESG et RH responsables, montée des travailleurs indépendants, bien-être comme levier stratégique. Pour chaque tendance : ce qui change concrètement, les implications pour le manager RH, et une action immédiate à prendre. Distingue les effets de mode des transformations profondes. Aborde les dimensions éthiques pour les leaders RH de demain. Conclut avec le nouveau positionnement stratégique de la fonction RH dans l'organisation.]"
+        },
+        {
+          "title": "Ton Parcours de Développement en tant que Professionnel RH",
+          "content_markdown": "[## Ton Parcours de Développement en tant que Professionnel RH\n\nPropose un référentiel de compétences RH structuré par niveau (débutant, confirmé, expert, DRH) : compétences techniques (droit social, paie, recrutement…), compétences managériales, et compétences de leadership. Aide l'apprenant à construire son plan de développement personnel : auto-évaluation, identification des 2 à 3 axes prioritaires, choix des actions de développement (certifications, missions transverses, mentoring, lectures). Recommande les 10 ressources incontournables : livres, podcasts, associations (ANDRH), certifications (title RNCP, SHRM, CIPD). Décris les certifications et titles professionnels les plus reconnus en RH en France et à l'international. Conclut avec LE changement de posture fondamental du professionnel RH : passer de gestionnaire administratif à architecte de l'expérience collaborateur et partenaire stratégique du business.]"
+        }
+      ]
+    }
+  ]
+}

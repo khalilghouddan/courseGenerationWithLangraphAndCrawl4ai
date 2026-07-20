@@ -1,0 +1,7 @@
+{
+  "dependencies": ["."],
+  "graphs": {
+    "course_generator": "./app/graphs/main_graph.py:main_graph"
+  },
+  "env": ".env"
+}

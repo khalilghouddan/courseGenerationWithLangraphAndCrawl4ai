@@ -1,0 +1,146 @@
+{
+  "chapters": [
+    {
+      "title": "Fundamentos del Call Center y la Atención al Cliente",
+      "summary": "[Introduce al aprendiz en qué es un call center, por qué es estratégico para las organizaciones modernas y cómo ha evolucionado. Al final de este capítulo, el aprendiz entenderá los tipos de call center, los roles clave, los indicadores básicos del sector y el impacto directo del servicio al cliente en el negocio.]",
+      "lessons": [
+        {
+          "title": "¿Qué es un Call Center y por qué es Estratégico?",
+          "content_markdown": "[## ¿Qué es un Call Center y por qué es Estratégico?\n\nDefine el call center en términos claros y accesibles. Explica el problema fundamental que resuelve para las empresas y el valor que aporta al negocio. Describe la evolución del call center: del centro de costes al motor de experiencia del cliente (CX). Muestra cómo han cambiado los canales: de la llamada de voz al omnicanal (chat, email, redes sociales, WhatsApp, videollamada). Da 4-5 ejemplos concretos de lo que ocurre cuando una empresa tiene un call center mal gestionado: pérdida de clientes, daño de reputación, costes elevados, empleados desmotivados. Cierra con una imagen clara de lo que el aprendiz podrá hacer al dominar este campo.]"
+        },
+        {
+          "title": "Tipos de Call Center y Modelos Operativos",
+          "content_markdown": "[## Tipos de Call Center y Modelos Operativos\n\nExplica los distintos tipos de call center: inbound (entrante), outbound (saliente) y mixto. Para cada tipo: qué servicios ofrece, KPIs principales, perfil del agente ideal y ejemplos de industrias que lo usan. Describe los modelos operativos: call center interno (in-house), externalizado (BPO/outsourcing), nearshore, offshore y modelo híbrido. Compara ventajas, desventajas y criterios de elección de cada modelo. Introduce el concepto de contact center omnicanal frente al call center tradicional monocanal. Proporciona un esquema visual descriptivo de la arquitectura típica de un call center.]"
+        },
+        {
+          "title": "Roles, Jerarquía y Cultura del Call Center",
+          "content_markdown": "[## Roles, Jerarquía y Cultura del Call Center\n\nMapea los niveles y roles típicos de un call center: agente junior, agente senior, especialista, supervisor, coordinador, gerente de operaciones, director de contact center. Para cada nivel: responsabilidades principales, decisiones que toma, habilidades requeridas y la brecha de competencias entre niveles. Explica roles de soporte: workforce management (WFM), quality assurance (QA), formación, back office. Describe cómo se relaciona el call center con otros departamentos: ventas, marketing, TI, RRHH, dirección general. Explica qué define una cultura de servicio fuerte y cómo construirla desde el liderazgo.]"
+        }
+      ]
+    },
+    {
+      "title": "Comunicación Efectiva y Habilidades del Agente",
+      "summary": "[Desarrolla las competencias comunicativas fundamentales del agente de call center: escucha activa, empatía, manejo del tono de voz, comunicación escrita y gestión de conversaciones difíciles. Este capítulo es la base del desempeño individual de todo agente.]",
+      "lessons": [
+        {
+          "title": "Escucha Activa y Comunicación Verbal",
+          "content_markdown": "[## Escucha Activa y Comunicación Verbal\n\nExplica por qué la escucha activa es la habilidad número uno en un call center y cuál es el coste de no escuchar bien. Enseña las técnicas de escucha activa: parafrasear, resumir, hacer preguntas abiertas y cerradas, confirmar comprensión. Explica los elementos del lenguaje verbal que impactan la percepción del cliente: tono, ritmo, volumen, dicción y uso del lenguaje positivo vs negativo. Muestra un antes/después de cómo el mismo mensaje con distinto tono genera reacciones completamente diferentes. Proporciona una lista de frases de apertura, de transición y de cierre profesionales. Incluye un ejercicio práctico de escucha activa con guión de ejemplo.]"
+        },
+        {
+          "title": "Empatía, Rapport y Gestión Emocional",
+          "content_markdown": "[## Empatía, Rapport y Gestión Emocional\n\nDefine empatía en el contexto de atención al cliente y diferénciala de la simpatía. Enseña cómo construir rapport desde los primeros 30 segundos de la llamada: personalización, espejo verbal, uso del nombre del cliente. Explica el concepto de inteligencia emocional aplicado al agente: autoconciencia, autorregulación, motivación, empatía y habilidades sociales (modelo Goleman). Muestra cómo gestionar las propias emociones durante llamadas difíciles: técnicas de regulación rápida, respiración, distancia cognitiva. Distingue la empatía genuina de la empatía de protocolo y por qué los clientes notan la diferencia. Incluye guiones de frases empáticas para situaciones de queja, frustración y urgencia.]"
+        },
+        {
+          "title": "Manejo de Clientes Difíciles y Situaciones de Conflicto",
+          "content_markdown": "[## Manejo de Clientes Difíciles y Situaciones de Conflicto\n\nClasifica los tipos de clientes difíciles más comunes en un call center: el cliente agresivo, el cliente que no para de hablar, el cliente que llora, el cliente que amenaza, el cliente manipulador. Para cada tipo: cómo identificarlo, qué necesita realmente y la técnica de gestión recomendada. Enseña el método DESC para manejar conflictos verbales: Describir, Expresar, Solicitar, Consecuencias. Explica cómo desescalar una conversación tensa paso a paso: validar, no defenderse, redirigir, ofrecer solución. Muestra cuándo y cómo escalar una llamada al supervisor sin que el cliente se sienta rechazado. Proporciona 5 guiones completos de llamadas difíciles con la gestión correcta e incorrecta comparadas.]"
+        },
+        {
+          "title": "Comunicación Escrita en Canales Digitales",
+          "content_markdown": "[## Comunicación Escrita en Canales Digitales\n\nExplica las diferencias clave entre comunicación oral (llamada) y escrita (chat, email, WhatsApp, redes sociales) y los errores más frecuentes al hacer la transición. Enseña los principios de escritura clara para soporte: brevedad, tono apropiado, estructura lógica, ausencia de jerga técnica. Muestra cómo adaptar el tono según el canal: más formal en email, más conversacional en chat, más cuidadoso en redes sociales. Cubre la gestión de tiempos de respuesta según canal y las expectativas del cliente. Proporciona plantillas editables para los 6 tipos de respuesta más frecuentes: acuse de recibo, resolución, disculpa, información, escalada y cierre. Incluye ejemplos de buena y mala comunicación escrita con análisis de por qué funciona o no.]"
+        }
+      ]
+    },
+    {
+      "title": "Procesos de Atención y Resolución de Incidencias",
+      "summary": "[Enseña al aprendiz a estructurar y ejecutar el proceso de atención al cliente de principio a fin: desde la apertura de la llamada hasta el cierre, incluyendo la gestión de reclamaciones, la resolución en el primer contacto y los procedimientos de escalada.]",
+      "lessons": [
+        {
+          "title": "El Flujo Completo de una Llamada Perfecta",
+          "content_markdown": "[## El Flujo Completo de una Llamada Perfecta\n\nDetalla las fases de una llamada de atención al cliente de alta calidad: bienvenida y saludo profesional, verificación de identidad, escucha del motivo de contacto, diagnóstico del problema, búsqueda de solución, comunicación de la solución, confirmación de satisfacción, oferta de ayuda adicional y cierre. Para cada fase: el objetivo, las técnicas clave, los errores más comunes y un guión de ejemplo. Explica el concepto de AHT (Average Handle Time) y cómo equilibrar la eficiencia con la calidad. Enseña cómo gestionar el tiempo en llamada sin que el cliente sienta prisa. Proporciona un guión completo de llamada de principio a fin con anotaciones pedagógicas.]"
+        },
+        {
+          "title": "Gestión de Reclamaciones y Resolución en Primer Contacto (FCR)",
+          "content_markdown": "[## Gestión de Reclamaciones y Resolución en Primer Contacto (FCR)\n\nExplica qué es el First Contact Resolution (FCR), por qué es el KPI más importante de un call center y cómo se mide. Enseña el proceso de gestión de reclamaciones: acusar recibo, investigar, comunicar plazos, resolver y hacer seguimiento. Explica la diferencia entre una queja y una reclamación formal y cómo tratarlas de forma diferente. Presenta el método HEARD para gestionar quejas: Hear (escuchar), Empathize (empatizar), Apologize (disculparse), Resolve (resolver), Diagnose (diagnosticar). Muestra cómo convertir una reclamación en una oportunidad de fidelización. Proporciona un árbol de decisión para los 10 tipos de reclamación más frecuentes en un call center típico.]"
+        },
+        {
+          "title": "Procedimientos de Escalada y Trabajo con Back Office",
+          "content_markdown": "[## Procedimientos de Escalada y Trabajo con Back Office\n\nExplica cuándo escalar (criterios claros), a quién escalar (niveles de soporte) y cómo escalar sin perder al cliente. Enseña cómo redactar un traspaso de caso efectivo: contexto, historial, lo que se ha intentado, urgencia. Describe la relación entre el front office (agentes) y el back office (gestores especializados): flujos de trabajo, tiempos de respuesta, acuerdos de nivel de servicio internos. Explica el uso del sistema de tickets o CRM para registrar, hacer seguimiento y cerrar incidencias. Muestra cómo hacer seguimiento proactivo con el cliente durante una escalada larga. Proporciona una plantilla de traspaso de caso y un ejemplo completo de escalada bien gestionada.]"
+        }
+      ]
+    },
+    {
+      "title": "Ventas y Retención en el Call Center",
+      "summary": "[Forma al aprendiz en técnicas de venta consultiva, upselling, cross-selling y retención de clientes aplicadas al entorno del call center. Este capítulo convierte al agente en un generador de valor comercial, no solo en un gestor de incidencias.]",
+      "lessons": [
+        {
+          "title": "Fundamentos de la Venta Consultiva por Teléfono",
+          "content_markdown": "[## Fundamentos de la Venta Consultiva por Teléfono\n\nExplica la diferencia entre venta transaccional y venta consultiva y por qué la segunda genera más valor y menos rechazo en el call center. Enseña el proceso de venta consultiva adaptado al teléfono: prospección o contacto inicial, diagnóstico de necesidades, presentación de solución adaptada, gestión de objeciones y cierre. Presenta la técnica SPIN Selling (Situación, Problema, Implicación, Necesidad de solución) adaptada al entorno telefónico. Explica cómo crear urgencia sin presionar y cómo construir confianza en una llamada corta. Incluye guiones de apertura para llamadas outbound y de detección de oportunidades en llamadas inbound. Proporciona 3 ejemplos completos de llamadas de venta consultiva en distintos sectores (telecomunicaciones, banca, seguros).]"
+        },
+        {
+          "title": "Upselling, Cross-Selling y Maximización del Valor",
+          "content_markdown": "[## Upselling, Cross-Selling y Maximización del Valor\n\nDefine upselling (vender una versión superior) y cross-selling (vender productos complementarios) con ejemplos concretos de call center. Explica cuándo y cómo introducir una oferta de upsell o cross-sell sin que parezca intrusiva: el momento adecuado en la llamada, la señal del cliente, la transición natural. Enseña cómo identificar el perfil del cliente usando el CRM para personalizar la oferta. Presenta la técnica del 'beneficio primero': explicar qué gana el cliente antes de hablar de precio. Explica cómo manejar el rechazo a la oferta sin tensar la relación. Proporciona guiones de upsell y cross-sell para 5 situaciones típicas: renovación de contrato, resolución de incidencia, llamada de bienvenida, llamada de seguimiento y llamada de facturación.]"
+        },
+        {
+          "title": "Retención de Clientes y Gestión de Bajas",
+          "content_markdown": "[## Retención de Clientes y Gestión de Bajas\n\nExplica el impacto económico de la pérdida de un cliente (coste de adquisición vs coste de retención) y por qué retener es siempre más rentable que captar. Enseña a identificar las señales de alerta de un cliente en riesgo: quejas recurrentes, reducción del uso, solicitud de información sobre competidores. Presenta el proceso de retención: escucha profunda del motivo de baja, validación emocional, diagnóstico real, oferta personalizada, cierre positivo o aceptación respetuosa de la baja. Explica cómo manejar la llamada de baja sin entrar en conflicto ni hacer promesas que no se pueden cumplir. Muestra cómo usar los argumentos de retención de forma creíble y adaptada al cliente. Proporciona un árbol de retención con los principales motivos de baja y las respuestas más efectivas para cada uno.]"
+        }
+      ]
+    },
+    {
+      "title": "Métricas, Calidad y Rendimiento Operativo",
+      "summary": "[Enseña al aprendiz a medir, analizar y mejorar el rendimiento de un call center mediante KPIs, sistemas de calidad y gestión de la fuerza de trabajo. Este capítulo equipa al supervisor y al gestor con las herramientas para tomar decisiones basadas en datos.]",
+      "lessons": [
+        {
+          "title": "KPIs Clave del Call Center: Medir lo que Importa",
+          "content_markdown": "[## KPIs Clave del Call Center: Medir lo que Importa\n\nPresenta los 12 KPIs esenciales de un call center: AHT (Average Handle Time), FCR (First Contact Resolution), CSAT (Customer Satisfaction Score), NPS (Net Promoter Score), CES (Customer Effort Score), tasa de abandono, nivel de servicio (SLA), tasa de ocupación, tasa de ausentismo, tiempo de espera medio, tasa de escalada y tasa de conversión (para outbound). Para cada KPI: definición exacta, fórmula de cálculo, benchmark de la industria, qué mide realmente y cómo mejorar si el resultado es bajo. Explica la diferencia entre indicadores de eficiencia (para el negocio) e indicadores de experiencia (para el cliente) y cómo equilibrarlos. Proporciona un cuadro de mando operativo tipo con los KPIs organizados por dimensión.]"
+        },
+        {
+          "title": "Control de Calidad y Monitorización de Llamadas",
+          "content_markdown": "[## Control de Calidad y Monitorización de Llamadas\n\nExplica el rol del Quality Assurance (QA) en el call center y por qué es un palanca de mejora continua, no un mecanismo de control punitivo. Enseña cómo diseñar una grilla de evaluación de llamadas: dimensiones a evaluar (apertura, escucha, resolución, cumplimiento, cierre), ponderación, escala y calibración entre evaluadores. Describe los métodos de monitorización: escucha en tiempo real (side-by-side), grabación diferida, análisis de voz con IA. Explica cómo dar feedback de calidad a un agente de forma constructiva: el modelo SBI (Situación-Comportamiento-Impacto) aplicado al call center. Muestra cómo organizar sesiones de calibración entre supervisores para garantizar la consistencia de las evaluaciones. Proporciona una grilla de evaluación de llamadas lista para usar con 20 criterios y su ponderación.]"
+        },
+        {
+          "title": "Workforce Management (WFM): Planificación y Capacidad",
+          "content_markdown": "[## Workforce Management (WFM): Planificación y Capacidad\n\nExplica qué es el Workforce Management y por qué es crítico para la rentabilidad y el nivel de servicio. Enseña el proceso de WFM: previsión de volumen de contactos (forecasting), cálculo de agentes necesarios (Erlang C), elaboración de turnos, gestión de la adherencia y ajuste en tiempo real. Explica cómo construir un forecast de llamadas: análisis de históricos, estacionalidad, eventos especiales, tendencias de crecimiento. Muestra cómo calcular el headcount necesario para alcanzar un SLA objetivo (ejemplo: 80% de llamadas atendidas en menos de 20 segundos). Describe las herramientas de WFM más usadas en el mercado. Aborda la gestión de picos y valles: cómo flexibilizar la plantilla sin degradar el servicio ni el bienestar del equipo. Proporciona una plantilla de planificación semanal de turnos para un equipo de 15 agentes.]"
+        },
+        {
+          "title": "Reporting, Análisis de Datos y Mejora Continua",
+          "content_markdown": "[## Reporting, Análisis de Datos y Mejora Continua\n\nExplica cómo construir un ciclo de mejora continua en el call center basado en datos: medir → analizar → identificar causas raíz → implementar mejoras → volver a medir. Enseña cómo leer un informe operativo diario/semanal/mensual y extraer los insights accionables. Presenta técnicas de análisis de causa raíz aplicadas al call center: diagrama de Ishikawa, análisis de Pareto (80/20), análisis de los 5 porqués. Muestra cómo identificar los principales drivers de contacto (Contact Driver Analysis) y cómo usarlos para reducir el volumen de llamadas evitables. Explica cómo comunicar resultados de forma efectiva a la dirección: qué incluir, qué omitir y cómo conectar los datos con las decisiones de negocio. Proporciona un ejemplo de informe mensual de call center comentado con análisis y recomendaciones.]"
+        }
+      ]
+    },
+    {
+      "title": "Liderazgo y Gestión de Equipos en el Call Center",
+      "summary": "[Desarrolla las competencias de liderazgo del supervisor y del gestor de call center: motivación de equipos, gestión del rendimiento individual, coaching, gestión del ausentismo y construcción de cultura de equipo en un entorno de alta rotación y presión constante.]",
+      "lessons": [
+        {
+          "title": "El Rol del Supervisor de Call Center",
+          "content_markdown": "[## El Rol del Supervisor de Call Center\n\nDefine con precisión las responsabilidades del supervisor de call center: en tiempo real (gestión de colas, soporte a agentes, escaladas), a medio plazo (formación, calidad, rendimiento) y a largo plazo (desarrollo del equipo, cultura, retención). Explica la transición del agente al supervisor: las trampas más comunes (seguir haciendo el trabajo del agente, dificultad para dar feedback negativo, favoritismo). Enseña cómo organizar el día de un supervisor de forma efectiva: cuánto tiempo dedicar a cada función. Describe el perfil de competencias del supervisor excelente en un call center: técnicas, relacionales y de liderazgo. Proporciona una plantilla de agenda semanal tipo para un supervisor de equipo de 12 agentes.]"
+        },
+        {
+          "title": "Coaching, Feedback y Desarrollo de Agentes",
+          "content_markdown": "[## Coaching, Feedback y Desarrollo de Agentes\n\nExplica por qué el coaching es la herramienta de mayor impacto para mejorar el rendimiento en un call center. Enseña el proceso de coaching aplicado al call center: observar (escucha de llamada), analizar, preparar el feedback, conducir la sesión, acordar acciones y hacer seguimiento. Presenta el modelo GROW (Goal, Reality, Options, Will) adaptado a las sesiones de coaching de agente. Muestra cómo dar feedback de refuerzo positivo y feedback correctivo sin desmotivar. Explica cómo adaptar el estilo de liderazgo al nivel de madurez del agente (modelo situacional de Hersey-Blanchard). Proporciona guiones para 4 conversaciones de coaching típicas: bajo rendimiento en FCR, problemas de AHT elevado, actitud con el cliente y gestión del estrés. Incluye una plantilla de sesión de coaching de 30 minutos.]"
+        },
+        {
+          "title": "Motivación, Compromiso y Gestión de la Rotación",
+          "content_markdown": "[## Motivación, Compromiso y Gestión de la Rotación\n\nExplica por qué el call center es uno de los entornos con mayor rotación y ausentismo del mercado laboral y cuáles son las causas raíz reales. Presenta las teorías de motivación aplicadas al call center: Herzberg (factores higiene vs motivadores), Self-Determination Theory y Expectancy Theory. Enseña qué palancas de motivación tiene realmente un supervisor: reconocimiento, autonomía, claridad, crecimiento, pertenencia. Explica cómo diseñar un programa de reconocimiento y gamificación efectivo: marcadores, rankings, recompensas, celebraciones. Muestra cómo diagnosticar el desenganche en un agente y qué intervenciones funcionan. Describe cómo reducir la rotación temprana: los primeros 3 meses son críticos. Proporciona un plan de acción de 90 días para mejorar el compromiso de un equipo con bajo NPS interno.]"
+        },
+        {
+          "title": "Gestión del Bienestar y Prevención del Burnout en el Call Center",
+          "content_markdown": "[## Gestión del Bienestar y Prevención del Burnout en el Call Center\n\nExplica qué es el burnout y por qué los agentes de call center son especialmente vulnerables: trabajo emocional constante, presión de KPIs, monotonía, poco control. Enseña a identificar las señales de burnout en un agente: cambios de comportamiento, ausentismo creciente, caída del rendimiento, conflictos. Presenta las intervenciones en 3 niveles: prevención primaria (diseño del trabajo, autonomía, rotación de tareas), secundaria (formación en resiliencia, técnicas de regulación emocional) y terciaria (apoyo psicológico, baja, reintegración). Explica el papel del supervisor en la detección temprana y la gestión sin estigma. Aborda la gestión del ausentismo: protocolos, entrevistas de retorno, planes de presencia. Proporciona una checklist de bienestar del equipo que un supervisor puede usar semanalmente.]"
+        }
+      ]
+    },
+    {
+      "title": "Tecnología, Omnicanalidad y Futuro del Contact Center",
+      "summary": "[Prepara al aprendiz para navegar la transformación tecnológica del contact center: CRM, IVR, inteligencia artificial, canales digitales y el futuro del trabajo en atención al cliente. Este capítulo posiciona al profesional como agente del cambio, no como víctima de él.]",
+      "lessons": [
+        {
+          "title": "Tecnología del Call Center: CRM, IVR y Herramientas del Agente",
+          "content_markdown": "[## Tecnología del Call Center: CRM, IVR y Herramientas del Agente\n\nPresenta el ecosistema tecnológico de un call center moderno: ACD (Automatic Call Distributor), IVR (Interactive Voice Response), CRM (Customer Relationship Management), herramienta de workforce management, sistema de grabación, plataforma de calidad y cuadro de mando en tiempo real. Para cada tecnología: qué hace, cómo impacta al agente y al supervisor, y cuáles son las mejores prácticas de uso. Explica cómo un CRM bien usado mejora la resolución en el primer contacto y la personalización. Enseña las buenas prácticas de registro en CRM: qué anotar, cuándo y cómo para que los datos sean útiles. Describe el diseño de un IVR efectivo y los errores que frustran a los clientes. Proporciona una guía de uso del CRM para un agente de nuevo ingreso.]"
+        },
+        {
+          "title": "Estrategia Omnicanal y Gestión de Canales Digitales",
+          "content_markdown": "[## Estrategia Omnicanal y Gestión de Canales Digitales\n\nExplica la diferencia entre multicanalidad (varios canales separados) y omnicanalidad (experiencia integrada) y por qué el segundo modelo es el estándar actual. Describe los canales digitales más relevantes para el contact center: chat en vivo, chatbot, email, WhatsApp Business, redes sociales, app móvil, comunidades de autoservicio. Para cada canal: expectativas del cliente en tiempos de respuesta, tono adecuado, capacidades del agente necesarias y KPIs específicos. Enseña cómo gestionar una conversación que cambia de canal (por ejemplo, de chat a llamada) sin perder el contexto. Explica cómo priorizar y enrutar correctamente los contactos en un entorno omnicanal. Proporciona un ejemplo de customer journey omnicanal con los puntos de contacto y cómo el call center interviene en cada uno.]"
+        },
+        {
+          "title": "Inteligencia Artificial y Automatización en el Contact Center",
+          "content_markdown": "[## Inteligencia Artificial y Automatización en el Contact Center\n\nExplica cómo la IA está transformando el contact center: qué tareas automatiza, qué potencia y qué no puede reemplazar. Presenta las principales aplicaciones de IA en el call center: chatbots y voicebots (automatización de consultas frecuentes), asistente en tiempo real para el agente (agent assist), análisis automático de llamadas (speech analytics), forecasting predictivo y análisis de sentimiento. Para cada aplicación: cómo funciona, qué beneficio aporta, sus limitaciones actuales y un caso de uso real. Explica el nuevo rol del agente en un entorno con IA: menos tareas repetitivas, más gestión de casos complejos y emocionales. Aborda la gestión del cambio: cómo comunicar a los equipos la llegada de la IA sin generar miedo. Describe las competencias que el agente del futuro necesitará desarrollar para seguir siendo relevante.]"
+        },
+        {
+          "title": "Tu Hoja de Ruta Profesional en el Mundo del Contact Center",
+          "content_markdown": "[## Tu Hoja de Ruta Profesional en el Mundo del Contact Center\n\nMapea el marco de competencias del profesional de call center de alto rendimiento por nivel: agente (técnicas de comunicación, conocimiento del producto, herramientas), supervisor (liderazgo, análisis de datos, coaching), manager (estrategia, WFM, gestión del cambio), director (visión, P&L, transformación). Ayuda al aprendiz a construir su plan de desarrollo personal: autoevaluación contra el marco de competencias, identificación de las 2-3 brechas prioritarias y elección de acciones de desarrollo (formaciones, proyectos transversales, mentoring). Recomienda los 10 recursos más importantes del sector: libros, podcasts, comunidades, certificaciones. Describe las certificaciones más reconocidas a nivel internacional: COPC, HDI, ICMI, y las de plataformas CRM como Salesforce o Zendesk. Cierra con EL cambio de mentalidad fundamental que define al profesional excelente en el contact center: pasar de 'gestionar llamadas' a 'gestionar experiencias y construir relaciones'.]"
+        }
+      ]
+    }
+  ]
+}
