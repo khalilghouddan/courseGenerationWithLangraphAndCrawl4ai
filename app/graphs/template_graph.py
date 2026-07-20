@@ -17,12 +17,6 @@ from app.models.state import CourseState
 from app.utils.logger import log_message
 
 
-#verify if we have the metadata before selecting the template
-def validate_metadata(state: CourseState) -> CourseState:
-    if not state.metadata:
-        raise ValueError("Metadata is required before template selection.")
-    return state
-
 #select the template
 def select_template(state: CourseState) -> CourseState:
     return select_template_node(state)
@@ -38,11 +32,6 @@ def build_template_graph():
 
     builder = StateGraph(CourseState)
 
-    # Wrap node executions to log them in order during request execution
-    def run_validate_metadata(state: CourseState) -> CourseState:
-        with log_message("TEMPLATE_GRAPH", "#FF9800", "Validating metadata"):
-            return validate_metadata(state)
-
     def run_select_template(state: CourseState) -> CourseState:
         with log_message("TEMPLATE_GRAPH", "#FF9800", "Selecting template"):
             return select_template(state)
@@ -51,12 +40,10 @@ def build_template_graph():
         with log_message("TEMPLATE_GRAPH", "#FF9800", "Validating template"):
             return validate_template(state)
 
-    builder.add_node("validate_metadata", run_validate_metadata)
     builder.add_node("select_template", run_select_template)
     builder.add_node("validate_template", run_validate_template)
 
-    builder.add_edge(START, "validate_metadata")
-    builder.add_edge("validate_metadata", "select_template")
+    builder.add_edge(START, "select_template")
     builder.add_edge("select_template", "validate_template")
     builder.add_edge("validate_template", END)
     

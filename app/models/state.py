@@ -20,6 +20,13 @@ class CourseState(BaseModel):
     research_complete: bool = False
     lesson_requires_mermaid: bool = False
     has_next_lesson: bool = True
+    current_chapter: int = 0
+    current_lesson: int = 0
+    current_lesson_plan: dict[str, Any] = Field(default_factory=dict)
+    current_research: list[str] = Field(default_factory=list)
+    current_sources: list[str] = Field(default_factory=list)
+    research_attempts: int = 0
+    mermaid_description: str = ""
 
     model_config = {
         "title": "CourseState",

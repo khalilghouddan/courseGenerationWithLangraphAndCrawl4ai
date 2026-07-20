@@ -6,7 +6,7 @@ import time
 #fast api instance APiRouter : to define the main api / HTTPExaption :handel HTTP error and return responce to client 
 from fastapi import APIRouter, HTTPException
 #import 
-from app.graphs.main_graph import build_course_graph 
+from app.graphs.main_graph import main_graph 
 #import 
 from app.models.course import CourseRequest, CourseResponse
 #import fuction that saves the courses into db 
@@ -43,7 +43,7 @@ async def generate_course(request: CourseRequest) -> CourseResponse:
         start_time = time.time()
 
         # Execute the LangGraph workflow
-        result = await build_course_graph.ainvoke(
+        result = await main_graph.ainvoke(
             {
                 "prompt": request.prompt,
             }

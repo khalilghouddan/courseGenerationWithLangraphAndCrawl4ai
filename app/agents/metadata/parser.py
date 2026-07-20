@@ -12,8 +12,9 @@ from app.utils.logger import log_message
 def parse_metadata(data: dict) -> CourseMetadata:
     with log_message("METADATA_PARSER", "#00B8D9", "Validating course metadata structure"):
         try:
+            print("Validating course metadata structure ")
             return CourseMetadata.model_validate(data)
-
+            
         #rais the exaption hihihi
         except Exception as e:
             raise ValueError(f"Invalid metadata: {e}") from e
