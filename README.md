@@ -1,197 +1,145 @@
-
-
-
-
 # DeepAgent Course Generator
+
+A powerful, AI-driven backend for automatically generating complete, structured courses using a multi-agent pipeline with LangGraph. It leverages an external Web Research API (SearXNG + Crawl4AI) and Remote Ollama/LLM APIs to gather context, structure the course, and generate the final content.
 
 ---
 
-## Running with Docker (Recommended)
+## 🚀 Features
+- **Multi-Agent Architecture**: Built with LangGraph to orchestrate complex reasoning and planning.
+- **Web Research Integration**: Automates finding accurate and relevant curriculum data.
+- **RESTful API**: Fast and robust API built with FastAPI.
+- **PostgreSQL**: Stores generated courses for persistent access.
+- **Docker Ready**: One command to start the entire environment.
 
-The easiest way to run the application and its dependencies (PostgreSQL, SearxNG) is via Docker Compose.
+---
 
-### 1. Configure the Environment
-Create a `.env` file in the root directory (you can copy from `.env.example`).
+## 🛠️ Prerequisites
+- **Docker & Docker Compose** (Recommended for easiest setup)
+- **Python 3.11+** and [**uv**](https://github.com/astral-sh/uv) (for local development)
+
+---
+
+## ⚙️ Environment Configuration
+
+Before running the application, you must configure your environment variables. 
+Create a `.env` file in the root directory by copying the example file:
+
+```bash
+cp .env.example .env
+```
 
 **Key Environment Variables in `.env`:**
 ```env
-# LLM Configuration
-OPENAI_MODEL=gpt-4o-mini
-OPENAI_API_KEY=sk-your-api-key
-OPENAI_BASE_URL=
+# ── LLM: Remote API ────────────────────────────────────────────────────
+QUEN_MODEL=qwen3:8b
+MISTRAL_MODEL=mistral-small3.2:latest
+MODEL_API_KEY=your_api_key_here
+MODEL_BASE_URL=http://your_llm_host/api/v1
 
-# External Tools
-SEARXNG_URL=http://searxng:8080/search
-CRAWL4AI_URL=http://127.0.0.1:8000
+# ── Web Research API (remote SearXNG + Crawl4AI) ────────────────────────
+WEB_RESEARCH_BASE_URL=http://your_research_api_host:port
+WEB_RESEARCH_API_KEY=your_research_api_key
 
-# Database Configuration
-DEEP_AGENT_DB_HOST=db
-DEEP_AGENT_DB_PORT=5432
+# ── PostgreSQL ────────────────────────────────────────────────────────────────
+DEEP_AGENT_DB_HOST=db      # Use "db" for Docker, or "127.0.0.1" for local
+DEEP_AGENT_DB_PORT=5432    # Use 5432 for Docker, or 5433 for local port forwarding
 DEEP_AGENT_DB_USER=postgres
 DEEP_AGENT_DB_PASSWORD=root
-```
 
-### 2. Start the Services
-Ensure Docker Desktop or your Docker daemon is running, then execute:
-```bash
-docker compose up --build -d
+# ── APP ────────────────────────────────────────────────────────────────
+APP_PORT=8011
+SCRAPED_IN_ONE_TIME=3
+SearXNG_max_url=1
 ```
-
-This command spins up:
-- The FastAPI backend on port `8011`
-- PostgreSQL on port `5433` mapped to `5432`
-- SearxNG on port `8080`
 
 ---
 
-## Running Locally Without Docker
+## 🐳 Running with Docker (Recommended)
 
-If you want to run the project directly on your machine, you can use Python instead of Docker.
+The easiest way to run the application (API and PostgreSQL Database) is via Docker Compose.
 
-### 1. Create and activate a virtual environment
-From the project root:
-```powershell
-python -m venv venv
-venv\Scripts\activate
+### Start the Services
+Ensure Docker Desktop or your Docker daemon is running, then execute:
+```bash
+docker-compose up --build
+```
+*(Add `-d` to run in detached mode).*
+
+This command automatically:
+1. Provisions a PostgreSQL container (`db`).
+2. Builds and starts the FastAPI backend (`api`).
+3. Waits for the database to be ready and automatically initializes the schema.
+
+The API will be available at: **http://localhost:8011**
+
+---
+
+## 💻 Running Locally Without Docker
+
+If you prefer to run the project directly on your machine without Docker containers:
+
+### 1. Install dependencies using `uv`
+This project uses `uv` for lightning-fast package management instead of a traditional `requirements.txt`.
+```bash
+uv sync
+```
+*(Alternatively, you can activate a standard virtual environment and run `pip install -e .`)*
+
+### 2. Configure Local Database
+Ensure you have a PostgreSQL server running locally, or use Docker just for the database:
+```bash
+docker run --name deepagent_db -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=root -e POSTGRES_DB=postgres -p 5433:5432 -d postgres:15-alpine
 ```
 
-### 2. Install dependencies
-```powershell
-pip install -r requirements.txt
-```
-
-### 3. Configure `.env`
-Copy `.env.example` to `.env`, then update it for your machine.
-
-Minimum local values:
+Update your `.env` to point to the local database:
 ```env
-OPENAI_MODEL=gpt-4o-mini
-OPENAI_API_KEY=your-api-key
-
 DEEP_AGENT_DB_HOST=127.0.0.1
 DEEP_AGENT_DB_PORT=5433
 DEEP_AGENT_DB_USER=postgres
 DEEP_AGENT_DB_PASSWORD=root
 ```
 
-If you want search and scraping features to work locally, make sure these services are also available:
-```env
-SEARXNG_URL=http://127.0.0.1:8080/search
-CRAWL4AI_URL=http://127.0.0.1:8000
-```
-
-### 4. Start PostgreSQL locally
-The database bootstrap script expects PostgreSQL to be running on the port defined above, and the default local setup uses:
-- host: `127.0.0.1`
-- port: `5433`
-- user: `postgres`
-- password: `root`
-
-### 5. Initialize the database
-Run:
-```powershell
+### 3. Initialize the database
+Run the initialization script to create tables:
+```bash
 python scriptes/init_db.py
 ```
 
-This creates the `deep_agent_db` database if needed and applies the schema from `scriptes/schema.sql`.
-
-### 6. Start the API server
-Run:
-```powershell
+### 4. Start the API server
+Run the FastAPI development server:
+```bash
 uvicorn src.main:app --host 0.0.0.0 --port 8011 --reload
 ```
-
-You can also use the helper script:
-```powershell
-sh start.sh
-```
-
-### 7. Open the app
-Once the server is up, open:
-- `http://localhost:8011/docs`
-- `http://localhost:8011/health`
-- `http://localhost:8011/app`
+*(Or use the provided `sh start.sh` helper script)*
 
 ---
 
-## Exposed Endpoints
+## 📡 API Endpoints & Testing
 
-Once the server is running, the API is available at `http://localhost:8011`.
+Once the server is running, you can access the API at `http://localhost:8011`.
 
-### API Endpoints
-- `POST /courses/generate` takes a natural-language prompt and triggers the 3-agent pipeline to generate a full course.
-- `GET /courses` retrieves a list of all generated courses stored in the database.
-- `GET /courses/{course_id}` retrieves the full structured details and content of a specific course.
+### Interactive Documentation
+- **Swagger UI**: [http://localhost:8011/docs](http://localhost:8011/docs) *(Easiest way to test endpoints manually)*
+- **ReDoc**: [http://localhost:8011/redoc](http://localhost:8011/redoc)
 
-### System Endpoints
-- `GET /docs` interactive API documentation
-- `GET /redoc` alternative API documentation interface
-- `GET /health` check the health and uptime of the API
-- `/app` mount point for the React frontend static files
+### Core Endpoints
+- `GET /health` : Check the health and uptime of the API services.
+- `POST /courses/generate` : Takes a natural-language prompt and triggers the 3-agent pipeline to generate a full course.
+- `GET /courses` : Retrieves a list of all generated courses stored in the database.
+- `GET /courses/{course_id}` : Retrieves the full structured details and content of a specific course.
 
----
-
-## How To Test The API
-
-After starting the stack, you can test every API route in a few different ways.
-
-### 1. Check the health endpoint
-Use this first to confirm the backend, database, search, crawl, and LLM services are reachable:
-```bash
-curl http://localhost:8011/health
-```
-
-Expected result:
-- a JSON response with `"status": "healthy"` when all services are up
-
-### 2. Open the interactive API docs
-Open one of these in your browser:
-- `http://localhost:8011/docs`
-- `http://localhost:8011/redoc`
-- `http://localhost:8011/api-docs`
-
-The Swagger UI at `/docs` is the easiest place to test requests manually.
-
-### 3. Generate a course
-Send a `POST` request to `/courses/generate`:
+### Testing Generation via cURL
 ```bash
 curl -X POST "http://localhost:8011/courses/generate" \
   -H "Content-Type: application/json" \
-  -d "{\"prompt\":\"Create a beginner course about Python programming for absolute beginners.\"}"
+  -d '{"prompt": "Create a beginner course about Python programming for absolute beginners."}'
 ```
-
-Expected result:
-- a generated course object
-- an `id` field if the course was saved to the database
-
-### 4. List all saved courses
-```bash
-curl http://localhost:8011/courses
-```
-
-Expected result:
-- an array of saved courses
-
-### 5. Get one course by ID
-Replace `1` with a real course id from the list endpoint:
-```bash
-curl http://localhost:8011/courses/1
-```
-
-Expected result:
-- the full course record, including `realcoursebody`
-
-### 6. Test the frontend
-Open:
-- `http://localhost:8011/app`
-
-From there you can generate a course and browse saved courses in the UI.
 
 ---
 
-## Stopping the Services
-To stop the application and clean up the containers, run:
+## 🛑 Stopping the Services
+To stop the Docker application and clean up the containers, run:
 ```bash
-docker compose down
+docker-compose down
 ```
-Add the `-v` flag if you want to wipe the local database and SearxNG volumes.
+Add the `-v` flag if you want to wipe the local database volume (WARNING: This deletes your saved courses).
