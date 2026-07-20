@@ -1,0 +1,88 @@
+{
+  "chapters": [
+    {
+      "title": "Pourquoi la Sécurité est l'Affaire de Tous",
+      "summary": "La sécurité en entreprise n'est pas l'affaire d'un seul service — c'est une habitude partagée par toute personne qui touche à un système, un fichier ou une porte. Ce chapitre pose les bases : ce que signifie vraiment la sécurité au travail, pourquoi le risque ne peut jamais être totalement éliminé (seulement géré), et pourquoi les plus petits choix quotidiens comptent souvent plus qu'un pare-feu.",
+      "lessons": [
+        {
+          "title": "Le Bouclier Invisible : Ce que Signifie la Sécurité au Travail",
+          "content_markdown": "## Le Bouclier Invisible : Ce que Signifie la Sécurité au Travail\n\nExpliquer ce que signifie la sécurité dans un contexte d'entreprise : protéger les informations, les systèmes, les personnes et les biens physiques contre les dommages, les pertes ou les accès non autorisés. Distinguer brièvement la sécurité physique, la sécurité de l'information/numérique et la sécurité opérationnelle. Donner 3 à 5 exemples concrets d'incidents réels (fuites de données, identifiants compromis, ingénierie sociale, appareils perdus) illustrant pourquoi cela compte. Souligner que chaque employé — pas seulement l'équipe IT ou sécurité — a un rôle à jouer. Terminer par une phrase motivante sur la prise de conscience que l'apprenant développera à la fin du cours."
+        },
+        {
+          "title": "Le Risque ne s'Élimine pas — il se Gère",
+          "content_markdown": "## Le Risque ne s'Élimine pas — il se Gère\n\nExpliquer le risque comme la combinaison d'une menace, d'une vulnérabilité et d'un impact. Présenter les catégories de menaces courantes auxquelles une entreprise peut faire face : attaquants externes, erreurs accidentelles internes, employés malveillants, et risques liés aux tiers/fournisseurs. Utiliser une analogie simple (verrouiller sa porte réduit le risque sans l'éliminer) pour ancrer le concept. Montrer comment les entreprises priorisent les risques les plus importants plutôt que de viser un risque zéro. Lister 2 à 3 idées fausses courantes que les employés ont sur le risque de sécurité."
+        }
+      ]
+    },
+    {
+      "title": "Parler le Langage de la Sécurité",
+      "summary": "Chaque domaine a son vocabulaire, et la sécurité ne fait pas exception. Ce chapitre dote l'apprenant des termes essentiels et d'un principe fondamental — le moindre privilège — qui façonne discrètement la gestion des accès et de la confiance au sein d'une organisation.",
+      "lessons": [
+        {
+          "title": "Des Mots qui Comptent : le Vocabulaire Essentiel de la Sécurité",
+          "content_markdown": "## Des Mots qui Comptent : le Vocabulaire Essentiel de la Sécurité\n\nPrésenter le vocabulaire de base : authentification, autorisation, confidentialité, intégrité, disponibilité et incident. Fournir une définition simple et claire pour chaque terme, accompagnée d'un exemple. Relier ces termes à des actions quotidiennes comme se connecter, partager des fichiers ou accéder à des systèmes. Souligner 2 à 3 confusions fréquentes, comme mélanger authentification et autorisation."
+        },
+        {
+          "title": "Moins, c'est Mieux : le Principe du Moindre Privilège",
+          "content_markdown": "## Moins, c'est Mieux : le Principe du Moindre Privilège\n\nExpliquer le principe du moindre privilège : donner aux personnes uniquement l'accès dont elles ont besoin, rien de plus. Utiliser l'analogie d'une carte d'hôtel qui n'ouvre que certaines portes. Expliquer pourquoi un accès excessif augmente le risque, même sans intention malveillante. Montrer un exemple avant/après comparant un accès trop large à un accès correctement limité. Expliquer pourquoi les accès doivent être révisés et retirés lorsqu'ils ne sont plus nécessaires — changement de poste, fin de projet, départ de l'entreprise."
+        }
+      ]
+    },
+    {
+      "title": "Construire des Réflexes de Sécurité au Quotidien",
+      "summary": "La plupart des failles de sécurité ne viennent pas d'attaques sophistiquées — elles viennent de petits moments du quotidien : un mot de passe réutilisé, un clic précipité, un message convaincant. Ce chapitre transforme la prise de conscience en habitudes concrètes et applicables immédiatement.",
+      "lessons": [
+        {
+          "title": "Votre Première Ligne de Défense : Mots de Passe et Authentification",
+          "content_markdown": "## Votre Première Ligne de Défense : Mots de Passe et Authentification\n\nExpliquer ce qui rend un mot de passe faible ou fort, sans imposer de règles techniques exactes. Présenter l'authentification multifactorielle (MFA) et pourquoi elle ajoute une protection significative au-delà du simple mot de passe. Couvrir les bonnes habitudes : éviter la réutilisation des mots de passe, utiliser un gestionnaire de mots de passe, reconnaître les invites de connexion suspectes. Utiliser un court scénario montrant comment un mot de passe volé sans MFA conduit à une compromission — et comment la MFA change ce résultat."
+        },
+        {
+          "title": "Quand la Confiance est la Cible : Repérer l'Ingénierie Sociale",
+          "content_markdown": "## Quand la Confiance est la Cible : Repérer l'Ingénierie Sociale\n\nExpliquer l'ingénierie sociale comme une manipulation des personnes plutôt que des systèmes. Décrire des tactiques générales — urgence, usurpation d'identité, prétexte — à l'aide d'exemples illustratifs et non exploitables. Présenter quelques signes d'alerte généraux (urgence inattendue, demandes d'informations sensibles, expéditeurs inconnus) sans détailler les formulations exactes utilisées par les attaquants. Enseigner la bonne réaction : vérifier via un canal de confiance distinct, puis signaler plutôt qu'agir immédiatement."
+        }
+      ]
+    },
+    {
+      "title": "Traiter l'Information avec l'Attention qu'elle Mérite",
+      "summary": "Toutes les informations n'ont pas le même poids, et savoir le reconnaître est une compétence clé en sécurité. Ce chapitre apprend à l'apprenant à identifier la sensibilité des données, à les traiter de façon responsable et à les partager sans créer de risque silencieux.",
+      "lessons": [
+        {
+          "title": "Toutes les Données ne se Valent pas : Classifier l'Information Sensible",
+          "content_markdown": "## Toutes les Données ne se Valent pas : Classifier l'Information Sensible\n\nExpliquer pourquoi les entreprises classifient l'information — publique, interne, confidentielle, restreinte — et comment cette classification influence sa conservation, son partage et sa destruction. Fournir un exemple pratique comparant un document sensible à un document public. Expliquer pourquoi un partage excessif d'informations internes, même involontaire, crée un risque."
+        },
+        {
+          "title": "Partager sans Déraper : Bonnes Pratiques de Communication",
+          "content_markdown": "## Partager sans Déraper : Bonnes Pratiques de Communication\n\nExpliquer les bonnes pratiques générales pour partager des fichiers et communiquer en toute sécurité, en interne comme en externe : utiliser des outils approuvés, vérifier les destinataires, éviter les canaux personnels ou non approuvés pour les données sensibles. Fournir un exemple avant/après contrastant une habitude risquée et une alternative plus sûre. Expliquer la tension naturelle entre confort et sécurité, et comment trouver un équilibre raisonnable."
+        }
+      ]
+    },
+    {
+      "title": "Sécuriser sa Façon de Travailler",
+      "summary": "La sécurité ne s'arrête pas à la porte du bureau — elle suit l'apprenant, ses appareils, ses réseaux et ses habitudes partout où le travail a lieu. Ce chapitre aborde les réalités pratiques de la sécurité au bureau, à domicile et partout entre les deux.",
+      "lessons": [
+        {
+          "title": "Verrouillé, à Jour et Vigilant : Sécuriser ses Appareils",
+          "content_markdown": "## Verrouillé, à Jour et Vigilant : Sécuriser ses Appareils\n\nCouvrir les habitudes quotidiennes : verrouiller son appareil en s'éloignant, maintenir les logiciels à jour, éviter les périphériques de stockage externes non fiables. Expliquer pourquoi la sécurité physique — comme un ordinateur portable déverrouillé dans un lieu public — compte autant que la sécurité numérique. Fournir une liste de contrôle pratique pour le bureau comme pour le travail à distance."
+        },
+        {
+          "title": "Au-delà des Murs du Bureau : Travailler en Sécurité à Distance",
+          "content_markdown": "## Au-delà des Murs du Bureau : Travailler en Sécurité à Distance\n\nExpliquer les considérations générales du travail à distance et hybride : utiliser des réseaux de confiance, faire preuve de prudence sur le Wi-Fi public, séparer raisonnablement les usages professionnels et personnels des appareils. Présenter un cadre de décision simple pour savoir quand il est acceptable d'accéder aux systèmes de l'entreprise depuis un lieu ou un réseau donné. Parcourir 2 à 3 scénarios réalistes et demander à l'apprenant ce qu'il ferait, puis révéler le raisonnement."
+        }
+      ]
+    },
+    {
+      "title": "Quand Quelque Chose Cloche : la Vigilance face aux Incidents",
+      "summary": "Même les meilleures habitudes ne préviendront pas tous les incidents — ce qui compte, c'est de reconnaître les signes tôt et de réagir de la bonne manière. Ce dernier chapitre offre à l'apprenant un guide clair et posé pour le moment où quelque chose ne semble pas normal.",
+      "lessons": [
+        {
+          "title": "Faites Confiance à votre Instinct : Reconnaître les Signes",
+          "content_markdown": "## Faites Confiance à votre Instinct : Reconnaître les Signes\n\nDécrire les signes d'alerte généraux qu'un problème pourrait exister — activité inattendue sur un compte, connexions inconnues, fichiers manquants, comportement système inhabituel — sans détail technique pouvant être détourné. Expliquer pourquoi une détection précoce compte et comment un retard aggrave l'impact. Fournir un scénario simple où un employé remarque quelque chose d'inhabituel."
+        },
+        {
+          "title": "Voir Quelque Chose, le Signaler : Bien Réagir",
+          "content_markdown": "## Voir Quelque Chose, le Signaler : Bien Réagir\n\nEnseigner un processus de réaction simple et reproductible : remarquer → ne pas paniquer ni essayer de résoudre seul → signaler via le bon canal interne → suivre les instructions de l'équipe sécurité ou IT. Expliquer pourquoi un signalement rapide et honnête — même d'une possible erreur — doit être encouragé, et pourquoi une culture axée sur le blâme dissuade le signalement et augmente le risque. Conclure par des habitudes durables pour rester vigilant dans le temps : formations régulières, scepticisme sain, et attention constante face à l'évolution des menaces."
+        }
+      ]
+    }
+  ]
+}

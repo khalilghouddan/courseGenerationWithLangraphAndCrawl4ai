@@ -1,0 +1,132 @@
+{
+  "chapters": [
+    {
+      "title": "Foundations of Database Design and SQL",
+      "summary": "Introduce the learner to what databases are, why structured data storage matters, and how relational databases and SQL fit into real-world software systems. By the end of this chapter the learner should be able to set up a database environment and run their first queries with confidence.",
+      "lessons": [
+        {
+          "title": "What is a Database and Why Learn SQL?",
+          "content_markdown": "## What is a Database and Why Learn SQL?\n\nExplain what a database is in plain language, the difference between a database, a database management system (DBMS), and SQL as a language. Distinguish relational databases from other types (document, key-value, graph) at a high level. Give 3–5 concrete real-world examples of systems that rely on databases (e-commerce, banking, social media, healthcare). Explain why a beginner should care about learning SQL today, including its role in data analysis, backend development, and reporting. Close with a motivating sentence about what the learner will be able to build and query by the end of the course."
+        },
+        {
+          "title": "Setting Up the Environment",
+          "content_markdown": "## Setting Up the Environment\n\nWalk the learner through installing and configuring a relational database system (e.g. PostgreSQL, MySQL, or SQLite) and a client tool to run queries. Cover the three major operating systems (Windows, macOS, Linux) with step-by-step instructions for each. Explain what each installed tool does and why it is needed (server, client/GUI, command-line shell). Include a first query the learner can run immediately to verify the setup works, such as creating a small table and selecting from it. List the 2–3 most common setup errors and how to fix them."
+        }
+      ]
+    },
+    {
+      "title": "Core SQL Syntax and Basic Queries",
+      "summary": "Cover the fundamental building blocks of SQL: how to retrieve, filter, and sort data. The learner will finish this chapter able to write basic SELECT statements and read query results confidently.",
+      "lessons": [
+        {
+          "title": "Tables, Rows, and Columns",
+          "content_markdown": "## Tables, Rows, and Columns\n\nExplain how relational databases store data using an everyday analogy (e.g. a spreadsheet with strict rules). Define what a table, row, and column are. List the common data types available (numbers, text, dates, booleans) with a one-sentence description of each. Show how to view a table's structure and sample data with commented examples. Highlight 2–3 common misconceptions beginners have about tables and data types."
+        },
+        {
+          "title": "The SELECT Statement",
+          "content_markdown": "## The SELECT Statement\n\nIntroduce the SELECT statement as the foundation of reading data. Show how to select all columns, specific columns, and rename columns with aliases. Explain the use of DISTINCT to remove duplicates. Cover basic arithmetic and string expressions in the SELECT clause. Include a commented query example that retrieves and labels meaningful data from a sample table."
+        },
+        {
+          "title": "Filtering with WHERE",
+          "content_markdown": "## Filtering with WHERE\n\nExplain how the WHERE clause filters rows. Cover comparison operators, logical operators (AND, OR, NOT), and pattern matching (LIKE, wildcards). Show how to filter on NULL values correctly. Explain operator precedence with a practical example showing why order and parentheses matter. Include a commented query that combines multiple conditions."
+        },
+        {
+          "title": "Sorting and Limiting Results",
+          "content_markdown": "## Sorting and Limiting Results\n\nTeach the learner how to use ORDER BY to sort results ascending or descending, including sorting by multiple columns. Show how to limit the number of rows returned (LIMIT/TOP/FETCH depending on the database system). Demonstrate combining sorting and filtering in one query. Include a before/after example showing how sorting changes the readability and usefulness of results."
+        }
+      ]
+    },
+    {
+      "title": "Aggregating and Grouping Data",
+      "summary": "Teach the learner how to summarize data using aggregate functions and grouping. After this chapter the learner can answer questions like totals, averages, and counts across groups of records.",
+      "lessons": [
+        {
+          "title": "Aggregate Functions",
+          "content_markdown": "## Aggregate Functions\n\nExplain what aggregate functions are and why they collapse multiple rows into a single result. Cover COUNT, SUM, AVG, MIN, and MAX with syntax and examples. Show how NULL values are handled by each function. Provide a practical example (e.g. total sales, average order value) using a sample dataset."
+        },
+        {
+          "title": "GROUP BY and HAVING",
+          "content_markdown": "## GROUP BY and HAVING\n\nExplain how GROUP BY partitions rows into groups before aggregation. Show syntax for grouping by one or multiple columns. Introduce HAVING as a filter applied after aggregation, contrasting it clearly with WHERE. Provide a practical mini-program (e.g. sales by region, orders per customer) that uses GROUP BY and HAVING together. Warn about common mistakes such as selecting non-aggregated, non-grouped columns."
+        }
+      ]
+    },
+    {
+      "title": "Combining Data Across Tables",
+      "summary": "Show the learner how to combine related data stored in multiple tables using joins and subqueries. This chapter transforms isolated tables into a connected relational model.",
+      "lessons": [
+        {
+          "title": "Understanding Relationships and Keys",
+          "content_markdown": "## Understanding Relationships and Keys\n\nExplain primary keys and foreign keys using a real-world analogy (e.g. an ID card linking a person to a record). Cover one-to-one, one-to-many, and many-to-many relationships with simple diagrams described in text. Explain referential integrity and why it matters. Show a small example schema with two related tables."
+        },
+        {
+          "title": "JOIN Types",
+          "content_markdown": "## JOIN Types\n\nCover INNER JOIN, LEFT JOIN, RIGHT JOIN, and FULL OUTER JOIN (note any not supported in certain database systems). For each join type provide a short explanation, a syntax example, and a description of what rows are included or excluded. Use a consistent example pair of tables (e.g. customers and orders) throughout. Include a visual-style text diagram or table showing the difference in results between join types."
+        },
+        {
+          "title": "Subqueries and Common Table Expressions",
+          "content_markdown": "## Subqueries and Common Table Expressions\n\nExplain what a subquery is and where it can be used (SELECT, WHERE, FROM clauses). Show scalar subqueries and subqueries used with IN, EXISTS, and comparison operators. Introduce Common Table Expressions (CTEs) using WITH as a more readable alternative to nested subqueries. Provide a practical example that solves the same problem first with a subquery, then with a CTE, comparing readability."
+        }
+      ]
+    },
+    {
+      "title": "Modifying Data",
+      "summary": "Teach the learner how to insert, update, and delete data safely. After this chapter the learner can change the contents of a database while protecting data integrity.",
+      "lessons": [
+        {
+          "title": "Inserting Data",
+          "content_markdown": "## Inserting Data\n\nShow the syntax for INSERT INTO with explicit column lists and values. Cover inserting multiple rows in one statement. Explain default values and what happens when required columns are omitted. Include a commented example inserting realistic sample records."
+        },
+        {
+          "title": "Updating and Deleting Data",
+          "content_markdown": "## Updating and Deleting Data\n\nExplain the UPDATE statement syntax, emphasizing the danger of omitting a WHERE clause. Show how to update one or multiple columns conditionally. Explain the DELETE statement syntax with the same warning about WHERE clauses. Cover the difference between DELETE and TRUNCATE. Include a safe-practice tip such as running a SELECT with the same WHERE clause before running UPDATE or DELETE."
+        }
+      ]
+    },
+    {
+      "title": "Designing Relational Databases",
+      "summary": "Teach the learner how to design a well-structured relational database from scratch. The learner will move from writing queries against existing tables to designing their own schema for a real-world scenario.",
+      "lessons": [
+        {
+          "title": "From Requirements to Entities",
+          "content_markdown": "## From Requirements to Entities\n\nExplain how to translate a real-world scenario (e.g. a library, a bookstore, a school) into entities and attributes. Show how to identify entities, their attributes, and candidate keys from a written description. Introduce entity-relationship diagrams (ERDs) conceptually, describing how to represent entities and relationships in text or simple diagram form. Provide a worked example starting from a short scenario description and ending with a basic entity list."
+        },
+        {
+          "title": "Normalization",
+          "content_markdown": "## Normalization\n\nExplain why normalization matters using a concrete example of data duplication and inconsistency. Cover First, Second, and Third Normal Form (1NF, 2NF, 3NF) in plain language with a before/after table example for each step. Briefly mention when denormalization might be a reasonable trade-off (e.g. for read-heavy reporting systems). End with a checklist the learner can use to evaluate their own schema."
+        },
+        {
+          "title": "Constraints and Data Integrity",
+          "content_markdown": "## Constraints and Data Integrity\n\nCover PRIMARY KEY, FOREIGN KEY, UNIQUE, NOT NULL, CHECK, and DEFAULT constraints with syntax examples for creating tables. Explain how each constraint protects data integrity and prevents specific kinds of bad data. Show what happens (the error produced) when a constraint is violated. Provide a complete CREATE TABLE example using several constraints together."
+        }
+      ]
+    },
+    {
+      "title": "Indexes and Query Performance",
+      "summary": "Introduce the learner to how databases execute queries efficiently and how indexes affect performance. This chapter bridges writing correct queries and writing queries that scale.",
+      "lessons": [
+        {
+          "title": "How Indexes Work",
+          "content_markdown": "## How Indexes Work\n\nExplain what an index is using a real-world analogy (e.g. a book's index page). Describe how an index speeds up lookups and the trade-off it introduces for writes (INSERT/UPDATE/DELETE). Show the syntax for creating and dropping a basic index. Explain which columns are good candidates for indexing (e.g. columns used often in WHERE, JOIN, or ORDER BY)."
+        },
+        {
+          "title": "Reading a Query Execution Plan",
+          "content_markdown": "## Reading a Query Execution Plan\n\nIntroduce the EXPLAIN (or equivalent) command for the database system being taught. Show how to read a basic execution plan output and identify whether an index is being used. Walk through a before/after example: a slow query without an index, then the same query after adding an appropriate index. Keep the explanation beginner-friendly, avoiding deep internals."
+        }
+      ]
+    },
+    {
+      "title": "Practical Database Workflows",
+      "summary": "Equip the learner with the day-to-day skills needed to work with databases safely in real projects, including transactions, common errors, and basic database administration concepts.",
+      "lessons": [
+        {
+          "title": "Transactions and Data Consistency",
+          "content_markdown": "## Transactions and Data Consistency\n\nExplain what a transaction is and why grouping statements together matters, using a real-world analogy (e.g. a bank transfer that must fully succeed or fully fail). Cover BEGIN, COMMIT, and ROLLBACK with syntax and a practical example. Introduce the concept of atomicity in plain language without deep ACID theory. Show a scenario where skipping transactions could corrupt data, and how wrapping it in a transaction prevents that."
+        },
+        {
+          "title": "Common Errors and Troubleshooting",
+          "content_markdown": "## Common Errors and Troubleshooting\n\nShow the 3–5 most common errors beginners encounter when writing SQL (e.g. syntax errors, constraint violations, ambiguous column references, type mismatches) and how to read and fix each one. Teach a repeatable troubleshooting process: read the error message → isolate the failing clause → simplify the query → test incrementally. Close with best practices for writing queries that are easier to debug and maintain, such as formatting, commenting, and testing on small datasets first."
+        }
+      ]
+    }
+  ]
+}

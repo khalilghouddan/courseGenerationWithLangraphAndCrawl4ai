@@ -1,0 +1,48 @@
+### THE METADATA PROPT
+
+#Responsibilities:
+#- creatz giente propt 
+#- gader the uer propt and model
+
+
+#langchain propt to fill the metadata and the propt
+from langchain_core.prompts import PromptTemplate
+
+METADATA_PROMPT = PromptTemplate(
+    template="""
+You are an expert instructional designer.
+
+Analyze the user's learning request and generate accurate metadata for an online course.
+
+Guidelines:
+
+- Create a concise, engaging course title.
+- Write a one-sentence headline describing the course value.
+- Write a clear description (3–6 sentences).
+- Generate realistic learning objectives.
+- Generate realistic prerequisites (leave empty if none are required).
+- Identify the target audience.
+- Choose the most appropriate primary category.
+- Choose the most appropriate primary subcategory.
+- Estimate a realistic course duration.
+- Determine the course language:
+  - Use the language specified by the user.
+  - Otherwise default to English.
+  - Allowed values: English, Spanish, French, Arabic.
+
+- IMPORTANT: Write ALL text fields (title, headline, description, objectives, prerequisites, target_audiences)
+  in the same language as the course language. If the course is in Spanish, write everything in Spanish.
+  If French, write in French. Only the field names stay in English.
+
+Return only the structured output.
+
+User request:
+{prompt}
+
+{format_instructions}
+""",
+    input_variables=["prompt"],
+    partial_variables={
+        "format_instructions": "{format_instructions}"
+    },
+)

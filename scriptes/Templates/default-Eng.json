@@ -1,0 +1,92 @@
+{
+  "chapters": [
+    {
+      "title": "Foundations of [SUBJECT]",
+      "summary": "Introduce the learner to what [SUBJECT] is, why it exists, where it is used or applied in the real world, and what context or tools are needed to begin. By the end of this chapter the learner should understand the scope of the subject and feel confident taking the first practical steps.",
+      "lessons": [
+        {
+          "title": "What is [SUBJECT] and Why Learn It?",
+          "content_markdown": "## What is [SUBJECT] and Why Learn It?\n\nExplain what [SUBJECT] is in plain language, what category or field it belongs to, and what problems or needs it was developed to address. Give 3–5 concrete real-world examples of where [SUBJECT] is applied or who uses it. Explain why a beginner should care about learning it today. Close with a motivating sentence about what the learner will be able to do, understand, or produce by the end of the course."
+        },
+        {
+          "title": "Getting Set Up",
+          "content_markdown": "## Getting Set Up\n\nWalk the learner through whatever preparation is needed to begin learning [SUBJECT] — this may be installing tools, gathering materials, creating accounts, or simply understanding prerequisite knowledge. Explain what each step accomplishes and why it matters. Include a simple first action the learner can take immediately to confirm they are ready to proceed. List the 2–3 most common setup mistakes or points of confusion and how to resolve them."
+        }
+      ]
+    },
+    {
+      "title": "Core Concepts and Vocabulary",
+      "summary": "Cover the fundamental building blocks, terminology, and mental models of [SUBJECT]. The learner will finish this chapter able to understand and use the basic language and ideas of the field correctly.",
+      "lessons": [
+        {
+          "title": "Key Terms and Definitions",
+          "content_markdown": "## Key Terms and Definitions\n\nIntroduce the core vocabulary of [SUBJECT] using plain-language definitions and everyday analogies. List the most important terms a beginner must know, with a one-sentence explanation of each. Show how these terms relate to one another with a simple example. Highlight 2–3 common misunderstandings beginners have about these concepts."
+        },
+        {
+          "title": "Fundamental Principles",
+          "content_markdown": "## Fundamental Principles\n\nExplain the core principles or rules that govern [SUBJECT]. For each principle, provide a clear explanation and a simple illustrative example. Explain why these principles matter and what happens when they are ignored or misunderstood. Include a worked example that applies multiple principles together."
+        },
+        {
+          "title": "How [SUBJECT] Fits Into a Bigger Picture",
+          "content_markdown": "## How [SUBJECT] Fits Into a Bigger Picture\n\nExplain how [SUBJECT] relates to adjacent fields, disciplines, or practical contexts. Show a before/after or comparison example illustrating the difference between someone who understands [SUBJECT] and someone who does not. Introduce any standard frameworks, methods, or conventions commonly associated with [SUBJECT]."
+        }
+      ]
+    },
+    {
+      "title": "Applying [SUBJECT] in Practice",
+      "summary": "Teach the learner how to take core concepts and apply them to solve real problems or complete real tasks. After this chapter the learner can move from understanding theory to producing practical results.",
+      "lessons": [
+        {
+          "title": "Step-by-Step Application",
+          "content_markdown": "## Step-by-Step Application\n\nWalk through a complete, realistic scenario or task in [SUBJECT] from start to finish. Break the process into clear, ordered steps. Explain the reasoning behind each step, not just the action. Provide a practical mini-exercise the learner can complete using the same process."
+        },
+        {
+          "title": "Common Approaches and Decision-Making",
+          "content_markdown": "## Common Approaches and Decision-Making\n\nPresent 2–4 common approaches, methods, or strategies used within [SUBJECT]. Compare their strengths, weaknesses, and ideal use cases using a comparison table. Present a few realistic scenarios and ask the learner which approach fits best, then reveal the answer with an explanation."
+        }
+      ]
+    },
+    {
+      "title": "Organizing and Structuring Knowledge or Work",
+      "summary": "Show the learner how to organize information, tasks, or components within [SUBJECT] in a structured, reusable, and efficient way. This chapter moves the learner from isolated tasks to coherent, well-structured work.",
+      "lessons": [
+        {
+          "title": "Breaking Things Into Manageable Parts",
+          "content_markdown": "## Breaking Things Into Manageable Parts\n\nExplain how complex problems, projects, or topics in [SUBJECT] can be broken into smaller, manageable units. Use a real-world analogy to make the concept concrete. Show a practical example of decomposing a larger task or topic into smaller pieces and addressing each one."
+        },
+        {
+          "title": "Building Reusable Knowledge or Components",
+          "content_markdown": "## Building Reusable Knowledge or Components\n\nUsing terminology appropriate to [SUBJECT], show the learner how to create something reusable — a template, a method, a checklist, a component, or a structured process. Demonstrate a small but complete working example. Explain why reusability and consistency matter in this field."
+        }
+      ]
+    },
+    {
+      "title": "Working with Real Information or Materials",
+      "summary": "Introduce the learner to the kinds of information, data, or materials commonly encountered in [SUBJECT], and teach them how to organize, interpret, and use them effectively.",
+      "lessons": [
+        {
+          "title": "Types of Information or Materials in [SUBJECT]",
+          "content_markdown": "## Types of Information or Materials in [SUBJECT]\n\nExplain the main categories of information, data, or materials the learner will work with in [SUBJECT]. Define the core mental model for organizing them. Show how to identify, categorize, and prioritize this information in a practical context."
+        },
+        {
+          "title": "Choosing the Right Approach or Tool for the Situation",
+          "content_markdown": "## Choosing the Right Approach or Tool for the Situation\n\nGive the learner a simple decision framework for selecting the right approach, method, or tool within [SUBJECT] depending on the situation. Present 3–4 real scenarios and ask the learner which choice fits best, then reveal the answer with an explanation."
+        }
+      ]
+    },
+    {
+      "title": "Avoiding Mistakes and Handling Problems",
+      "summary": "Equip the learner to recognize, understand, and resolve common mistakes or problems encountered in [SUBJECT]. After this chapter the learner will have a systematic approach to identifying issues and correcting them.",
+      "lessons": [
+        {
+          "title": "Common Mistakes and How to Avoid Them",
+          "content_markdown": "## Common Mistakes and How to Avoid Them\n\nIdentify the 3–5 most common mistakes beginners make in [SUBJECT]. For each mistake, explain why it happens, what consequences it causes, and how to recognize it early. Provide a before/after example showing the mistake and its correction."
+        },
+        {
+          "title": "A Systematic Approach to Solving Problems",
+          "content_markdown": "## A Systematic Approach to Solving Problems\n\nTeach a repeatable problem-solving process appropriate to [SUBJECT]: identify → isolate → investigate → test → resolve. Walk through a realistic example using this process from beginning to end. Close with best practices that make future problems easier to prevent or solve."
+        }
+      ]
+    }
+  ]
+}

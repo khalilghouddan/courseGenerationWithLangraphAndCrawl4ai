@@ -1,0 +1,110 @@
+{
+  "chapters": [
+    {
+      "title": "Foundations of [LANGUAGE/FRAMEWORK]",
+      "summary": "Introduce the learner to what [LANGUAGE/FRAMEWORK] is, why it exists, where it is used in the real world, and how to set up the environment. By the end of this chapter the learner should be able to write, run, and read their first program with confidence.",
+      "lessons": [
+        {
+          "title": "What is [LANGUAGE/FRAMEWORK] and Why Learn It?",
+          "content_markdown": "## What is [LANGUAGE/FRAMEWORK] and Why Learn It?\n\nExplain what [LANGUAGE/FRAMEWORK] is in plain language, what category it belongs to (language, library, framework, runtime, etc.), and what problems it was designed to solve. Give 3–5 concrete real-world examples of products or industries that use it. Explain why a beginner should care about learning it today. Close with a motivating sentence about what the learner will be able to build by the end of the course."
+        },
+        {
+          "title": "Setting Up the Environment",
+          "content_markdown": "## Setting Up the Environment\n\nWalk the learner through installing and configuring everything needed to write and run [LANGUAGE/FRAMEWORK] code. Cover the three major operating systems (Windows, macOS, Linux) with step-by-step instructions for each. Explain what each installed tool does and why it is needed. Include a 'Hello, World' snippet the learner can run immediately to verify the setup works. List the 2–3 most common setup errors and how to fix them."
+        }
+      ]
+    },
+    {
+      "title": "Core Syntax and Basic Concepts",
+      "summary": "Cover the fundamental building blocks of [LANGUAGE/FRAMEWORK]: how to store data, how to write valid statements, and how to read and write simple programs. The learner will finish this chapter able to declare variables, use basic data types, and perform common operations.",
+      "lessons": [
+        {
+          "title": "Variables and Data Types",
+          "content_markdown": "## Variables and Data Types\n\nExplain how [LANGUAGE/FRAMEWORK] stores data. Define what a variable is using an everyday analogy. List all primitive/basic data types available (e.g. numbers, text, booleans) with a one-sentence description of each. Show how to declare, assign, and reassign a variable with commented code examples. Explain any typing system (static, dynamic, strong, weak) in simple terms. Highlight 2–3 common mistakes beginners make with types in [LANGUAGE/FRAMEWORK]."
+        },
+        {
+          "title": "Operators and Expressions",
+          "content_markdown": "## Operators and Expressions\n\nCover all operator categories relevant to [LANGUAGE/FRAMEWORK]: arithmetic, comparison, logical, and assignment. For each category provide a table of operators with their meaning and a short code example. Explain operator precedence with a practical example showing why order matters. Show how to combine operators into meaningful expressions. Include a commented code snippet that uses multiple operator types together."
+        },
+        {
+          "title": "Comments and Code Readability",
+          "content_markdown": "## Comments and Code Readability\n\nTeach the learner how and when to write comments in [LANGUAGE/FRAMEWORK] (single-line and multi-line). Explain why readable code matters more than clever code. Show a before/after example of the same code — first unreadable, then refactored with good naming and comments. Introduce any code style guide or linting tool standard for [LANGUAGE/FRAMEWORK]."
+        }
+      ]
+    },
+    {
+      "title": "Control Flow",
+      "summary": "Teach the learner how to make decisions and repeat actions in [LANGUAGE/FRAMEWORK]. After this chapter the learner can write programs that branch on conditions and loop over data, which unlocks the ability to solve real logic problems.",
+      "lessons": [
+        {
+          "title": "Conditional Statements",
+          "content_markdown": "## Conditional Statements\n\nExplain how [LANGUAGE/FRAMEWORK] evaluates conditions and branches execution. Cover if, else if / elif / else (use the exact keywords for [LANGUAGE/FRAMEWORK]) with syntax and examples. Show nested conditions and warn about readability pitfalls. If [LANGUAGE/FRAMEWORK] has a switch/match/when statement, cover it here with a comparison to if-else. Provide a practical mini-program (e.g. a grade calculator or a simple menu) that uses conditionals."
+        },
+        {
+          "title": "Loops",
+          "content_markdown": "## Loops\n\nCover every loop construct available in [LANGUAGE/FRAMEWORK] (e.g. for, while, do-while, foreach, list comprehensions). For each loop type explain when to use it, show the syntax, and give a commented example. Demonstrate break, continue, and any loop-else equivalents. Show a common real-world use case (e.g. iterating over a list of user records). Warn about infinite loops and how to avoid them."
+        }
+      ]
+    },
+    {
+      "title": "Functions and Code Organization",
+      "summary": "Show the learner how to write reusable, well-organized code in [LANGUAGE/FRAMEWORK] using functions (or their equivalent). This chapter transforms scripts into structured programs and introduces the concept of keeping code DRY (Don't Repeat Yourself).",
+      "lessons": [
+        {
+          "title": "Defining and Calling Functions",
+          "content_markdown": "## Defining and Calling Functions\n\nExplain what a function is using a real-world analogy (e.g. a recipe). Show the exact syntax for defining a function in [LANGUAGE/FRAMEWORK]: name, parameters, body, and return value. Demonstrate calling a function with and without arguments. Cover default parameter values and keyword/named arguments if supported. Show a practical example (e.g. a function that formats a user's full name or calculates a discount)."
+        },
+        {
+          "title": "Scope and Variable Lifetime",
+          "content_markdown": "## Scope and Variable Lifetime\n\nDefine local and global scope in [LANGUAGE/FRAMEWORK] with clear visual examples. Explain what happens when a variable goes out of scope. Show examples of scope-related bugs beginners commonly write and how to fix them. If [LANGUAGE/FRAMEWORK] has closures, modules, or namespaces that affect scope, introduce them at a beginner level."
+        }
+      ]
+    },
+    {
+      "title": "Working with Data Structures",
+      "summary": "Introduce the most important built-in data structures in [LANGUAGE/FRAMEWORK] and teach the learner how to store, retrieve, and manipulate collections of data. This chapter is the bridge between toy programs and real applications.",
+      "lessons": [
+        {
+          "title": "Lists and Arrays",
+          "content_markdown": "## Lists and Arrays\n\nExplain what lists or arrays are in [LANGUAGE/FRAMEWORK], when they are the right tool, and how they differ from single variables. Define the core mental model: an ordered collection with positions, size, and repeated access by index. Show how to create a list, read values from it, replace values, insert new items, remove items, and iterate safely without breaking the data structure.\n\nCover indexing carefully, including zero-based or one-based indexing if the language uses it, and explain what happens when an index is out of range. If the language supports slicing, show the syntax and explain common slice patterns such as the first N items, the last N items, and subranges. If the language supports array methods, group them by purpose: adding items, removing items, searching, sorting, and transforming.\n\nUse a realistic example that grows across several steps, such as a to-do list, shopping cart, or playlist. Start with a simple list, then add a few operations that modify it, then print a formatted result. Explain why lists are useful for ordered data, repeated elements, and small-to-medium collections, but not ideal when you need fast lookup by name or unique keys.\n\nInclude common mistakes: confusing the list itself with one element, mutating the wrong index, assuming the collection updates itself when a copy is changed, and forgetting that loops depend on the current list length. End with a short practice task that asks the learner to build and modify a list on their own."
+        },
+        {
+          "title": "Key-Value Stores (Dictionaries / Maps / Objects)",
+          "content_markdown": "## Key-Value Stores\n\nExplain what a key-value structure is in [LANGUAGE/FRAMEWORK] using plain language: a collection where each value is reached by a meaningful key instead of a numeric position. Use the correct term for the language, such as dictionary, map, hash, object, or associative array, and explain why this structure is better than a list when the data has names, labels, or unique identifiers.\n\nShow how to create one from scratch and how to read values by key. Then demonstrate how to add new keys, update existing values, delete entries, check whether a key exists, and loop through keys, values, or key-value pairs. If the language has nested structures, show a simple nested example such as a user profile with contact details and preferences.\n\nBuild a practical example with realistic data, such as a user profile, inventory record, or word frequency counter. Walk through the example step by step so the learner can see how the structure changes over time. Explain when a key-value store is the best choice and when a list or set would be better.\n\nInclude common mistakes: using the wrong key type, assuming key order always matters, overwriting values by accident, and confusing missing keys with keys whose value is empty or null. End with a brief exercise that asks the learner to model a small piece of real-world data as a key-value structure."
+        },
+        {
+          "title": "Choosing the Right Data Structure",
+          "content_markdown": "## Choosing the Right Data Structure\n\nGive the learner a simple decision framework for picking the right structure in [LANGUAGE/FRAMEWORK]: when to use a list vs a key-value store vs a set vs a tuple (cover all types available). Use a comparison table. Present 3–4 real scenarios and ask the learner which structure fits best, then reveal the answer with an explanation."
+        }
+      ]
+    },
+    {
+      "title": "Object-Oriented or Modular Programming",
+      "summary": "Teach the dominant code organization paradigm of [LANGUAGE/FRAMEWORK] — whether that is object-oriented programming, module-based design, functional patterns, or component architecture. The learner will write their first multi-file or multi-unit program.",
+      "lessons": [
+        {
+          "title": "Core Paradigm of [LANGUAGE/FRAMEWORK]",
+          "content_markdown": "## Core Paradigm of [LANGUAGE/FRAMEWORK]\n\nExplain the primary paradigm(s) [LANGUAGE/FRAMEWORK] uses (OOP, functional, component-based, etc.) and why it was designed that way. Use a real-world analogy to make the abstract concept concrete. Show how the paradigm shapes the way code is written and organized. Compare briefly to an alternative approach so the learner understands the trade-offs."
+        },
+        {
+          "title": "Building Reusable Units (Classes / Modules / Components)",
+          "content_markdown": "## Building Reusable Units\n\nUsing the correct terminology and syntax for [LANGUAGE/FRAMEWORK] (class, module, component, service, etc.), show the learner how to define a reusable unit of code. Cover how to: define it, instantiate or import it, pass data into it, and get data out of it. Demonstrate a small but complete working example (e.g. a User class, a math utility module, or a Button component). Explain the single-responsibility principle in plain language."
+        }
+      ]
+    },
+    {
+      "title": "Error Handling and Debugging",
+      "summary": "Equip the learner to understand, handle, and prevent errors in [LANGUAGE/FRAMEWORK]. After this chapter the learner will no longer be blocked by cryptic error messages and will have a systematic approach to finding and fixing bugs.",
+      "lessons": [
+        {
+          "title": "Understanding and Handling Errors",
+          "content_markdown": "## Understanding and Handling Errors\n\nExplain the difference between syntax errors, runtime errors, and logic errors using simple examples in [LANGUAGE/FRAMEWORK]. Show how to read an error message and stack trace step by step. Demonstrate the error handling mechanism of [LANGUAGE/FRAMEWORK] (try/catch, try/except, Result type, etc.) with syntax and practical examples. Cover how to throw/raise a custom error. Show the 3–5 most common errors beginners encounter in [LANGUAGE/FRAMEWORK] and how to fix each one."
+        },
+        {
+          "title": "Debugging Techniques",
+          "content_markdown": "## Debugging Techniques\n\nTeach a repeatable debugging process: reproduce → isolate → hypothesize → test → fix. Show how to use print/log statements strategically. Introduce the built-in debugger or the most popular debugging tool for [LANGUAGE/FRAMEWORK] and walk through a step-by-step debugging session. Explain how to write a minimal reproducible example. Close with best practices for writing code that is easier to debug from the start."
+        }
+      ]
+    }
+  ]
+}
