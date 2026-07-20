@@ -32,7 +32,10 @@ class Settings(BaseSettings):
     #application 
 
     APP_PORT: int | None = None
-
+    # number of URLs per scrape batch
+    SCRAPED_IN_ONE_TIME: int = 3  
+    SearXNG_max_url : int = 3
+    
     #reading .env , stting the encoding to utf8
     model_config = SettingsConfigDict(
         env_file=".env",

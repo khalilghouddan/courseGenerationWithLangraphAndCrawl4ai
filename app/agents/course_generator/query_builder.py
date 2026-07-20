@@ -5,22 +5,47 @@
 #- Ask the LLM to generate focused, high-quality search queries for a lesson.
 
 from typing import List
-from pydantic import BaseModel, Field
 
 from app.services.llm import get_llm
 from app.utils.logger import log_message, log_info
 
 
-#structured output – guarantees exactly N clean query strings
-class SearchQueries(BaseModel):
-    queries: List[str] = Field(
-        description="List of 5 focused web search queries for the lesson. No placeholders like [SUBJECT]."
-    )
-
-
 def resolve_subject(text: str, subject: str) -> str:
     """Replace the [SUBJECT] template placeholder with the real subject."""
     return text.replace("[SUBJECT]", subject)
+
+
+def _parse_queries(raw: str) -> List[str]:
+    """
+    Parse LLM plain-text response into a clean list of query strings.
+    Strips numbering (1. 2. -), quotes, blank lines, and markdown formatting.
+    """
+    lines = []
+    for line in raw.splitlines():
+        line = line.strip()
+        if not line:
+            continue
+        #strip common list prefixes: "1.", "2.", "3.", "-", "*", "•"
+        for prefix in ("1.", "2.", "3.", "4.", "5.", "-", "*", "•"):
+            if line.startswith(prefix):
+                line = line[len(prefix):].strip()
+                break
+        #strip surrounding quotes if any
+        if (line.startswith('"') and line.endswith('"')) or (line.startswith("'") and line.endswith("'")):
+            line = line[1:-1].strip()
+        #skip lines that look like headers, descriptions, or list items
+        if (
+            line.startswith("#")
+            or len(line) < 5
+            or line.endswith(":")
+            or "Variable" in line
+            or "Este capítulo" in line
+            or "estudiantes podrán" in line
+            or "Al finalizar" in line
+        ):
+            continue
+        lines.append(line)
+    return lines
 
 
 def build_search_queries(
@@ -29,23 +54,15 @@ def build_search_queries(
     subject: str,
     course_title: str,
     previous_sources: List[str],
+    language: str = "English",
 ) -> List[str]:
     """
-    Generate 5 focused search queries for a lesson.
+    Generate exactly 3 focused search queries for a lesson.
 
     [SUBJECT] placeholders are resolved before the LLM sees them so
     queries are always about the real topic (e.g. Python, not [SUBJECT]).
-
-    Args:
-        lesson_title:      Raw lesson title (may contain [SUBJECT]).
-        lesson_objective:  Raw lesson objective/goal (may contain [SUBJECT]).
-        subject:           The real subject extracted from course metadata
-                           (e.g. "Python", "Database Design").
-        course_title:      Full course title for extra context.
-        previous_sources:  URLs already used so the LLM can avoid them.
-
-    Returns:
-        List of search query strings.
+    Uses plain llm.invoke() + manual parsing — more reliable than
+    with_structured_output for simple list generation.
     """
     #resolve placeholders
     resolved_title = resolve_subject(lesson_title, subject)
@@ -53,30 +70,34 @@ def build_search_queries(
 
     log_info("QUERY_BUILDER", "#00BCD4", f"Building queries | subject='{subject}' | lesson='{resolved_title}'")
 
-    prompt = f"""
-You are a research assistant helping build an online course about "{subject}".
+    prompt = f"""You are a search query generator.
 
-Course title: {course_title}
+Your ONLY task is to output exactly 3 web search queries, one per line.
+Do NOT write any explanations, headers, introductory sentences, lesson content, or markdown.
+Do NOT number the lines.
+Do NOT wrap the queries in quotes.
+Write all queries in {language}.
 
-You need to find web content for the following lesson:
+Context:
+- Subject: {subject}
+- Course: {course_title}
+- Lesson: {resolved_title}
+- Goal: {resolved_objective}
+- Language: {language}
+- Avoid these already-searched sources: {previous_sources if previous_sources else "none"}
 
-Lesson title:
-{resolved_title}
-
-Learning objective:
-{resolved_objective}
-
-Already searched sources (avoid these):
-{previous_sources if previous_sources else "None"}
-
-Generate exactly 5 focused, specific web search queries that will find
-the best content to write this lesson. Use the real subject name "{subject}"
-in every query — never use placeholder text like [SUBJECT].
-"""
+Output exactly 3 search queries in {language}, one per line, nothing else:"""
 
     with log_message("QUERY_BUILDER", "#00BCD4", f"LLM generating queries for: '{resolved_title}'"):
-        response = get_llm().with_structured_output(SearchQueries).invoke(prompt)
+        response = get_llm().invoke(prompt)
 
-    queries = response.queries
+    queries = _parse_queries(response.content)
+
+    # Make sure we only have queries
+    queries = [q for q in queries if len(q.split()) > 1]
+
+    if not queries:
+        queries = [f"{subject} {resolved_title}"]
+
     log_info("QUERY_BUILDER", "#00BCD4", f"Generated {len(queries)} queries: {queries}")
-    return queries
+    return queries[:3]  # cap at 3

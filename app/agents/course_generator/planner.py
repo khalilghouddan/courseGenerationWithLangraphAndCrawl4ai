@@ -11,6 +11,7 @@ from copy import deepcopy
 
 from app.models.state import CourseState
 from app.utils.logger import log_message
+from app.agents.course_generator.query_builder import resolve_subject
 
 
 def _initialize_indexes(state: CourseState) -> None:
@@ -38,21 +39,28 @@ def planner_node(state: CourseState) -> CourseState:
 
     chapter, lesson = _current_lesson(state)
 
-    chapter_title = chapter.get("title", "")
-    lesson_title = lesson.get("title", "")
+    #resolve [SUBJECT] placeholder using the real subject from metadata
+    subject = state.metadata.get("primary_subcategory_title") or state.metadata.get("title", "the subject")
+    chapter_title = resolve_subject(chapter.get("title", ""), subject)
+    lesson_title = resolve_subject(lesson.get("title", ""), subject)
+    chapter_summary = resolve_subject(chapter.get("summary", ""), subject)
+    lesson_goal = resolve_subject(
+        lesson.get("content_markdown", lesson.get("title", "")),
+        subject,
+    )
 
     log_info(
         "PLANNER",
         "#FF5722",
-        f"Planning Chapter {state.current_chapter + 1}/{total_chapters} | Lesson {state.current_lesson + 1} ",
+        f"Planning Chapter {state.current_chapter + 1}/{total_chapters} | Lesson {state.current_lesson + 1} | '{lesson_title}'",
     )
     state.current_lesson_plan = {
         "chapter_index": state.current_chapter,
         "lesson_index": state.current_lesson,
         "chapter_title": chapter_title,
-        "chapter_summary": chapter.get("summary", ""),
+        "chapter_summary": chapter_summary,
         "title": lesson_title,
-        "goal": lesson.get("content_markdown", lesson.get("title", "")),
+        "goal": lesson_goal,
     }
 
     state.current_research = []

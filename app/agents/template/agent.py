@@ -31,8 +31,6 @@ def select_template(state: CourseState) -> CourseState:
     #Fetch candidate templates via selector
     candidates = get_templates_by_language(language)
 
-    print(candidates)
-
     if not candidates:
         raise ValueError("No templates found in the database.")
 
