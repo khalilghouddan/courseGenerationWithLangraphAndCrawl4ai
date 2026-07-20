@@ -80,8 +80,8 @@ def select_template(state: CourseState) -> CourseState:
     log_message(
         "TEMPLATE_AGENT",
         "#FF9800",
-        f"Selected Template ID: {selected_id} | Selected Template Reason: {reason}",
-    )
+        f"Selected Template ID: {full_template.id} |  Selected Template Title: {full_template.title}  | Selected Template Reason: {reason}",   
+        )
 
 
     return state

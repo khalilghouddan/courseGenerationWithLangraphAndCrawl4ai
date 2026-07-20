@@ -1,12 +1,12 @@
-"""
-Mermaid Generator Node
+### Mermaid Generator Node
 
-Responsibilities:
-- Generate a Mermaid diagram if the lesson requires one.
-"""
+# Responsibilities:
+# - Generate a Mermaid diagram if the lesson requires one.
 
 from langchain_core.runnables import Runnable
 from app.models.state import CourseState
+from app.services.llm import get_llm
+from app.utils.helpers import strip_markdown_fences
 
 
 def build_mermaid_agent() -> Runnable:
@@ -29,16 +29,11 @@ Description:
 """
         
         # Use LLM to generate the diagram code
-        response = state.llm.invoke(system_prompt)
-        mermaid_code = response.content.strip()
-        
-        # Remove markdown blocks if the LLM hallucinated them
-        if mermaid_code.startswith("```mermaid"):
-            mermaid_code = mermaid_code[len("```mermaid"):].strip()
-        if mermaid_code.startswith("```"):
-            mermaid_code = mermaid_code[len("```"):].strip()
-        if mermaid_code.endswith("```"):
-            mermaid_code = mermaid_code[:-3].strip()
+        response = get_llm().invoke(system_prompt)
+        mermaid_code = strip_markdown_fences(response.content)
+        #strip "mermaid" language tag if present after fence removal
+        if mermaid_code.startswith("mermaid"):
+            mermaid_code = mermaid_code[len("mermaid"):].strip()
 
         # Format as markdown block
         markdown_diagram = f"\n\n```mermaid\n{mermaid_code}\n```\n\n"

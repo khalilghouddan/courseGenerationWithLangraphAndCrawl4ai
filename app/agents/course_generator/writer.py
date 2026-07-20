@@ -1,15 +1,16 @@
-"""
-Course Writer Agent
+### Course Writer Agent
 
-Responsibilities:
-- Generate the Markdown content for the current lesson.
-- Use only the research collected by the Researcher.
-- Decide whether a Mermaid diagram would improve the lesson.
-"""
+# Responsibilities:
+# - Generate the Markdown content for the current lesson.
+# - Use only the research collected by the Researcher.
+# - Decide whether a Mermaid diagram would improve the lesson.
+
+
 
 from langchain_core.runnables import Runnable
 
 from app.models.state import CourseState
+from app.services.llm import get_llm
 
 
 def build_writer_agent() -> Runnable:
@@ -49,17 +50,17 @@ Lesson Goal:
 {lesson["goal"]}
 
 Course Title:
-{metadata.title}
+{metadata["title"]}
 
 Difficulty:
-{metadata.level}
+{metadata["difficulty"]}
 
 Research:
 
 {research}
 """
 
-        response = state.llm.with_structured_output(
+        response = get_llm().with_structured_output(
             {
                 "name": "LessonOutput",
                 "schema": {

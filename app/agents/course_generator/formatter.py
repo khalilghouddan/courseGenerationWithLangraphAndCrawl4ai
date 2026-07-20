@@ -85,7 +85,7 @@ def _update_metadata(state: CourseState) -> None:
     Update template metadata.
     """
 
-    metadata = state.template["metadata"]
+    metadata = state.template.setdefault("metadata", {})
 
     metadata["has_content"] = True
 

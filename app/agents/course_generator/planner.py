@@ -1,12 +1,11 @@
-"""
-Course Planner Agent
+### Course Planner Agent
 
-Responsibilities:
-- Read the selected course template.
-- Determine the next lesson to generate.
-- Build a structured lesson plan for downstream agents.
-- Advance through chapters and lessons.
-"""
+# Responsibilities:
+# - Read the selected course template.
+# - Determine the next lesson to generate.
+# - Build a structured lesson plan for downstream agents.
+# - Advance through chapters and lessons.
+
 
 from copy import deepcopy
 
