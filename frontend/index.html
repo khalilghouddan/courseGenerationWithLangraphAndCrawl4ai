@@ -869,32 +869,40 @@
         try {
           let cleanCode = code.replace(/\\r\\n/g, '\n').replace(/\\n/g, '\n').trim();
           
-          // Match and escape node text labels in rect nodes id[text]
-          cleanCode = cleanCode.replace(/([a-zA-Z0-9_-]+)\s*\[\s*([^"\r\n\]]+)\s*\]/g, (match, id, text) => {
-            const escapedText = text.replace(/</g, '&lt;').replace(/>/g, '&gt;');
-            return `${id}["${escapedText}"]`;
-          });
+          // Translate invalid erDiagram attribute syntax: Entity: Att1, Att2 -> Entity { string Att1 \n string Att2 }
+          if (cleanCode.includes('erDiagram')) {
+            cleanCode = cleanCode.replace(/^[ \t]*([a-zA-Z0-9_-]+)[ \t]*:[ \t]*(.+)$/gm, (match, entity, attrList) => {
+              const attrs = attrList.split(',').map(a => a.trim()).filter(Boolean);
+              const formattedAttrs = attrs.map(a => {
+                if (a.includes(' ') || a.includes('\t')) {
+                  return `    ${a}`;
+                }
+                return `    string ${a}`;
+              });
+              return `${entity} {\n` + formattedAttrs.join('\n') + '\n}';
+            });
+          }
+
+          const escapeText = (text) => text.replace(/</g, '&lt;').replace(/>/g, '&gt;');
           
-          // Match and escape node text labels in rhombus nodes id{text}
-          cleanCode = cleanCode.replace(/([a-zA-Z0-9_-]+)\s*\{\s*([^"\r\n\}]+)\s*\}/g, (match, id, text) => {
-            const escapedText = text.replace(/</g, '&lt;').replace(/>/g, '&gt;');
-            return `${id}\{"${escapedText}"\}`;
-          });
-
-          // Match and escape node text labels in round nodes id(text)
-          cleanCode = cleanCode.replace(/([a-zA-Z0-9_-]+)\s*\(\s*([^"\r\n\)]+)\s*\)/g, (match, id, text) => {
-            if (id === 'click' || id === 'style' || id === 'linkStyle' || id === 'classDef' || id === 'class') {
-              return match;
-            }
-            const escapedText = text.replace(/</g, '&lt;').replace(/>/g, '&gt;');
-            return `${id}("${escapedText}")`;
-          });
-
-          // Match and escape node text labels in stadium nodes id([text])
-          cleanCode = cleanCode.replace(/([a-zA-Z0-9_-]+)\s*\(\[\s*([^"\r\n\]]+)\s*\]\)/g, (match, id, text) => {
-            const escapedText = text.replace(/</g, '&lt;').replace(/>/g, '&gt;');
-            return `${id}(\["${escapedText}"\])`;
-          });
+          cleanCode = cleanCode
+            .replace(/([a-zA-Z0-9_-]+)\s*\[\s*([^"\r\n\]]+)\s*\]/g, (m, id, text) => `${id}["${escapeText(text)}"]`)
+            .replace(/([a-zA-Z0-9_-]+)\s*\{\s*([^"\r\n\}]+)\s*\}/g, (m, id, text) => `${id}{"${escapeText(text)}"}`)
+            .replace(/([a-zA-Z0-9_-]+)\s*\(\s*([^"\r\n\)]+)\s*\)/g, (match, id, text, offset, string) => {
+              const beforeMatch = string.slice(0, offset);
+              const lastLine = beforeMatch.slice(beforeMatch.lastIndexOf('\n') + 1);
+              const quoteCount = (lastLine.match(/"/g) || []).length;
+              if (quoteCount % 2 !== 0) return match; // skip if inside quotes
+              if (id === 'click' || id === 'style' || id === 'linkStyle' || id === 'classDef' || id === 'class') return match;
+              return `${id}("${escapeText(text)}")`;
+            })
+            .replace(/([a-zA-Z0-9_-]+)\s*\(\[\s*([^"\r\n\]]+)\s*\]\)/g, (match, id, text, offset, string) => {
+              const beforeMatch = string.slice(0, offset);
+              const lastLine = beforeMatch.slice(beforeMatch.lastIndexOf('\n') + 1);
+              const quoteCount = (lastLine.match(/"/g) || []).length;
+              if (quoteCount % 2 !== 0) return match; // skip if inside quotes
+              return `${id}(["${escapeText(text)}"])`;
+            });
 
           ref.current.textContent = cleanCode;
           ref.current.removeAttribute('data-processed');
