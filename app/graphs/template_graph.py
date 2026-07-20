@@ -25,6 +25,7 @@ def select_template(state: CourseState) -> CourseState:
 def validate_template(state: CourseState) -> CourseState:
     if not state.template:
         raise ValueError("Template selection failed.")
+    print("the template is in the state")
     return state
 
 

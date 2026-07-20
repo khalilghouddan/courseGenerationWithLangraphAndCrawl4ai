@@ -12,13 +12,13 @@ from app.utils.logger import log_message
 def get_all_templates():
 
     #logs
-    with log_message("DATABASE", "#0000F9", "SELECT id, title, language, description, created_at FROM course_templates"):
+    with log_message("DATABASE", "#0000F9", "SELECT id, title, language, description  FROM course_templates"):
         #get db connection
         conn = get_db_connection()
         # create db cursor
         cursor = conn.cursor(cursor_factory=DictCursor)
         # execute the query
-        cursor.execute("SELECT id, title, language, description, created_at FROM course_templates")
+        cursor.execute("SELECT id, title, language, description  FROM course_templates")
         #fetch all the results
         rows = cursor.fetchall()
         #close the cursor

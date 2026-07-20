@@ -30,6 +30,7 @@ def select_template(state: CourseState) -> CourseState:
 
     #Fetch candidate templates via selector
     candidates = get_templates_by_language(language)
+
     if not candidates:
         raise ValueError("No templates found in the database.")
 
@@ -72,13 +73,15 @@ def select_template(state: CourseState) -> CourseState:
     if not full_template:
         raise ValueError(f"Template with ID '{selected_id}' returned by LLM was not found in the database.")
 
-    state.template = dict(full_template)
+    #store only the JSONB template content (chapters, metadata…)
+    #the DB row wraps it under the "template" column key
+    state.template = dict(full_template)["template"]
 
-    with log_message(
+    log_message(
         "TEMPLATE_AGENT",
         "#FF9800",
-        f"Selected Template ID: {state.template['id']} |  Selected Template Title: {state.template['title']}  | Selected Template Reason: {reason}",
-    ):
-        pass
+        f"Selected Template ID: {selected_id} | Selected Template Reason: {reason}",
+    )
+
 
     return state
