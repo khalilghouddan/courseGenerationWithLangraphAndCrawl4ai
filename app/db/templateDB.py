@@ -30,6 +30,7 @@ def get_all_templates():
 
 #fuction to get a single template by id 
 def select_template_by_id(template_id: str):
+    
     #logs
     with log_message("DATABASE", "#0000F9", f"SELECT * FROM course_templates WHERE id = '{template_id}'"):
         #get db connection

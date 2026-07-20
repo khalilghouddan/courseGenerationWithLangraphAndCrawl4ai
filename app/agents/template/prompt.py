@@ -1,26 +1,16 @@
-"""
-Template Selection Prompt
+### Template Selection Prompt
 
-Responsibilities:
-- Build the prompt used by the Template Agent.
-- Present only the candidate templates.
-- Ask the LLM to return the best template ID.
-"""
+# Responsibilities:
+#- Build the prompt used by the Template Agent.
+#- Present only the candidate templates.
+#- Ask the LLM to return the best template ID.
+
 
 from textwrap import dedent
 
-
+#function to build the template prompt
 def build_template_prompt(metadata, templates) -> str:
-    """
-    Build a prompt for template selection.
-
-    Args:
-        metadata: Course metadata containing title, topic, difficulty, etc.
-        templates: List of CourseTemplate objects to choose from
-
-    Returns:
-        Prompt string for LLM to select the best template
-    """
+    
     template_list = []
 
     for template in templates:
