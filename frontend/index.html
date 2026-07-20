@@ -17,6 +17,8 @@
   <!-- Highlight.js for code syntax highlighting -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <!-- Mermaid.js for diagram rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
 
   <style>
     /* ─── Design Tokens ─── */
@@ -625,6 +627,61 @@
 
     .md hr { border: none; border-top: 1px solid var(--border); margin: 28px 0; }
 
+    /* ─── Mermaid Diagram Block ─── */
+    .mermaid-block {
+      margin: 28px 0;
+      background: rgba(8, 12, 24, 0.85);
+      border: 1px solid rgba(99,102,241,0.2);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .mermaid-label {
+      padding: 8px 18px;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent);
+      background: rgba(99,102,241,0.06);
+      border-bottom: 1px solid rgba(99,102,241,0.15);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .mermaid-wrap {
+      padding: 28px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 120px;
+    }
+
+    .mermaid-wrap svg {
+      max-width: 100%;
+      height: auto;
+      /* make mermaid SVG text and lines visible on dark bg */
+      filter: invert(0);
+    }
+
+    /* Force mermaid dark-friendly colours */
+    .mermaid-wrap .label { color: var(--text) !important; }
+    .mermaid-wrap .node rect,
+    .mermaid-wrap .node circle,
+    .mermaid-wrap .node polygon { fill: rgba(99,102,241,0.15) !important; stroke: rgba(99,102,241,0.5) !important; }
+    .mermaid-wrap .edgePath .path { stroke: var(--text-muted) !important; }
+    .mermaid-wrap text { fill: var(--text) !important; }
+
+    .mermaid-error {
+      padding: 16px 20px;
+      color: var(--text-muted);
+      font-size: 13px;
+      font-family: 'JetBrains Mono', monospace;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+
     /* ─── Objectives Panel ─── */
     .objectives-panel {
       margin-bottom: 30px;
@@ -735,6 +792,28 @@
   <script type="text/babel">
     const { useState, useEffect, useRef, useCallback } = React;
 
+    /* ── Initialise Mermaid with dark theme ── */
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: 'dark',
+      themeVariables: {
+        darkMode: true,
+        background: '#07090f',
+        primaryColor: '#6366f1',
+        primaryTextColor: '#f1f5f9',
+        primaryBorderColor: '#4f46e5',
+        lineColor: '#64748b',
+        secondaryColor: '#1e1b4b',
+        tertiaryColor: '#0e1425',
+        clusterBkg: '#0e1425',
+        titleColor: '#f1f5f9',
+        edgeLabelBackground: '#0e1425',
+        nodeTextColor: '#f1f5f9',
+      },
+      securityLevel: 'loose',
+      fontFamily: 'Inter, sans-serif',
+    });
+
     /* ── SVG Icons ── */
     const Icon = {
       book: (
@@ -778,26 +857,211 @@
       ),
     };
 
-    /* ── Markdown renderer with highlight.js ── */
-    function MarkdownView({ content }) {
+    /* ── Mermaid diagram block ── */
+    function MermaidDiagram({ code }) {
       const ref = useRef(null);
+      const [error, setError] = React.useState(null);
+
       useEffect(() => {
-        if (ref.current) {
-          ref.current.querySelectorAll('pre code').forEach(el => hljs.highlightElement(el));
+        if (!ref.current || !code.trim()) return;
+        setError(null);
+        
+        try {
+          let cleanCode = code.replace(/\\r\\n/g, '\n').replace(/\\n/g, '\n').trim();
+          
+          // Match and escape node text labels in rect nodes id[text]
+          cleanCode = cleanCode.replace(/([a-zA-Z0-9_-]+)\s*\[\s*([^"\r\n\]]+)\s*\]/g, (match, id, text) => {
+            const escapedText = text.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            return `${id}["${escapedText}"]`;
+          });
+          
+          // Match and escape node text labels in rhombus nodes id{text}
+          cleanCode = cleanCode.replace(/([a-zA-Z0-9_-]+)\s*\{\s*([^"\r\n\}]+)\s*\}/g, (match, id, text) => {
+            const escapedText = text.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            return `${id}\{"${escapedText}"\}`;
+          });
+
+          // Match and escape node text labels in round nodes id(text)
+          cleanCode = cleanCode.replace(/([a-zA-Z0-9_-]+)\s*\(\s*([^"\r\n\)]+)\s*\)/g, (match, id, text) => {
+            if (id === 'click' || id === 'style' || id === 'linkStyle' || id === 'classDef' || id === 'class') {
+              return match;
+            }
+            const escapedText = text.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            return `${id}("${escapedText}")`;
+          });
+
+          // Match and escape node text labels in stadium nodes id([text])
+          cleanCode = cleanCode.replace(/([a-zA-Z0-9_-]+)\s*\(\[\s*([^"\r\n\]]+)\s*\]\)/g, (match, id, text) => {
+            const escapedText = text.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            return `${id}(\["${escapedText}"\])`;
+          });
+
+          ref.current.textContent = cleanCode;
+          ref.current.removeAttribute('data-processed');
+          mermaid.run({
+            nodes: [ref.current]
+          }).catch(err => {
+            console.error("Mermaid rendering error:", err);
+            setError(String(err));
+          });
+        } catch (err) {
+          console.error("Mermaid render try-catch error:", err);
+          setError(String(err));
         }
-      }, [content]);
+      }, [code]);
+
+      return (
+        <div className="mermaid-block">
+          <div className="mermaid-label">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
+            </svg>
+            Diagram
+          </div>
+          <div className="mermaid-wrap">
+            {error
+              ? <div className="mermaid-error">⚠ Could not render diagram:<br/>{error}</div>
+              : <div ref={ref} className="mermaid" />
+            }
+          </div>
+        </div>
+      );
+    }
+
+    /* ── Extract markdown from JSON if double-serialized ── */
+    function extractMarkdown(content) {
+      if (!content) return "";
+      let raw = content.trim();
+      if (raw.startsWith('{')) {
+        try {
+          const parsed = JSON.parse(raw);
+          if (parsed.markdown) return parsed.markdown;
+          if (parsed.content) return parsed.content;
+        } catch (e) {
+          // If standard JSON parsing fails, fallback to regex extraction of the markdown value
+          const match = raw.match(/"markdown"\s*:\s*"([\s\S]*?)"\s*(?:,\s*"[a-zA-Z0-9_]+"|,\s*"needs_mermaid"|\})/);
+          if (match) {
+            try {
+              return JSON.parse('"' + match[1] + '"');
+            } catch (err) {
+              return match[1]
+                .replace(/\\r\\n/g, '\n')
+                .replace(/\\n/g, '\n')
+                .replace(/\\t/g, '\t')
+                .replace(/\\"/g, '"')
+                .replace(/\\\\/g, '\\');
+            }
+          }
+        }
+      }
+      return raw;
+    }
+
+    /* ── Split markdown into text and mermaid segments ── */
+    function parseSegments(raw) {
+      const segments = [];
+      
+      // 1. Identify fenced code blocks starting with diagram keywords
+      const fencedRe = /```(mermaid|flowchart|erDiagram|graph|sequenceDiagram|classDiagram|stateDiagram|gantt|pie|gitGraph|mindmap|timeline)\s*([\s\S]*?)```/g;
+      
+      let processed = raw;
+      const placeholders = [];
+      let match;
+      
+      while ((match = fencedRe.exec(processed)) !== null) {
+        const placeholder = `__FENCED_MERMAID_PLACEHOLDER_${placeholders.length}__`;
+        const code = match[2].trim();
+        const diagramCode = match[1] === 'mermaid' ? code : `${match[1]}\n${code}`;
+        placeholders.push({ placeholder, type: 'mermaid', content: diagramCode });
+      }
+      
+      let placeholderIdx = 0;
+      processed = processed.replace(fencedRe, () => {
+        return placeholders[placeholderIdx++].placeholder;
+      });
+
+      // 2. Match un-fenced diagrams in the text (safe diagram keywords at the beginning of a line)
+      const unfencedRe = /(?:^|\n)(flowchart\s+[a-zA-Z]{2}|graph\s+[a-zA-Z]{2}|erDiagram|sequenceDiagram|classDiagram|stateDiagram-v2|stateDiagram|gantt|gitGraph|mindmap|timeline)([\s\S]*?)(?=\n\n|\n#|\n---|$)/g;
+      
+      const unfencedPlaceholders = [];
+      while ((match = unfencedRe.exec(processed)) !== null) {
+        const placeholder = `__UNFENCED_MERMAID_PLACEHOLDER_${unfencedPlaceholders.length}__`;
+        const diagramCode = (match[1] + match[2]).trim();
+        unfencedPlaceholders.push({ placeholder, type: 'mermaid', content: diagramCode });
+      }
+      
+      let unfencedIdx = 0;
+      processed = processed.replace(unfencedRe, (fullMatch) => {
+        const leadingNewline = fullMatch.startsWith('\n') ? '\n' : '';
+        return leadingNewline + unfencedPlaceholders[unfencedIdx++].placeholder;
+      });
+
+      const allPlaceholders = [...placeholders, ...unfencedPlaceholders];
+
+      if (allPlaceholders.length === 0) {
+        segments.push({ type: 'md', content: processed });
+        return segments;
+      }
+
+      const splitRe = new RegExp(`(${allPlaceholders.map(p => p.placeholder).join('|')})`, 'g');
+      let last = 0;
+      while ((match = splitRe.exec(processed)) !== null) {
+        if (match.index > last) {
+          segments.push({ type: 'md', content: processed.slice(last, match.index) });
+        }
+        const placeholderObj = allPlaceholders.find(p => p.placeholder === match[1]);
+        if (placeholderObj) {
+          segments.push({ type: 'mermaid', content: placeholderObj.content });
+        }
+        last = splitRe.lastIndex;
+      }
+      if (last < processed.length) {
+        segments.push({ type: 'md', content: processed.slice(last) });
+      }
+
+      return segments;
+    }
+
+    /* ── Markdown renderer with Mermaid + highlight.js ── */
+    function MarkdownView({ content }) {
+      const mdRef = useRef(null);
+
+      // highlight code blocks after every render
+      useEffect(() => {
+        if (mdRef.current) {
+          mdRef.current.querySelectorAll('pre code:not(.hljs)').forEach(el => hljs.highlightElement(el));
+        }
+      });
 
       if (!content) return <p style={{ color: 'var(--text-muted)' }}>No content available.</p>;
 
-      let md = content.trim();
-      if (!md.startsWith('#')) md = '# ' + md.split('\n')[0] + '\n\n' + md;
+      // Extract markdown from JSON wrapper if present
+      let raw = extractMarkdown(content);
+      
+      // Normalize any literal escaped newlines to actual newlines
+      raw = raw.replace(/\\r\\n/g, '\n').replace(/\\n/g, '\n').trim();
+      // ensure the first line is treated as a heading if there isn't one
+      if (!raw.startsWith('#')) raw = '# ' + raw.split('\n')[0] + '\n\n' + raw;
+
+      const segments = parseSegments(raw);
 
       return (
-        <div
-          ref={ref}
-          className="md"
-          dangerouslySetInnerHTML={{ __html: marked.parse(md) }}
-        />
+        <div ref={mdRef}>
+          {segments.map((seg, i) => {
+            if (seg.type === 'mermaid') {
+              return <MermaidDiagram key={i} code={seg.content} />;
+            }
+            const html = marked.parse(seg.content || '');
+            return (
+              <div
+                key={i}
+                className="md"
+                dangerouslySetInnerHTML={{ __html: html }}
+              />
+            );
+          })}
+        </div>
       );
     }
 
