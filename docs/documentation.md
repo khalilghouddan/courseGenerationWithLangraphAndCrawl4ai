@@ -1,11 +1,11 @@
 # 📚 Documentation du Projet
 
-## 🎓 Page de garde
+## Page de garde
 
-**Nom du projet :** Course Generation with LangGraph and Crawl4ai 🤖
-**Auteur :** GHOUDDAN Khalilo 👨‍💻
-**Encadrant :** AKKOH Mouhssine 👨‍🏫
-**Date :** Juillet 2026 📅
+**Nom du projet :** Course Generation with LangGraph and Crawl4ai 
+**Auteur :** GHOUDDAN Khalil
+**Encadrant :** AKKOH Mouhssine 
+**Date :** Juillet 2026 
 
 ---
 
@@ -44,7 +44,7 @@ La création de supports pédagogiques de qualité est un processus manuel long 
 
 ---
 
-## 2. 🏗️ Architecture globale
+## 2. Architecture globale
 
 ### Diagramme d'architecture
 ```mermaid
@@ -75,7 +75,7 @@ graph TD
 
 ---
 
-## 3. 📂 Structure du projet
+## 3. Structure du projet
 
 Le code est organisé de manière modulaire pour séparer clairement les responsabilités (API, logique d'agents, accès aux données). Voici la structure détaillée :
 
@@ -112,7 +112,7 @@ Le code est organisé de manière modulaire pour séparer clairement les respons
 
 ---
 
-## 4. 🤖 Description des agents
+## 4. Description des agents
 
 Le système repose sur un graphe principal appelant trois phases, dont la dernière est un sous-graphe complexe d'agents.
 
@@ -135,7 +135,7 @@ Le sous-graphe orchestre la création itérative du contenu pour chaque leçon d
 
 ---
 
-## 5. 🔄 Workflow LangGraph
+## 5. Workflow LangGraph
 
 ### Diagramme du workflow
 ```mermaid
@@ -243,7 +243,7 @@ erDiagram
 
 ---
 
-## 7. 🔌 API
+## 7. API
 
 ### Endpoints
 Exposés via FastAPI :
@@ -252,7 +252,7 @@ Exposés via FastAPI :
 
 ---
 
-## 8. ⚙️ Installation
+## 8. Installation
 
 ### Prérequis
 - Python 3.10 ou supérieur.
@@ -274,7 +274,7 @@ uv sync
 
 ---
 
-## 9. ▶️ Exécution
+## 9. Exécution
 
 ### Exécution Locale (sans Docker)
 1. **Synchroniser les dépendances** : 
@@ -308,7 +308,7 @@ Si vous préférez utiliser Docker pour encapsuler l'application complète :
 
 ---
 
-## 10. 🧪 Tests
+## 10. Tests
 L'infrastructure de test repose sur `pytest` dans le dossier `tests/`.
 ```bash
 uv run pytest
@@ -316,13 +316,13 @@ uv run pytest
 
 ---
 
-## 11. ⚠️ Limitations
+## 11. Limitations
 - Temps d'exécution proportionnel à la taille du syllabus.
 - Limites de l'API LLM (Rate Limits).
 
 ---
 
-## 12. 🔮 Améliorations futures
+## 12. Améliorations futures
 - Processus Human-in-the-loop (HITL) entre la génération du plan et la rédaction.
 - Export Multi-formats (PDF, Word, etc.).
 - Ajout d'un "Quiz Agent".
