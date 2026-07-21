@@ -1,0 +1,185 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset=utf-8>
+    <meta name=viewport content='width=device-width,initial-scale=1'>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            background: #0b1220;
+            color: #e5e7eb;
+            font-family: Inter, sans-serif;
+            zoom: 0.9;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            background: #111827;
+            padding: 20px 40px;
+            border-bottom: 1px solid #334155;
+            z-index: 1000;
+        }
+
+        article {
+            max-width: 1100px;
+            margin: 40px auto;
+            background: #111827;
+            padding: 50px;
+            border-radius: 16px
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: #fff
+        }
+
+        p,
+        li {
+            line-height: 1.7
+        }
+
+        pre {
+            background: #020617;
+            color: #cbd5e1;
+            padding: 16px;
+            border-radius: 10px;
+            overflow: auto
+        }
+
+        code {
+            font-family: Consolas, monospace
+        }
+
+        table {
+            color: #e5e7eb
+        }
+
+        a {
+            color: #60a5fa
+        }
+
+        blockquote {
+            border-left: 4px solid #3b82f6;
+            padding-left: 15px;
+            color: #cbd5e1
+        }
+
+        .mermaid-wrapper {
+            background: #111827;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 20px 0;
+            position: relative;
+            overflow: auto;
+        }
+
+        .mermaid-controls {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 10;
+        }
+
+        .mermaid-controls button {
+            background: #3b82f6;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 5px;
+            font-size: 14px;
+        }
+
+        .mermaid-controls button:hover {
+            background: #2563eb;
+        }
+
+        .mermaid {
+            display: flex;
+            justify-content: center;
+            overflow: visible;
+        }
+
+        .mermaid svg {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: auto;
+            transition: width 0.2s ease, max-width 0.2s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>📘 Course Generation Documentation</h1>
+    </header>
+    <article id=c></article>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: false, theme: 'dark', securityLevel: 'loose' });
+        const md = "# \ud83d\udcda Documentation du Projet\n\n## \ud83c\udf93 Page de garde\n\n**Nom du projet :** Course Generation with LangGraph and Crawl4ai \ud83e\udd16\n**Auteur :** GHOUDDAN Khalil \ud83d\udc68\u200d\ud83d\udcbb\n**Encadrant :** AKKOH Mouhssine \ud83d\udc68\u200d\ud83c\udfeb\n**Date :** Juillet 2026 \ud83d\udcc5\n\n---\n\n## \ud83d\udcd1 Table des mati\u00e8res\n1. [Pr\u00e9sentation du projet](#pr\u00e9sentation-du-projet)\n2. [Architecture globale](#architecture-globale)\n3. [Structure du projet](#structure-du-projet)\n4. [Description des agents](#description-des-agents)\n5. [Workflow LangGraph](#workflow-langgraph)\n6. [Base de donn\u00e9es](#base-de-donn\u00e9es)\n7. [API](#api)\n8. [Installation](#installation)\n9. [Ex\u00e9cution](#ex\u00e9cution)\n10. [Tests](#tests)\n11. [Limitations](#limitations)\n12. [Am\u00e9liorations futures](#am\u00e9liorations-futures)\n\n---\n\n## 1. \ud83d\ude80 Pr\u00e9sentation du projet\n\n### Objectif\nLe but de ce projet est d'automatiser la conception et la g\u00e9n\u00e9ration de cours de mani\u00e8re intelligente. En exploitant des mod\u00e8les de langage avanc\u00e9s orchestr\u00e9s par LangGraph, et en enrichissant les informations via le scraping de Crawl4ai, l'application produit des supports de cours complets, structur\u00e9s et pertinents.\n\n### Probl\u00e8me r\u00e9solu\nLa cr\u00e9ation de supports p\u00e9dagogiques de qualit\u00e9 est un processus manuel long et r\u00e9p\u00e9titif (recherche de sources, structuration du plan, r\u00e9daction du contenu, mise en forme). Cette application r\u00e9sout ce probl\u00e8me en automatisant enti\u00e8rement ou partiellement ce workflow, offrant ainsi un gain de temps consid\u00e9rable pour les formateurs, professeurs et concepteurs p\u00e9dagogiques.\n\n### Technologies utilis\u00e9es\n- **Python** : Langage principal du backend.\n- **LangGraph** : Framework de cr\u00e9ation de workflows bas\u00e9s sur des graphes (state graphs) pour orchestrer les agents IA avec gestion de l'\u00e9tat.\n- **LangSmith** : Plateforme d'observabilit\u00e9 utilis\u00e9e pour tracer, d\u00e9bugger et surveiller l'ex\u00e9cution des agents LangGraph et les appels aux LLMs en temps r\u00e9el.\n- **Crawl4ai** : Outil d'extraction de contenu web et de scraping pour sourcer les informations des cours.\n- **FastAPI** : Framework backend asynchrone ultra-performant pour exposer le syst\u00e8me via une API REST.\n- **Docker** : Conteneurisation de l'environnement pour garantir la portabilit\u00e9 et simplifier les d\u00e9ploiements.\n- **uv** : Gestionnaire d'environnement et de d\u00e9pendances Python, r\u00e9put\u00e9 pour sa rapidit\u00e9 d'ex\u00e9cution.\n\n---\n\n## 2. \ud83c\udfd7\ufe0f Architecture globale\n\n### Diagramme d'architecture\n```mermaid\ngraph TD\n    Client[Client / Interface Web] -->|Requ\u00eates HTTP / API| API[API FastAPI]\n    API -->|Initie Workflow| MainGraph[Graphe Principal LangGraph]\n    \n    MainGraph --> MetadataAgent[Metadata Agent]\n    MainGraph --> TemplateAgent[Template Agent]\n    MainGraph --> CourseGraph[Course Generation Subgraph]\n    \n    CourseGraph --> Planner[Planner Agent]\n    CourseGraph --> Researcher[Researcher Agent]\n    CourseGraph --> Writer[Writer Agent]\n    CourseGraph --> Mermaid[Mermaid Generator]\n    CourseGraph --> Formatter[Formatter Agent]\n    \n    Researcher --> Crawl4ai[Scraping Crawl4ai]\n```\n\n### Flux de donn\u00e9es\n1. L'utilisateur interagit avec le frontend ou l'API pour soumettre un sujet de cours (ex: \"Introduction \u00e0 la physique quantique\").\n2. **FastAPI** re\u00e7oit la requ\u00eate, la valide et transmet les param\u00e8tres au graphe principal **LangGraph**.\n3. L'agent **Metadata** analyse le sujet et d\u00e9finit le public, le ton et la difficult\u00e9.\n4. L'agent **Template** cr\u00e9e un syllabus d\u00e9taill\u00e9 divis\u00e9 en modules.\n5. Le sous-graphe **Course Generation** prend le relais pour it\u00e9rer sur chaque le\u00e7on du plan, en faisant collaborer les agents **Planner**, **Researcher** (avec Crawl4ai), **Writer**, **Mermaid Generator**, et **Formatter**.\n6. Le r\u00e9sultat final est sauvegard\u00e9 dans la **Base de donn\u00e9es** et l'API renvoie le cours.\n\n---\n\n## 3. \ud83d\udcc2 Structure du projet\n\nLe code est organis\u00e9 de mani\u00e8re modulaire pour s\u00e9parer clairement les responsabilit\u00e9s (API, logique d'agents, acc\u00e8s aux donn\u00e9es). Voici la structure d\u00e9taill\u00e9e :\n\n```text\n.\n\u251c\u2500\u2500 app/\n\u2502   \u251c\u2500\u2500 agents/      # N\u0153uds individuels (fonctions) constituant les agents IA\n\u2502   \u2502   \u251c\u2500\u2500 course_generator/ # Sous-agents pour la r\u00e9daction (planner, researcher, writer, etc.)\n\u2502   \u2502   \u251c\u2500\u2500 metadata/         # Agent de d\u00e9finition du contexte\n\u2502   \u2502   \u251c\u2500\u2500 supervisor/       # Agent de routage optionnel\n\u2502   \u2502   \u2514\u2500\u2500 template/         # Agent de g\u00e9n\u00e9ration du plan\n\u2502   \u251c\u2500\u2500 api/         # Endpoints FastAPI exposant les fonctionnalit\u00e9s au monde ext\u00e9rieur\n\u2502   \u251c\u2500\u2500 db/          # Configuration de la base de donn\u00e9es (sessions SQLAlchemy, migrations)\n\u2502   \u251c\u2500\u2500 graphs/      # Orchestration LangGraph : relie les agents entre eux (main_graph, course_graph)\n\u2502   \u251c\u2500\u2500 models/      # Mod\u00e8les SQLAlchemy (ORM) et \u00e9tats LangGraph (ex: CourseState)\n\u2502   \u251c\u2500\u2500 prompts/     # Mod\u00e8les de prompts inject\u00e9s dans les LLMs pour guider leur comportement\n\u2502   \u251c\u2500\u2500 schemas/     # Validation de donn\u00e9es entrantes/sortantes avec Pydantic\n\u2502   \u251c\u2500\u2500 services/    # Services externes et logique m\u00e9tier lourde (ex: impl\u00e9mentation Crawl4ai)\n\u2502   \u251c\u2500\u2500 tools/       # Outils sp\u00e9cifiques appel\u00e9s par les agents (ex: recherche web)\n\u2502   \u2514\u2500\u2500 utils/       # Fonctions utilitaires transverses (logger, helpers de formatage)\n\u251c\u2500\u2500 tests/           # Tests automatis\u00e9s (unitaires et d'int\u00e9gration) via pytest\n\u251c\u2500\u2500 docs/            # Fichiers de documentation du projet (incluant ce fichier)\n\u251c\u2500\u2500 scriptes/        # Scripts Bash ou Python pour le d\u00e9ploiement ou des t\u00e2ches ponctuelles\n\u251c\u2500\u2500 .env             # Fichier de configuration des variables sensibles (API Keys)\n\u251c\u2500\u2500 docker-compose.yml # Fichier pour lancer l'infrastructure via Docker\n\u251c\u2500\u2500 pyproject.toml   # D\u00e9claration des d\u00e9pendances et de la configuration du projet\n\u2514\u2500\u2500 uv.lock          # Fichier garantissant la reproductibilit\u00e9 des d\u00e9pendances avec `uv`\n```\n\n### D\u00e9tails des dossiers principaux\n- **`app/agents/` vs `app/graphs/`** : Les *agents* contiennent la logique unitaire (que fait un agent lorsqu'il est appel\u00e9). Les *graphs* contiennent la logique d'orchestration (qui appelle quel agent, et sous quelles conditions).\n- **`app/models/` vs `app/schemas/`** : Les *models* interagissent avec la base de donn\u00e9es et l'\u00e9tat interne de LangGraph. Les *schemas* valident les requ\u00eates HTTP (FastAPI) pour garantir la s\u00e9curit\u00e9.\n\n\n---\n\n## 4. \ud83e\udd16 Description des agents\n\nLe syst\u00e8me repose sur un graphe principal appelant trois phases, dont la derni\u00e8re est un sous-graphe complexe d'agents.\n\n### Graphe Principal\n\n1. **Metadata Agent** : Contextualise la demande. Il d\u00e9duit les attributs cl\u00e9s du cours (titre, public cible, difficult\u00e9) pour s'assurer que le contenu soit adapt\u00e9.\n2. **Template Agent** : Construit l'ossature du cours (syllabus) sans r\u00e9diger le contenu.\n3. **Course Generation (Sous-graphe)** : G\u00e8re la r\u00e9daction d\u00e9taill\u00e9e.\n\n### Sous-graphe de G\u00e9n\u00e9ration de Cours (Course Generation Agents)\n\nLe sous-graphe orchestre la cr\u00e9ation it\u00e9rative du contenu pour chaque le\u00e7on du syllabus :\n- **Planner Agent** (`planner_node`) : Planifie le contenu sp\u00e9cifique d'une le\u00e7on.\n- **Researcher Agent** (`researcher_node`) : Utilise l'outil Crawl4ai pour chercher des informations externes. Si les informations sont insuffisantes, il peut recommencer sa recherche.\n- **Writer Agent** (`writer_node`) : R\u00e9dige le contenu de la le\u00e7on \u00e0 partir des recherches.\n- **Mermaid Generator** (`mermaid_node`) : G\u00e9n\u00e8re des diagrammes Mermaid si la le\u00e7on en n\u00e9cessite.\n- **Formatter Agent** (`formatter_node`) : Formate le texte final de la le\u00e7on.\n\n*(Note : Un **Supervisor Agent** est \u00e9galement pr\u00e9sent dans la structure pour d'\u00e9ventuelles t\u00e2ches de routage avanc\u00e9es).*\n\n---\n\n## 5. \ud83d\udd04 Workflow LangGraph\n\n### Diagramme du workflow\n```mermaid\nstateDiagram-v2\n    state \"Graphe Principal\" as Main {\n        [*] --> Metadata\n        Metadata --> Template\n        Template --> CourseGenSubgraph\n        CourseGenSubgraph --> [*]\n    }\n    \n    state \"Sous-graphe Course Generation\" as CourseGenSubgraph {\n        [*] --> Planner\n        Planner --> Researcher\n        \n        Researcher --> Researcher : Si informations insuffisantes\n        Researcher --> Writer : Si recherche compl\u00e8te\n        \n        Writer --> Mermaid : Si diagramme requis\n        Writer --> Formatter : Si aucun diagramme\n        Mermaid --> Formatter\n        \n        Formatter --> Planner : Si le\u00e7on suivante\n        Formatter --> [*] : Fin du cours\n    }\n```\n\n### Explication de chaque n\u0153ud\n- **Metadata / Template** : Initialisent le contexte et le plan global du cours.\n- **Planner** : Pr\u00e9pare le travail pour la le\u00e7on courante.\n- **Researcher** : Effectue les recherches web avec Crawl4ai (boucle conditionnelle de recherche jusqu'\u00e0 compl\u00e9tion).\n- **Writer** : R\u00e9dige le contenu de la le\u00e7on.\n- **Mermaid / Formatter** : Affinent la pr\u00e9sentation du contenu en y ajoutant des diagrammes ou en restructurant le format final.\n\n### Conditions de transition (Conditional Edges)\n- **`should_continue_research`** : V\u00e9rifie si le *Researcher* a assez d'infos. Si non, il boucle sur lui-m\u00eame. Si oui, il passe au *Writer*.\n- **`needs_mermaid`** : Le *Writer* d\u00e9cide si un diagramme est n\u00e9cessaire pour la le\u00e7on.\n- **`has_more_lessons`** : Apr\u00e8s le *Formatter*, si d'autres le\u00e7ons sont pr\u00e9sentes dans le syllabus, on retourne au *Planner*, sinon le sous-graphe se termine.\n\n---\n\n## 6. Mod\u00e8les et Base de donn\u00e9es\n\nL'application s'appuie sur des **Mod\u00e8les d'\u00e9tat (Pydantic)** pour la gestion en m\u00e9moire et sur **PostgreSQL (via psycopg2)** pour la persistance des donn\u00e9es. **SQLAlchemy n'est pas utilis\u00e9**, les requ\u00eates sont ex\u00e9cut\u00e9es en SQL natif pour des performances optimales.\n\n### \ud83e\udde0 Mod\u00e8les d'\u00e9tat et API (Pydantic)\nCes mod\u00e8les valident et structurent la donn\u00e9e en m\u00e9moire pendant l'ex\u00e9cution du graphe LangGraph.\n- **`CourseState`** (`app/models/state.py`) : Le composant central du workflow. Il stocke l'\u00e9tat complet de la g\u00e9n\u00e9ration \u00e0 chaque instant (`prompt`, `metadata`, `template`, `realcoursebody`, etc.) ainsi que les indicateurs de contr\u00f4le (`research_complete`, `has_next_lesson`).\n- **Mod\u00e8les d'API** (`app/models/course.py`) : `CourseRequest`, `CourseOutput` et `CourseResponse` g\u00e8rent la validation des donn\u00e9es d'entr\u00e9e/sortie de l'API.\n\n### \ud83d\uddc4\ufe0f Structure de la Base de Donn\u00e9es (PostgreSQL)\n\nLe projet utilise 3 tables principales pour stocker les informations extraites et g\u00e9n\u00e9r\u00e9es :\n\n```mermaid\nerDiagram\n    COURSES {\n        int id PK\n        string title\n        string headline\n        string description\n        jsonb objectives\n        jsonb prerequisites\n        string target_audiences\n        string category\n        string duration\n        string language\n        timestamp created_at\n        jsonb url_scraped\n        jsonb realcoursebody\n    }\n    \n    COURSE_TEMPLATES {\n        uuid id PK\n        string title\n        string language\n        string description\n        jsonb template\n    }\n    \n    SCRAPED_DATA {\n        int id PK\n        string url UK \"Unique Constraint\"\n        string title\n        text content\n        text clean_content\n        text markdown\n        timestamp time_of_scraping\n    }\n```\n\n#### D\u00e9tail des 3 Tables :\n\n1. **`scraped_data`** (G\u00e9r\u00e9e par `app/db/coursDB.py`)\n   - *R\u00f4le* : Stocke le contenu brut et nettoy\u00e9 r\u00e9cup\u00e9r\u00e9 par Crawl4ai pour \u00e9viter de rescraper les m\u00eames pages.\n   - *Champs cl\u00e9s* : `url` (Unique), `title`, `clean_content`, `markdown`, `time_of_scraping`.\n   \n2. **`courses`** (G\u00e9r\u00e9e par `app/db/coursDB.py`)\n   - *R\u00f4le* : Sauvegarde les cours finaux g\u00e9n\u00e9r\u00e9s par l'IA.\n   - *Champs cl\u00e9s* : `title`, `description`, `realcoursebody` (JSON complexe contenant le contenu du cours), `url_scraped` (sources utilis\u00e9es), `created_at`.\n   \n3. **`course_templates`** (G\u00e9r\u00e9e par `app/db/templateDB.py`)\n   - *R\u00f4le* : Stocke les mod\u00e8les (syllabus) pr\u00e9d\u00e9finis ou g\u00e9n\u00e9r\u00e9s, qui servent de plan d'action pour la r\u00e9daction.\n   - *Champs cl\u00e9s* : `id` (UUID), `title`, `description`, `template` (Structure JSON).\n\n---\n\n## 7. \ud83d\udd0c API\n\n### Endpoints\nExpos\u00e9s via FastAPI :\n- `POST /courses` : D\u00e9marre un workflow asynchrone pour g\u00e9n\u00e9rer un cours.\n- `GET /courses/{id}` : R\u00e9cup\u00e8re l'\u00e9tat d'avancement d'un cours.\n\n---\n\n## 8. \u2699\ufe0f Installation\n\n### Pr\u00e9requis\n- Python 3.10 ou sup\u00e9rieur.\n- [uv](https://github.com/astral-sh/uv) (Package manager ultra-rapide).\n- Docker (si base de donn\u00e9es).\n\n### Variables d'environnement\nCr\u00e9ez un fichier `.env` \u00e0 la racine :\n```bash\ncp .env.example .env\n```\nAssurez-vous de renseigner les cl\u00e9s API n\u00e9cessaires (ex: `OPENAI_API_KEY`).\n\n### Installation avec uv\n```bash\nuv venv\nuv sync\n```\n\n---\n\n## 9. \u25b6\ufe0f Ex\u00e9cution\n\n### Ex\u00e9cution Locale (sans Docker)\n1. **Synchroniser les d\u00e9pendances** : \n   ```bash\n   uv sync\n   ```\n2. **LangGraph Studio (D\u00e9veloppement)** : \n   ```bash\n   langgraph dev\n   ```\n3. **API FastAPI** : \n   ```bash\n   uv run fastapi dev app/main.py\n   ```\n   L'API sera accessible sur : [http://localhost:8000](http://localhost:8000)\n   La documentation interactive (Swagger) sur : [http://localhost:8000/docs](http://localhost:8000/docs)\n\n### Ex\u00e9cution avec Docker\nSi vous pr\u00e9f\u00e9rez utiliser Docker pour encapsuler l'application compl\u00e8te :\n\n1. Construire et lancer les conteneurs :\n   ```bash\n   docker-compose up -d --build\n   ```\n   *(Vous pouvez aussi utiliser le script fourni : `bash start.sh`)*\n2. L'API sera accessible sur : [http://localhost:8000](http://localhost:8000)\n3. Pour arr\u00eater les conteneurs :\n   ```bash\n   docker-compose down\n   ```\n\n---\n\n## 10. \ud83e\uddea Tests\nL'infrastructure de test repose sur `pytest` dans le dossier `tests/`.\n```bash\nuv run pytest\n```\n\n---\n\n## 11. \u26a0\ufe0f Limitations\n- Temps d'ex\u00e9cution proportionnel \u00e0 la taille du syllabus.\n- Limites de l'API LLM (Rate Limits).\n\n---\n\n## 12. \ud83d\udd2e Am\u00e9liorations futures\n- Processus Human-in-the-loop (HITL) entre la g\u00e9n\u00e9ration du plan et la r\u00e9daction.\n- Export Multi-formats (PDF, Word, etc.).\n- Ajout d'un \"Quiz Agent\".\n";
+
+        c.innerHTML = marked.parse(md);
+
+        window.zoomMermaid = function (btn, factor) {
+            let svg = btn.parentElement.parentElement.querySelector('svg');
+            if (!svg) return;
+
+            if (!svg.dataset.baseWidth) {
+                svg.dataset.baseWidth = svg.getBoundingClientRect().width || 800;
+            }
+
+            let baseW = parseFloat(svg.dataset.baseWidth);
+
+            if (factor === 0) {
+                svg.style.width = '100%';
+                svg.style.maxWidth = '100%';
+                svg.dataset.scale = 1;
+            } else {
+                let currentScale = parseFloat(svg.dataset.scale) || 1;
+                let newScale = currentScale * factor;
+                svg.dataset.scale = newScale;
+                svg.style.width = (baseW * newScale) + 'px';
+                svg.style.maxWidth = 'none';
+            }
+        };
+
+        document.querySelectorAll('pre code.language-mermaid').forEach(x => {
+            let wrapper = document.createElement('div');
+            wrapper.className = 'mermaid-wrapper';
+
+            let controls = document.createElement('div');
+            controls.className = 'mermaid-controls';
+            controls.innerHTML = '<button onclick="zoomMermaid(this, 1.2)">+</button><button onclick="zoomMermaid(this, 0.8)">-</button><button onclick="zoomMermaid(this, 0)">Reset</button>';
+
+            let d = document.createElement('div');
+            d.className = 'mermaid';
+            d.textContent = x.textContent;
+
+            wrapper.appendChild(controls);
+            wrapper.appendChild(d);
+            x.parentElement.replaceWith(wrapper);
+        });
+
+        await mermaid.run();
+
+        // Make the second mermaid diagram slightly smaller by default
+        setTimeout(() => {
+            let svgs = document.querySelectorAll('.mermaid svg');
+            if (svgs.length > 1) {
+                let svg2 = svgs[1];
+                svg2.style.maxWidth = '50%';
+                svg2.style.width = '50%';
+            }
+        }, 500);
+    </script>
+</body>
+
+</html>
