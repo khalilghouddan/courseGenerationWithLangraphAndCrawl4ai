@@ -1,0 +1,391 @@
+\documentclass[12pt,a4paper,oneside]{report}
+
+%=============================
+% Packages
+%=============================
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{lmodern}
+
+\usepackage[a4paper,left=3cm,right=2.5cm,top=3cm,bottom=3cm]{geometry}
+
+\usepackage{setspace}
+\onehalfspacing
+
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{titlesec}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+
+%=============================
+% Hyperref
+%=============================
+\hypersetup{
+colorlinks=true,
+linkcolor=blue,
+urlcolor=blue,
+citecolor=blue
+}
+
+%=============================
+% Header & Footer
+%=============================
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Rapport de Projet de Fin d'Études}
+\fancyhead[R]{EMSI}
+\fancyfoot[C]{\thepage}
+
+%=============================
+% Chapter Style
+%=============================
+\titleformat{\chapter}
+{\Huge\bfseries}
+{\thechapter}
+{20pt}
+{}
+
+%=============================
+% Document
+%=============================
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Couverture
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{titlepage}
+
+\centering
+
+{\Large École Marocaine des Sciences de l'Ingénieur}
+
+\vspace{2cm}
+
+{\Huge\textbf{Rapport de Projet de Fin d'Études}}
+
+\vspace{2cm}
+
+{\LARGE Développement d'une plateforme d'apprentissage intelligente basée sur l'IA Agentique}
+
+\vfill
+
+Réalisé par :
+
+\textbf{Khalil Ghouddan}
+
+\vspace{1cm}
+
+Entreprise d'accueil :
+
+\textbf{NTT DATA Maroc}
+
+\vspace{1cm}
+
+Année universitaire :
+
+2025--2026
+
+\end{titlepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Préliminaires
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagenumbering{roman}
+
+
+
+\chapter*{Remerciements}
+\addcontentsline{toc}{chapter}{Remerciements}
+
+Au terme de ce projet de fin d'études, je tiens à exprimer ma profonde gratitude à toutes les personnes qui ont contribué, directement ou indirectement, à la réalisation de ce travail et qui m'ont accompagné tout au long de cette expérience académique et professionnelle.
+
+Je remercie tout d'abord \textbf{Dieu} pour m'avoir accordé la santé, la force et la persévérance nécessaires pour mener à bien ce projet.
+
+J'exprime ma profonde reconnaissance à mon encadrant à l'EMSI, \textbf{Dr. ZINEDINE Khalid}, pour son accompagnement, ses conseils avisés, sa disponibilité et sa rigueur scientifique. Son encadrement a été déterminant dans la réussite de ce projet.
+
+Je tiens également à remercier chaleureusement mon encadrant au sein de \\ \textbf{NTT DATA Maroc}, \textbf{M. AKKOUH Mouhssine}, pour son accueil, son professionnalisme, sa confiance ainsi que pour ses précieux conseils tout au long de cette expérience. Je remercie également l'ensemble des collaborateurs de \textbf{NTT DATA Maroc} pour leur disponibilité, leur esprit d'équipe et l'environnement de travail enrichissant qu'ils m'ont offert.
+
+Mes remerciements s'adressent également aux membres du jury pour l'honneur qu'ils me font en acceptant d'évaluer ce mémoire et pour les remarques constructives qu'ils apporteront.
+
+J'adresse mes sincères remerciements à \textbf{l'ensemble des professeurs} pour la qualité de leur enseignement, leur disponibilité et les connaissances qu'ils m'ont transmises durant mes cinq années de formation.
+
+Je souhaite enfin exprimer toute ma gratitude à mes parents, à ma famille ainsi qu'à mes amis pour leur soutien, leurs encouragements et leur confiance, qui ont constitué une source permanente de motivation tout au long de mon parcours.
+
+À toutes celles et à tous ceux qui ont contribué à la réussite de ce projet, j'adresse mes plus sincères remerciements.
+
+
+
+
+
+\chapter*{Résumé}
+\addcontentsline{toc}{chapter}{Résumé}
+
+Dans un contexte marqué par l'évolution rapide des technologies et l'accélération des besoins en montée en compétences, les entreprises cherchent à proposer des parcours d'apprentissage personnalisés, évolutifs et adaptés aux profils de leurs collaborateurs. C'est dans cette perspective que s'inscrit le présent Projet de Fin d'Études, réalisé au sein de NTT DATA Maroc, dont l'objectif est de concevoir et de développer une plateforme intelligente de génération de Learning Paths exploitant les capacités de l'intelligence artificielle générative afin d'automatiser la création de contenus pédagogiques et de personnaliser les parcours de formation.
+
+Le projet a été mené par une équipe de trois étudiants ayant contribué à différentes composantes de la solution. Les autres membres de l'équipe ont assuré le développement du système de gestion de l'apprentissage (LMS) basé sur le framework Frappe, la conception du moteur de recommandation des parcours d'apprentissage ainsi que le développement des interfaces utilisateur. La contribution présentée dans ce mémoire porte principalement sur la conception et le développement du service intelligent de génération automatique de cours, constituant le cœur de la plateforme.
+
+Cette contribution s'appuie sur une architecture Multi-Agent implémentée avec LangGraph, permettant de décomposer le processus de génération en plusieurs agents spécialisés chargés de l'analyse des besoins de l'utilisateur, de la sélection des modèles de cours les plus appropriés et de la génération du contenu pédagogique. Afin d'améliorer la pertinence et la fiabilité des résultats produits,  reposant sur un service de recherche Web utilisant SearXNG et un mécanisme de collecte intelligente de ressources basé sur Crawl4AI. Les services applicatifs ont été développés sous forme d'API REST avec FastAPI. La persistance des données métier repose sur PostgreSQL et le stockage vectoriel sur Qdrant. Par ailleurs, LangSmith a été intégré afin d'assurer l'observabilité, le suivi des exécutions et le débogage des workflows d'intelligence artificielle. L'ensemble de la solution a été conteneurisé à l'aide de Nginx et Docker Compose, tandis que la gestion du code source et de la collaboration a été assurée avec Git et GitHub.
+
+Les résultats obtenus démontrent la capacité de la plateforme à générer automatiquement des cours structurés, contextualisés et enrichis par des ressources externes pertinentes, tout en offrant une architecture modulaire, extensible et facilement maintenable. L'approche proposée contribue ainsi à réduire le temps de conception des contenus pédagogiques, à améliorer la personnalisation des parcours d'apprentissage et à fournir aux collaborateurs un accompagnement plus efficace dans le développement de leurs compétences, tout en illustrant l'apport des architectures Multi-Agent et des techniques de génération augmentée par récupération dans la conception de solutions intelligentes dédiées à la formation.
+
+\textbf{Mots-clés :} Intelligence artificielle générative, Multi-Agent, LangGraph, FastAPI, Qdrant, PostgreSQL, SearXNG, Crawl4AI, LangSmith, Learning Paths, apprentissage personnalisé, systèmes de recommandation, plateformes d'apprentissage.
+
+
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+
+In a context marked by the rapid evolution of technology and the growing need for continuous upskilling, organizations are increasingly seeking to provide personalized, scalable, and adaptive learning experiences tailored to the profiles of their employees. It is within this context that this Final Year Project was carried out at NTT DATA Morocco, with the objective of designing and developing an intelligent Learning Path generation platform that leverages the capabilities of Generative Artificial Intelligence to automate the creation of educational content and personalize learning journeys.
+
+The project was conducted by a team of three students, each contributing to different components of the solution. The other team members were responsible for developing the Learning Management System (LMS) based on the Frappe framework, designing the learning path recommendation engine, and implementing the user interfaces. The work presented in this thesis focuses primarily on the design and development of the intelligent automatic course generation service, which constitutes the core component of the platform.
+
+This contribution is based on a Multi-Agent architecture implemented using LangGraph, enabling the generation process to be decomposed into several specialized agents responsible for analyzing user requirements, selecting the most appropriate course templates, and generating educational content. To improve the relevance and reliability of the generated results, the architecture integrates a web search service powered by SearXNG together with an intelligent resource collection mechanism based on Crawl4AI. The application services were developed as RESTful APIs using FastAPI. Business data are stored in PostgreSQL, while Qdrant is used as the vector database. In addition, LangSmith was integrated to provide observability, execution tracing, and debugging capabilities for AI workflows. The entire solution was containerized using Docker Compose and Nginx, while Git and GitHub were employed for source code management and team collaboration.
+
+The obtained results demonstrate the platform's ability to automatically generate structured, context-aware courses enriched with relevant external resources while providing a modular, extensible, and maintainable architecture. The proposed approach helps reduce the time required to design educational content, improves the personalization of learning paths, and offers employees more effective support in developing their skills. Furthermore, it highlights the value of Multi-Agent architectures and techniques in the design of intelligent learning solutions.
+
+\textbf{Keywords:} Generative Artificial Intelligence, Multi-Agent Systems, LangGraph, FastAPI, PostgreSQL, Qdrant, SearXNG, Crawl4AI, LangSmith, Learning Paths, Personalized Learning, Recommendation Systems, Learning Platforms.
+
+\chapter*{Liste des abréviations}
+\addcontentsline{toc}{chapter}{Liste des abréviations}
+
+\begin{tabular}{ll}
+AI & Artificial Intelligence \\
+API & Application Programming Interface \\
+CRUD & Create, Read, Update, Delete \\
+CI/CD & Continuous Integration / Continuous Deployment \\
+Docker & Docker Container Platform \\
+Frappe & Full-Stack Web Application Framework \\
+GenAI & Generative Artificial Intelligence \\
+Git & Distributed Version Control System \\
+HTTP & HyperText Transfer Protocol \\
+IA & Intelligence Artificielle \\
+JSON & JavaScript Object Notation \\
+LLM & Large Language Model \\
+LMS & Learning Management System \\
+MCP & Model Context Protocol \\
+NLP & Natural Language Processing \\
+RAG & Retrieval-Augmented Generation \\
+REST & Representational State Transfer \\
+REST API & Representational State Transfer Application Programming Interface \\
+SQL & Structured Query Language \\
+UI & User Interface \\
+UX & User Experience \\
+URL & Uniform Resource Locator \\
+ORM & Object-Relational Mapping \\
+JWT & JSON Web Token \\
+ETL & Extract, Transform, Load \\
+DBMS & Database Management System \\
+\end{tabular}
+
+\tableofcontents
+
+\listoffigures
+
+\listoftables
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Début du rapport
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\clearpage
+\pagenumbering{arabic}
+
+\chapter*{Introduction Générale}
+\addcontentsline{toc}{chapter}{Introduction Générale}
+
+La transformation numérique des entreprises s'accompagne aujourd'hui d'une évolution profonde des méthodes d'apprentissage et de développement des compétences. Face à l'émergence de nouveaux métiers, à l'évolution rapide des technologies et à l'obsolescence accélérée des connaissances, la formation continue est devenue un levier stratégique permettant aux organisations de maintenir leur compétitivité et d'accompagner efficacement leurs collaborateurs dans leur montée en compétences. Dans ce contexte, les plateformes d'apprentissage numériques occupent une place centrale en proposant des parcours de formation flexibles, accessibles et adaptés aux besoins des apprenants.
+
+Parallèlement, les avancées récentes de l'intelligence artificielle générative (Generative AI), notamment grâce aux \textit{Large Language Models} (LLMs), ouvrent de nouvelles perspectives dans le domaine de l'éducation et de la formation. Ces technologies permettent désormais de générer automatiquement des contenus pédagogiques de qualité, d'assister les concepteurs de formations et de personnaliser les parcours d'apprentissage en fonction des objectifs, du niveau et des préférences de chaque utilisateur. Toutefois, la mise en œuvre de telles solutions soulève plusieurs défis, notamment en matière de fiabilité des contenus générés, de pertinence des ressources exploitées, de modularité des architectures logicielles et d'intégration dans des environnements de formation existants.
+
+C'est dans cette perspective que s'inscrit ce Projet de Fin d'Études, réalisé au sein de \textbf{NTT DATA Maroc}. L'objectif global du projet consiste à concevoir et développer une plateforme intelligente capable de générer automatiquement des \textit{Learning Paths} personnalisés en s'appuyant sur les capacités de l'intelligence artificielle générative. Le projet a été réalisé par une équipe de trois étudiants, chacun intervenant sur un volet spécifique de la solution. Le présent mémoire présente plus particulièrement la conception et le développement du service intelligent de génération automatique de contenus pédagogiques, qui constitue l'un des composants essentiels de la plateforme.
+
+Afin de répondre aux exigences de qualité, de personnalisation et d'évolutivité, une architecture \textit{Multi-Agent} basée sur \textbf{LangGraph} a été adoptée. 
+
+Cette architecture coordonne plusieurs agents spécialisés intervenant dans l'analyse des besoins de l'utilisateur, la recherche d'informations pertinentes, la sélection des modèles de cours et la génération des contenus pédagogiques. La solution intègre également des mécanismes de recherche et d'enrichissement des connaissances grâce à \textbf{SearXNG} et \textbf{Crawl4AI}, tandis que \textbf{FastAPI}, \textbf{PostgreSQL}, \textbf{Qdrant}, \textbf{LangSmith}, \textbf{Docker} et \textbf{GitHub} assurent respectivement le développement des services, la gestion des données, le stockage vectoriel, l'observabilité des workflows, le déploiement de la plateforme et la gestion collaborative du projet.
+
+L'objectif principal de cette contribution est de proposer un système capable de produire automatiquement des cours structurés, contextualisés et enrichis par des ressources pertinentes, tout en garantissant une architecture modulaire, performante et facilement extensible. Cette approche vise à réduire considérablement le temps nécessaire à la création des contenus de formation, à améliorer la qualité des parcours pédagogiques proposés et à renforcer l'expérience d'apprentissage des utilisateurs.
+
+Le présent mémoire est organisé en cinq chapitres :
+
+\begin{itemize}
+    \item Le premier chapitre présente le contexte général du projet, l'organisme d'accueil ainsi que la problématique étudiée.
+    \item Le deuxième chapitre expose l'état de l'art relatif aux concepts fondamentaux et aux technologies mobilisées dans le cadre de ce projet.
+    \item Le troisième chapitre est consacré à l'analyse des besoins ainsi qu'à la conception de la solution proposée.
+    \item Le quatrième chapitre décrit l'architecture technique ainsi que l'implémentation des différents composants de la plateforme.
+    \item Enfin, le cinquième chapitre présente les résultats obtenus, les tests réalisés ainsi qu'une évaluation de la solution développée, avant de conclure par une synthèse des contributions et les perspectives d'amélioration.
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Chapitre 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Présentation de l'entreprise d'accueil}
+
+\section{Introduction}
+
+\section{Présentation de NTT DATA}
+
+\section{Historique}
+
+\section{Domaines d'activité}
+
+\section{Organisation}
+
+\section{Services proposés}
+
+\section{Technologies utilisées}
+
+\section{Clients et partenaires}
+
+\section{Conclusion}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Chapitre 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Contexte Général du Projet}
+
+\section{Introduction}
+
+\section{Présentation du projet}
+
+\section{Contexte métier}
+
+\section{Problématique}
+
+\section{Objectifs}
+
+\section{Analyse des besoins}
+
+\subsection{Besoins fonctionnels}
+
+\subsection{Besoins non fonctionnels}
+
+\section{Méthodologie Agile Scrum}
+
+\section{Planification}
+
+\section{Diagramme de Gantt}
+
+\section{Conclusion}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Chapitre 3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Analyse et Conception}
+
+\section{Introduction}
+
+\section{Architecture globale}
+
+\section{Architecture fonctionnelle}
+
+\section{Architecture technique}
+
+\section{Architecture Multi-Agent}
+
+\section{Architecture RAG}
+
+\section{Diagramme de cas d'utilisation}
+
+\section{Diagrammes de séquence}
+
+\section{Diagramme de classes}
+
+\section{Diagrammes d'activités}
+
+\section{Conception de la base de données}
+
+\section{Workflow LangGraph}
+
+\section{Conclusion}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Chapitre 4
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Réalisation}
+
+\section{Introduction}
+
+\section{Environnement de développement}
+
+\section{FastAPI}
+
+\section{LangGraph}
+
+\section{LangChain}
+
+\section{Qdrant}
+
+\section{PostgreSQL}
+
+\section{Crawl4AI}
+
+\section{SearXNG}
+
+\section{Docker}
+
+\section{Docker Compose}
+
+\section{GitHub}
+
+\section{GitHub Actions}
+
+\section{LangSmith}
+
+\section{Implémentation des agents}
+
+\section{API REST}
+
+\section{Interfaces utilisateur}
+
+\section{Tests réalisés}
+
+\section{Conclusion}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Conclusion
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter*{Conclusion Générale}
+\addcontentsline{toc}{chapter}{Conclusion Générale}
+
+Cette conclusion résume les principaux résultats obtenus, les apports du projet ainsi que les perspectives d'amélioration.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Bibliographie
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{thebibliography}{9}
+
+\bibitem{langgraph}
+LangGraph Documentation.
+
+\bibitem{langchain}
+LangChain Documentation.
+
+\bibitem{fastapi}
+FastAPI Documentation.
+
+\bibitem{docker}
+Docker Documentation.
+
+\end{thebibliography}
+
+\end{document}
